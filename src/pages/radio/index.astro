@@ -1,0 +1,64 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Menu from "../../components/Menu.astro";
+import Card from "../../components/Card.astro";
+import Contact from "../../components/Contact.astro";
+
+const cards = [
+  {
+    title: "Playlist Name by Host Name",
+    body: "July 18, 2022",
+    href: "sample",
+    img: "/imgs/w (2).jpeg",
+    tags: ["tag1", "tag2", "tag3"],
+  },
+  {
+    title: "Playlist Name by Host Name",
+    body: "July 18, 2022",
+    href: "sample",
+    img: "/imgs/w (5).jpeg",
+    tags: ["tag1", "tag2", "tag3"],
+  },
+  {
+    title: "Playlist Name by Host Name",
+    body: "July 18, 2022",
+    href: "sample",
+    img: "/imgs/w (8).jpeg",
+    tags: ["tag1", "tag2", "tag3"],
+  },
+  {
+    title: "Playlist Name by Host Name",
+    body: "July 18, 2022",
+    href: "sample",
+    img: "/imgs/w (9).jpeg",
+    tags: ["tag1", "tag2", "tag3"],
+  },
+  {
+    title: "Playlist Name by Host Name",
+    body: "July 18, 2022",
+    href: "sample",
+    img: "/imgs/w (10).jpeg",
+    tags: ["tag1", "tag2", "tag3"],
+  },
+  {
+    title: "Playlist Name by Host Name",
+    body: "July 18, 2022",
+    href: "sample",
+    img: "/imgs/w (2).jpeg",
+    tags: ["tag1", "tag2", "tag3"],
+  },
+];
+---
+
+<Layout title="Radio Shows">
+  <Menu title="RADIO SHOWS" />
+  <main class="md:ml-[100px] pt-[86px] md:mr-[86px] p-10">
+    <div class="text-white flex flex-wrap gap-4">
+      {cards.map((card) => <Card {...card} />)}
+      <!-- <Card title="hello" body="lorem oiwdhoiaj oia jaoiwd jw" href="#" /> -->
+    </div>
+    <Contact />
+  </main>
+</Layout>
+
+<style></style>

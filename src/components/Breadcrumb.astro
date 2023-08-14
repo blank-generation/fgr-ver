@@ -1,0 +1,65 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div>
+  <!-- BreadCrumb -->
+  <div
+    class="md:fixed absolute bg-[#FBFF31] md:h-[100vh] md:w-20 w-[100vw] md:left-[72px] md:top-0 top-[64px]"
+  >
+    <a href="/radio">
+      <button
+        class="md:mt-4 md:inline-block rounded px-6 py-2.5 text-xl font-medium uppercase leading-tight text-white transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"
+        aria-haspopup="true"
+      >
+        <span class="block [&>svg]:h-7 [&>svg]:w-7 [&>svg]:text-white">
+          <svg
+            width="38"
+            height="38"
+            viewBox="0 0 44 38"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="Mask group">
+              <mask
+                id="mask0_102_824"
+                style="mask-type:luminance"
+                maskUnits="userSpaceOnUse"
+                x="0"
+                y="0"
+                width="44"
+                height="38"
+              >
+                <g id="Group">
+                  <path
+                    id="Vector"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M42 35.836C37.107 29.863 32.762 26.474 28.964 25.668C25.167 24.863 21.552 24.741 18.118 25.303V36L2 18.545L18.118 2V12.167C24.467 12.217 29.864 14.495 34.31 19C38.755 23.505 41.319 29.117 42 35.836Z"
+                    fill="white"
+                    stroke="white"
+                    stroke-width="4"
+                    stroke-linejoin="round"></path>
+                </g>
+              </mask>
+              <g mask="url(#mask0_102_824)">
+                <path id="Vector_2" d="M-2 -5H46V43H-2V-5Z" fill="#131313"
+                ></path>
+              </g>
+            </g>
+          </svg>
+        </span>
+      </button>
+    </a>
+    <div
+      class="menu-title text-[#242424] md:rotate-[-90deg] text-center md:absolute top-[50%] md:translate-y-[-50%] z-9 left-[50%] md:translate-x-[-50%] md:w-100 md:whitespace-nowrap"
+    >
+      {title}
+    </div>
+  </div>
+  <!-- BreadCrumb -->
+</div>

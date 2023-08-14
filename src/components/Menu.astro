@@ -1,0 +1,109 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div>
+  <!-- Sidenav -->
+  <div>
+    <nav
+      id="sidenav-1"
+      class="fixed left-0 top-0 z-[1035] h-full w-60 -translate-x-full overflow-hidden bg-white shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] data-[te-sidenav-hidden='false']:translate-x-0 dark:bg-zinc-800"
+      data-te-sidenav-init
+      data-te-sidenav-hidden="true"
+      data-te-sidenav-position="fixed"
+    >
+      <div class="mt-4 ml-4">
+        <a href="/" class="" data-te-sidenav-link-ref>
+          <img class="rounded-[12px]" src="/imgs/fgrlogo.png" alt="logo" />
+        </a>
+      </div>
+      <ul
+        class="relative m-0 mt-10 list-none px-[0.2rem]"
+        data-te-sidenav-menu-ref
+      >
+        <li class="relative">
+          <a
+            href="/"
+            class="flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[0.875rem] text-gray-600 outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
+            data-te-sidenav-link-ref
+          >
+            <span>Home</span>
+          </a>
+        </li>
+
+        <li class="relative">
+          <a
+            href="/fgr"
+            class="flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[0.875rem] text-gray-600 outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
+            data-te-sidenav-link-ref
+          >
+            <span>Focus Group Radio</span>
+          </a>
+        </li>
+        <li class="relative">
+          <a
+            href="/fgss"
+            class="flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[0.875rem] text-gray-600 outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
+            data-te-sidenav-link-ref
+          >
+            <span>Focus Group Sound System</span>
+          </a>
+        </li>
+        <li class="relative">
+          <a
+            href="/radio"
+            class="flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[0.875rem] text-gray-600 outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
+            data-te-sidenav-link-ref
+          >
+            <span>Radio</span>
+          </a>
+        </li>
+        <li class="relative">
+          <a
+            href="#contact"
+            class="flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[0.875rem] text-gray-600 outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
+            data-te-sidenav-link-ref
+          >
+            <span>Contact</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <!-- Sidenav -->
+
+  <!-- Toggler -->
+  <div class="fixed bg-black md:h-[100vh] md:w-20 w-[100vw] z-[1033]">
+    <div
+      class="menu-title text-white md:rotate-[-90deg] text-center absolute top-[50%] translate-y-[-50%] z-10 left-[50%] translate-x-[-50%] md:w-100 whitespace-nowrap"
+    >
+      {title}
+    </div>
+    <button
+      class="mt-4 inline-block rounded px-6 py-2.5 text-xl font-medium uppercase leading-tight text-white transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"
+      data-te-sidenav-toggle-ref
+      data-te-target="#sidenav-1"
+      aria-controls="#sidenav-1"
+      aria-haspopup="true"
+    >
+      <span class="block [&>svg]:h-7 [&>svg]:w-7 [&>svg]:text-white">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="48"
+          height="47"
+          viewBox="0 0 48 47"
+          fill="none"
+        >
+          <path
+            d="M40 34.0426C40.7704 34.043 41.5112 34.326 42.0688 34.8331C42.6264 35.3402 42.958 36.0325 42.995 36.7665C43.0321 37.5005 42.7716 38.2199 42.2677 38.7757C41.7637 39.3315 41.0548 39.6811 40.288 39.752L40 39.7654H8C7.22957 39.765 6.48881 39.4819 5.93123 38.9748C5.37364 38.4677 5.04198 37.7755 5.00495 37.0415C4.96793 36.3075 5.22838 35.5881 5.73235 35.0323C6.23632 34.4765 6.94516 34.1269 7.712 34.056L8 34.0426H40ZM40 20.6895C40.7957 20.6895 41.5587 20.991 42.1213 21.5276C42.6839 22.0642 43 22.792 43 23.5509C43 24.3098 42.6839 25.0376 42.1213 25.5742C41.5587 26.1108 40.7957 26.4123 40 26.4123H8C7.20435 26.4123 6.44129 26.1108 5.87868 25.5742C5.31607 25.0376 5 24.3098 5 23.5509C5 22.792 5.31607 22.0642 5.87868 21.5276C6.44129 20.991 7.20435 20.6895 8 20.6895H40ZM40 7.33643C40.7957 7.33643 41.5587 7.63789 42.1213 8.1745C42.6839 8.71112 43 9.43892 43 10.1978C43 10.9567 42.6839 11.6845 42.1213 12.2211C41.5587 12.7577 40.7957 13.0592 40 13.0592H8C7.20435 13.0592 6.44129 12.7577 5.87868 12.2211C5.31607 11.6845 5 10.9567 5 10.1978C5 9.43892 5.31607 8.71112 5.87868 8.1745C6.44129 7.63789 7.20435 7.33643 8 7.33643H40Z"
+            fill="white"></path>
+        </svg>
+      </span>
+    </button>
+  </div>
+  <!-- Toggler -->
+</div>

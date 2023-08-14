@@ -1,0 +1,28 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Menu from "../components/Menu.astro";
+import Contact from "../components/Contact.astro";
+---
+
+<Layout title="Home">
+  <Menu title="HOME" />
+  <main class="md:ml-[100px] pt-[86px] md:mr-[86px] p-10">
+    <div class="">
+      <div class="flex justify-center">
+        <video autoplay muted loop class="object-cover">
+          <source src="./vids/home.mp4" type="video/mp4" />
+
+          Your browser does not support the video tag.
+        </video>
+        <div
+          class="heading absolute top-[50%] translate-y-[-35%] text-9xl mix-blend-multiply bg-black p-20"
+        >
+          PLEASE <br /> STAND <br /> BY
+        </div>
+      </div>
+    </div>
+    <Contact />
+  </main>
+</Layout>
+
+<style></style>
