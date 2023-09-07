@@ -1,0 +1,33 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Menu from "../../components/Menu.astro";
+import Contact from "../../components/Contact.astro";
+import * as content from "./content/index.md";
+---
+
+<Layout title="About FGR">
+  <Menu title="FGR" />
+  <main class="md:ml-[100px] pt-[86px] md:mr-[86px] p-10">
+    <div class="text-white">
+      <!-- <h2>About us</h2> -->
+      <h2 class="heading">
+        {content.frontmatter.title}
+      </h2>
+      <img src={content.frontmatter.image} alt="About us" class="w-100 pt-10" />
+
+      <p class="para mt-8">
+        {content.frontmatter.para1}
+      </p>
+      <p class="para mt-8">
+        {content.frontmatter.para2}
+      </p>
+
+      <p class="para mt-8 mb-20">
+        {content.frontmatter.para3}
+      </p>
+    </div>
+    <Contact />
+  </main>
+</Layout>
+
+<style></style>

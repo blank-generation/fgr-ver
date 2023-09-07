@@ -1,0 +1,31 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Menu from "../../components/Menu.astro";
+import Card from "../../components/Card.astro";
+import Contact from "../../components/Contact.astro";
+import dayjs from "dayjs";
+// const shows = await Astro.glob("./content/*.md");
+---
+
+<Layout title="Radio Shows">
+  <Menu title="RADIO SHOWS" />
+  <main class="md:ml-[100px] pt-[86px] md:mr-[86px] p-10">
+    <div class="text-white flex flex-wrap gap-4">
+      <!-- {
+        shows.map((card) => (
+          <Card
+            title={card.frontmatter.title}
+            body={dayjs(card.frontmatter.date).format("MMMM DD, YYYY")}
+            href={"/radio/" + card.url.split("/").pop()}
+            tags={card.frontmatter.tags}
+            img={card.frontmatter.img}
+          />
+        ))
+      } -->
+      <!-- <Card title="hello" body="lorem oiwdhoiaj oia jaoiwd jw" href="#" /> -->
+    </div>
+    <Contact />
+  </main>
+</Layout>
+
+<style></style>
