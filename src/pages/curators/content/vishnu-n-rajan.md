@@ -1,0 +1,11 @@
+---
+name: Vishnu N Rajan
+img: /360072444_1754414611669365_2067284834717056678_n.jpg
+bio: It is a long established fact that a reader will be distracted by the
+  readable content of a page when looking at its layout. The point of using
+  Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
+  opposed to using 'Content here, content here', making it look like readable
+  English. Many desktop publishing packages and web page editors
+link: https://www.instagram.com/squishnuu/
+show: FGR Session 13
+---

@@ -3,15 +3,17 @@ import Layout from "../../layouts/Layout.astro";
 import Menu from "../../components/Menu.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import Contact from "../../components/Contact.astro";
-const showName = Astro.url.pathname.split("/").pop();
+
+const showName = Astro.params.show;
 const showList = await Astro.glob("./content/*.md");
 const curatorList = await Astro.glob("../curators/content/*.md");
+
 const show = showList.find((obj) => {
-  const urlParts = obj.url.split("/");
-  return urlParts[urlParts.length - 1] === showName;
+  return obj.file.includes(showName);
 });
+
 const curator = curatorList.find((obj) => {
-  return obj.frontmatter.name === show.frontmatter.curator;
+  return obj?.frontmatter.name === show?.frontmatter.curator;
 });
 
 export async function getStaticPaths() {
@@ -25,7 +27,7 @@ export async function getStaticPaths() {
   ];
 }
 
-const { title, tags, tracklist, link, img: art, about } = show.frontmatter;
+const { title, tags, tracklist, link, img: art, about } = show?.frontmatter;
 const { name, img: curatorImg, bio } = curator.frontmatter;
 ---
 
@@ -37,6 +39,7 @@ const { name, img: curatorImg, bio } = curator.frontmatter;
     <div class="text-white flex md:flex-row flex-col-reverse gap-8">
       <!-- About -->
       <div>
+        <!-- {showName} -->
         <!-- {JSON.stringify(curator.frontmatter.name)} -->
         <h2 class="epi-about mb-2">ABOUT THIS EPISODE</h2>
         <p class="mb-8 epi-text">
@@ -178,8 +181,8 @@ const { name, img: curatorImg, bio } = curator.frontmatter;
         </div>
       </div>
       <!-- Artwork -->
-      <div>
-        <img src={art} alt="" />
+      <div class="">
+        <img class="md:sticky top-[100px]" src={art} alt="" />
         <script
           src="//widget.mixcloud.com/media/js/widgetApi.js"
           type="text/javascript"></script>
