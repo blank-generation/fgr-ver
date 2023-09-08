@@ -12,8 +12,7 @@ export default defineConfig({
     NetlifyCMS({
       config: {
         backend: {
-          name: 'github',
-          repo: 'blank-generation/fgr-ver',
+          name: 'git-gateway',
           branch: 'main',
         },
         collections: [
