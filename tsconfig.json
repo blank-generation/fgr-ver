@@ -1,10 +1,8 @@
 {
   "extends": "astro/tsconfigs/base",
-   "compilerOptions": {
+  "compilerOptions": {
     "baseUrl": "/fgr-astro",
-    // "paths": {
-    //   "@components/*": ["src/components/*"],
-    //   "@assets/*": ["src/assets/*"]
-    // }
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
 }

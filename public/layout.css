@@ -42,6 +42,9 @@ body {
   font-weight: 400;
   line-height: normal;
 }
+.asap {
+  font-family: "Asap Condensed", sans-serif;
+}
 
 .menu-title {
   font-family: "Asap", sans-serif;

@@ -1,157 +1,188 @@
 ---
-import * as content from "../content/contact/index.md";
-const img = content.frontmatter.img;
 ---
 
 <div id="contact" class="container my-24 mx-auto md:px-6">
-  <!-- Section: Design Block -->
-  <section class="mb-32">
-    <div
-      class="relative h-[300px] overflow-hidden bg-cover bg-[50%] bg-no-repeat coverimg"
-      style={{ background: `url(${img})` }}
-    >
+  <div
+    class="bg-[url('/imgs/contact_bg.png')] bg-no-repeat bg-cover min-h-[200px] flex md:flex-row flex-col md:justify-around"
+  >
+    <div class="">
+      <img src="/imgs/letsconnect.png" alt="lets connect" />
     </div>
-    <div class="container px-6 md:px-12">
+    <div>
+      <!-- FORM -->
       <div
-        class="block rounded-lg bg-[hsla(0,0%,100%,0.8)] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-[hsla(0,0%,5%,0.7)] dark:shadow-black/20 md:py-16 md:px-12 -mt-[100px] backdrop-blur-[30px]"
+        class="bg-[url(/imgs/form_bg.png)] bg-no-repeat px-8 pl-12 md:pl-16 md:pt-24 pt-16 mt-12 max-w-[440px]"
       >
-        <div class="flex flex-wrap">
-          <div
-            class="mb-12 w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 lg:w-5/12 lg:px-6"
+        <p class="text-sm asap py-8">
+          We are excited to hear about your ideas in film, art, music, or
+          culture. As champions of all things experimental and forward-thinking
+          , we're eager to help turn your vision into reality. Whether it's an
+          album, a documentary, a short film, an art installation, or an event,
+          we're here to collaborate, brainstorm, allocate resources, plan, and
+          bring your unique concept to life.
+        </p>
+        <form
+          class="asap"
+          action="https://formspree.io/f/xoqoewga"
+          method="POST"
+        >
+          <div class="relative mb-6" data-te-input-wrapper-init>
+            <input
+              type="text"
+              name="name"
+              required
+              class="peer block min-h-[auto] w-full rounded border-0 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-black data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+              id="exampleInput90"
+              placeholder="Name"
+            />
+            <label
+              class="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-900 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-black peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none"
+              for="exampleInput90"
+              >Name
+            </label>
+          </div>
+          <div class="relative mb-6" data-te-input-wrapper-init>
+            <input
+              name="email"
+              type="email"
+              required
+              class="peer block min-h-[auto] w-full rounded border-0 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-black data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+              id="exampleInput91"
+              placeholder="Email address"
+            />
+            <label
+              class="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-900 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-black peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none"
+              for="exampleInput91"
+              >Email address
+            </label>
+          </div>
+          <div class="relative mb-6" data-te-input-wrapper-init>
+            <textarea
+              name="message"
+              class="peer block min-h-[auto] w-full rounded border-0 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+              id="exampleFormControlTextarea1"
+              rows="3"
+              placeholder="Your message"></textarea>
+            <label
+              for="exampleFormControlTextarea1"
+              class="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-900 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-black peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none"
+              >Message</label
+            >
+          </div>
+
+          <button
+            type="submit"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            class="mb-6 inline-block w-full rounded bg-black px-6 pt-2.5 pb-2 text-xl font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-[#F328F8] hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-[#F328F8]-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-[#F328F8]-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] lg:mb-0"
           >
-            <form action="https://formspree.io/f/xoqoewga" method="POST">
-              <div class="relative mb-6" data-te-input-wrapper-init>
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  class="peer block min-h-[auto] w-full rounded border-0 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                  id="exampleInput90"
-                  placeholder="Name"
-                />
-                <label
-                  class="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
-                  for="exampleInput90"
-                  >Name
-                </label>
-              </div>
-              <div class="relative mb-6" data-te-input-wrapper-init>
-                <input
-                  name="email"
-                  type="email"
-                  required
-                  class="peer block min-h-[auto] w-full rounded border-0 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                  id="exampleInput91"
-                  placeholder="Email address"
-                />
-                <label
-                  class="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
-                  for="exampleInput91"
-                  >Email address
-                </label>
-              </div>
-              <div class="relative mb-6" data-te-input-wrapper-init>
-                <textarea
-                  name="message"
-                  class="peer block min-h-[auto] w-full rounded border-0 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                  id="exampleFormControlTextarea1"
-                  rows="3"
-                  placeholder="Your message"></textarea>
-                <label
-                  for="exampleFormControlTextarea1"
-                  class="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
-                  >Message</label
-                >
-              </div>
-
-              <button
-                type="submit"
-                data-te-ripple-init
-                data-te-ripple-color="light"
-                class="mb-6 inline-block w-full rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] lg:mb-0"
-              >
-                Send
-              </button>
-            </form>
-          </div>
-          <!--Content  -->
-          <div class="w-full shrink-0 grow-0 basis-auto lg:w-7/12">
-            <div class="flex flex-wrap">
-              <!-- Contact Content -->
-
-              <div class="flex items-start w-100">
-                <div class="">
-                  <p class="text-white">
-                    {content.frontmatter.content}
-                  </p>
-                </div>
-              </div>
-              <!-- Contact deets -->
-              <div class="mt-4">
-                <div
-                  class="align-start flex md:flex-row flex-col justify-center"
-                >
-                  <div class="">
-                    <!-- Contact Image -->
-                    <div
-                      class="inline-block rounded-md bg-primary-100 p-4 text-primary"
-                    >
-                      <img
-                        src={content.frontmatter.contactperson1.img}
-                        alt=""
-                        class="w-10 h-10 rounded-full"
-                      />
-                    </div>
-                  </div>
-                  <div class="md:ml-4">
-                    <p class="mb-2 font-bold dark:text-white">
-                      {content.frontmatter.contactperson1.name}
-                    </p>
-                    <p class="text-neutral-500 dark:text-neutral-200">
-                      {content.frontmatter.contactperson1.email}
-                    </p>
-                    <p class="text-neutral-500 dark:text-neutral-200">
-                      {content.frontmatter.contactperson1.phone}
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="mt-4">
-                <div
-                  class="align-start flex md:flex-row flex-col justify-center"
-                >
-                  <div class="">
-                    <!-- Contact Image -->
-                    <div
-                      class="inline-block rounded-md bg-primary-100 p-4 text-primary"
-                    >
-                      <img
-                        src={content.frontmatter.contactperson2.img}
-                        alt=""
-                        class="w-10 h-10 rounded-full"
-                      />
-                    </div>
-                  </div>
-                  <div class="md:ml-4">
-                    <p class="mb-2 font-bold dark:text-white">
-                      {content.frontmatter.contactperson2.name}
-                    </p>
-                    <p class="text-neutral-500 dark:text-neutral-200">
-                      {content.frontmatter.contactperson2.email}
-                    </p>
-                    <p class="text-neutral-500 dark:text-neutral-200">
-                      {content.frontmatter.contactperson2.phone}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+            Let's Talk
+          </button>
+        </form>
       </div>
     </div>
-  </section>
-  <!-- Section: Design Block -->
-</div>
+  </div>
 
-<!-- Container for demo purpose -->
+  <footer class="rounded-lg shadow m-4 bg-gray-800 asap">
+    <div
+      class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between"
+    >
+      <p class="text-sm text-gray-400">
+        Email : connect@focusgroupradio.live <br /> Phone : +91 98404 91117
+      </p>
+
+      <ul
+        class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-400 sm:mt-0"
+      >
+        <!-- <li>
+          <a href="#" class="hover:underline me-4 md:me-6">About</a>
+        </li> -->
+        <li>
+          <a href="/privacy" class="hover:underline me-4 md:me-6"
+            >Privacy Policy</a
+          >
+        </li>
+        <!-- <li>
+          <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+        </li> -->
+        <li>
+          <a href="#contact" class="hover:underline">Contact</a>
+        </li>
+        <li>
+          <a
+            class="mx-6"
+            href="https://www.instagram.com/focusgroup_radio/"
+            target="_blank"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 inline"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+              ></path>
+            </svg></a
+          >
+        </li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- <form action="https://formspree.io/f/xoqoewga" method="POST">
+    <div class="relative mb-6" data-te-input-wrapper-init>
+      <input
+        type="text"
+        name="name"
+        required
+        class="peer block min-h-[auto] w-full rounded border-0 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+        id="exampleInput90"
+        placeholder="Name"
+      />
+      <label
+        class="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
+        for="exampleInput90"
+        >Name
+      </label>
+    </div>
+    <div class="relative mb-6" data-te-input-wrapper-init>
+      <input
+        name="email"
+        type="email"
+        required
+        class="peer block min-h-[auto] w-full rounded border-0 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+        id="exampleInput91"
+        placeholder="Email address"
+      />
+      <label
+        class="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
+        for="exampleInput91"
+        >Email address
+      </label>
+    </div>
+    <div class="relative mb-6" data-te-input-wrapper-init>
+      <textarea
+        name="message"
+        class="peer block min-h-[auto] w-full rounded border-0 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+        id="exampleFormControlTextarea1"
+        rows="3"
+        placeholder="Your message"></textarea>
+      <label
+        for="exampleFormControlTextarea1"
+        class="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
+        >Message</label
+      >
+    </div>
+
+    <button
+      type="submit"
+      data-te-ripple-init
+      data-te-ripple-color="light"
+      class="mb-6 inline-block w-full rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] lg:mb-0"
+    >
+      Send
+    </button>
+  </form> -->
+
+  <!-- Container for demo purpose -->
+</div>

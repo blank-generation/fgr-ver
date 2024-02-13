@@ -1,28 +1,98 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Menu from "../components/Menu.astro";
+// import Landing from "../components/Landing/Landing";
 import Contact from "../components/Contact.astro";
 ---
 
 <Layout title="Home">
-  <Menu title="HOME" />
-  <main class="md:ml-[100px] pt-[86px] md:mr-[86px] p-10">
-    <div class="">
-      <div class="flex justify-center">
-        <video autoplay muted loop class="object-cover">
-          <source src="./vids/home.mp4" type="video/mp4" />
-
-          Your browser does not support the video tag.
-        </video>
-        <div
-          class="heading absolute top-[50%] translate-y-[-35%] text-9xl mix-blend-multiply bg-black p-20"
-        >
-          PLEASE <br /> STAND <br /> BY
-        </div>
-      </div>
+  <Menu title="Focus Group Radio" />
+  <main class="overflow-hidden md:ml-[100px] pt-[86px] md:mr-[86px] p-10">
+    <div
+      class="relative p-4 flex justify-center items-center gap-8 md:flex-row flex-col text-center md:border"
+    >
+      <img src="/imgs/fgrlogo.png" alt="logo" />
+      <p class="top-0 md:text-9xl text-6xl text-white asap">COMING SOON</p>
+      <!-- <video class="hidden md:block" muted loop autoplay>
+        <source src="/vids/home.mp4" type="video/mp4" />
+      </video> -->
     </div>
+    <div>
+      <!-- <img src="/imgs/contact1.png" alt="" /> -->
+      <canvas class="w-full md:h-[100%] h-[70vh]"></canvas>
+    </div>
+
     <Contact />
   </main>
 </Layout>
 
-<style></style>
+<script is:inline>
+  const img = new Image();
+  img.onload = start;
+  img.src = "/imgs/contact1.png";
+
+  function start() {
+    const canvas = document.querySelector("canvas");
+    const ctx = canvas.getContext("2d");
+
+    function mix(a, b, l) {
+      return a + (b - a) * l;
+    }
+
+    function upDown(v) {
+      return Math.sin(v) * 0.5 + 0.5;
+    }
+
+    function render(time) {
+      time *= 0.001;
+
+      resize(canvas);
+
+      var t1 = time;
+      var t2 = time * 0.37;
+
+      // for each line in the canvas
+      for (var dstY = 0; dstY < canvas.height; ++dstY) {
+        // v is value that goes 0 to 1 down the canvas
+        var v = dstY / canvas.height;
+
+        // compute some amount to offset the src
+        var off1 = Math.sin((v + 0.5) * mix(3, 12, upDown(t1))) * 100;
+        var off2 = Math.sin((v + 0.5) * mix(3, 12, upDown(t2))) * 100;
+        var off = off1 + off2;
+
+        // compute what line of the source image we want
+        // NOTE: if off = 0 then it would just be stretching
+        // the image down the canvas.
+        var srcY = (dstY * img.height) / canvas.height + off;
+
+        // clamp srcY to be inside the image
+        srcY = Math.max(0, Math.min(img.height - 1, srcY));
+
+        // draw a single line from the src to the canvas
+        ctx.drawImage(img, 0, srcY, img.width, 1, 0, dstY, canvas.width, 1);
+      }
+
+      requestAnimationFrame(render);
+    }
+    requestAnimationFrame(render);
+
+    function resize(canvas) {
+      var width = canvas.clientWidth;
+      var height = canvas.clientHeight;
+      if (width != canvas.width || height != canvas.height) {
+        canvas.width = width;
+        canvas.height = height;
+      }
+    }
+  }
+</script>
+<style>
+  video {
+    /* max-width: 1000px; */
+    /* height: 100%; */
+    width: 200px;
+    object-fit: cover;
+    z-index: 0;
+  }
+</style>
