@@ -16,52 +16,59 @@ console.log('Server-side error:', error);
 
 <Layout title="Strange Frequencies">
   <Menu title="Strange Frequencies" />
-  <main class="md:ml-[100px] pt-[86px] md:mr-[86px] p-10">
-   <div class="text-[#f5e656] sf-cont p-12">
-    <h1 class="text-4xl mt-10 font-bold">FGR's Strange Frequencies</h1>
+  <main class="md:ml-[100px] pt-[86px] md:mr-[86px] md:p-10 p-2">
+   <!-- Content -->
+    <div class="text-[#f5e656] sf-cont md:p-12 p-8 ">
+    <h1 class="text-4xl mt-4 font-bold">FGR's Strange Frequencies</h1>
     <p class="text-lg mb-10">A listening companion in 40 prompts.</p>
-    
-    <h2 class="text-2xl font-bold">What it is</h2>
-    <p class="text-lg">
-      Not a game. Not a playlist generator. Not a music discovery tool.
-      FGR's Strange Frequencies is a box of 40 cue cards to make listening a little more intentional—and just as in-the-moment.
-      Pull out a card with a group of friends and decide how the night's gonna sound. Or use it alone, right before you hit play, paint, write, or work—whatever helps set the tone.
-    </p>
-   
-    <p class="text-lg">
-      Some prompts are emotional. Some are abstract. Some are just strange.
-      They're not here to tell you what to listen to. They're here to give shape to how you arrive at it.
-    </p>
-    
-    <h2 class="text-2xl font-bold mt-10">Who it's for</h2>
-    <p class="text-lg">
-      A group of friends hanging out, using the cards to decide what plays next.
-      A DJ before a set—on a dancefloor, or at a house party.
-      A vinyl collector looking for a fresh filter: "find something without drums."
-      Themed playlist nerds looking for new constraints (yes, you).
-      A nice gift for someone who likes music but doesn't need more gear.
-      Creative people setting the mood while they work.
-      People who keep skipping songs. This slows them down.
-    </p>
-    
-    <h2 class="text-2xl font-bold mt-10">Why we made it</h2>
-    <p class="text-lg">
-      This isn't about showing off your taste or chasing newness.
-      We're kind of tired of that.
-      Strange Frequencies is about giving music a little more room to land—without pressure, without performance. Just a nudge, a pause, a different way in.
-      A quiet game for loud music.
-    </p>
-    <p class="text-sm">—FGR</p>
-    <hr class="my-10 border-yellow-500"/>
+  
+    <p class="text-lg mb-4">First off — thank you for being part of this and making it this far. Whether you've been quietly lurking or loudly cheering, it’s meant a lot. Now, if you’re still with us and thinking of taking the next step... this is where things get fun.</p>
+
+    <p class="text-lg mb-4">We’re putting together something that gives people a new way to discover music — made by real people with real taste (read: not the algorithm). It’s called FGR’s Strange Frequencies — a box of music prompts to shake up how we listen. And we’d love for you to help shape it.</p>
+
+    <h2 class="text-2xl font-bold mb-2">Here’s how it works:</h2>
+    <p class="text-lg ">Pick one prompt from the list. Once you call dibs, we scratch that prompt off live.</p>
+    <p class="text-lg ">Curate a minimum 3-hour Spotify playlist inspired by it. (Unfortunate we have to go back use spotify but it IS the most universally used platform)</p>
+    <p class="text-lg ">Set the playlist to public.</p>
+    <p class="text-lg ">Add a tiny 7–10 word note to go with it (Optional).</p>
+    <p class="text-lg ">Send it in before June 20th.</p>
+
+    <p class="text-lg mt-8 mb-4"> <span class="font-bold">Have your own theme in mind?</span> Amazing — tell us, and if it fits the vibe, we’ll make space.</p>
+
+    <p class="text-lg mb-4">We’ll be doing a small, limited edition run of these boxes designed by some super talented artists— a few will be given away as a part of our 5th year anniversary celebrations, the rest we’ll sell. It’s secret for now, so keep it hush till we drop it in the right way.</p>
+
+    <p class="text-lg mb-4">Please don’t feel pressure to hit the 3-hour mark exactly — it’s just a guide. Also, dont worry about keeping this PC. The idea is for people to go deep, wander weird corners, maybe fall into a few rabbit holes, maybe dig some new ones. Basically: Embrace the strange. That’s the FGR way.</p>
+
+    <p class="text-lg mb-4">Excited to hear what you come up with. 💌</p>
+
+    <p class="text-lg">With love (and many tabs open),</p>
+    <p class="text-2xl mb-4">FGR</p>
+
+  
+    <hr id="hr-1" class="my-10 border-yellow-500"/>
 
     </div>
 
-    <div id="prompts-container" class="space-y-4 text-[#f5e656] p-10 hidden">  
-        {prompts?.map((prompt) => (
-            <div class="prompt-card" data-prompt-id={prompt.id}>
-                <p class="text-lg">  {prompt.content}</p>
-            </div>
-        ))}
+    <!-- Prompts List -->
+    <div id="prompts-container" class=" text-[#f5e656] md:p-10 p-4 hidden">  
+      <p class="text-lg mb-6">We request that you take a few minutes to read through all the prompts before making your pick — find the one that sparks something, feels exciting, and lets you go deep.</p>
+      <div id="prompts-list" class="space-y-4">
+            {prompts?.map((prompt) => (
+                <div class="md:p-4 py-2 pl-2 bg-black/25 rounded-lg prompt-card" data-prompt-id={prompt.id}>
+                    <p class="text-lg">{prompt.id}.  {prompt.content}</p>
+                </div>
+            ))}
+        </div>
+        <hr class="my-10 border-yellow-500"/>
+        <div class="flex  justify-center items-center space-x-4 mt-8">
+            <button id="prev-page" class="px-4 py-2 bg-[#23262d] text-[#f5e656] rounded hover:bg-[#2a2d35] transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.85355 3.14645C7.04882 3.34171 7.04882 3.65829 6.85355 3.85355L3.70711 7H12.5C12.7761 7 13 7.22386 13 7.5C13 7.77614 12.7761 8 12.5 8H3.70711L6.85355 11.1464C7.04882 11.3417 7.04882 11.6583 6.85355 11.8536C6.65829 12.0488 6.34171 12.0488 6.14645 11.8536L2.14645 7.85355C1.95118 7.65829 1.95118 7.34171 2.14645 7.14645L6.14645 3.14645C6.34171 2.95118 6.65829 2.95118 6.85355 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+            </button>
+            <span id="page-info" class="text-[#f5e656]">Page 1 of 4</span>
+            <button id="next-page" class="px-4 py-2 bg-[#23262d] text-[#f5e656] rounded hover:bg-[#2a2d35] transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+            </button>
+        </div>
     </div>
 
     <!-- Password Modal -->
@@ -90,7 +97,7 @@ console.log('Server-side error:', error);
   </main>
 </Layout>
 
-<style>
+<style is:inline>
     #prompts-container {
         background-image: url('/prompt_BG.webp');
         background-size: 100% 100%;
@@ -110,9 +117,8 @@ console.log('Server-side error:', error);
 
     .prompt-card {
         transition: opacity 0.5s ease-out;
-        padding: 1rem;
         border-radius: 0.5rem;
-        background-color: rgba(0, 0, 0, 0.2);
+        background-color: rgba(0, 0, 0, 0.25);
     }
 
     .prompt-card.removing {
@@ -134,6 +140,62 @@ console.log('Server-side error:', error);
   const submitButton = document.getElementById('submit-password');
   const errorMessage = document.getElementById('error-message');
   const promptsContainer = document.getElementById('prompts-container');
+
+  // Pagination
+  const PROMPTS_PER_PAGE = 10;
+  let currentPage = 1;
+  let allPrompts: any[] = [];
+  const promptsList = document.getElementById('prompts-list');
+  const prevButton = document.getElementById('prev-page') as HTMLButtonElement;
+  const nextButton = document.getElementById('next-page') as HTMLButtonElement;
+  const pageInfo = document.getElementById('page-info');
+  const hr1 = document.getElementById('hr-1');
+  let initialLoad = true;
+
+  function updatePagination() {
+  
+    const startIndex = (currentPage - 1) * PROMPTS_PER_PAGE;
+    const endIndex = startIndex + PROMPTS_PER_PAGE;
+    const pagePrompts = allPrompts.slice(startIndex, endIndex);
+    
+    // scroll to the top of the prompts list if not initial load
+    if (hr1 && !initialLoad) {
+      hr1.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
+    }
+    initialLoad = false;
+    if (promptsList) {
+      promptsList.innerHTML = pagePrompts.map(prompt => `
+        <div class="md:p-4 py-2 pl-2 bg-black/25 rounded-lg prompt-card" data-prompt-id="${prompt.id}">
+          <p class="text-lg">${prompt.id}. ${prompt.content}</p>
+        </div>
+      `).join('');
+    }
+
+
+
+    if (prevButton) prevButton.disabled = currentPage === 1;
+    if (nextButton) nextButton.disabled = endIndex >= allPrompts.length;
+    if (pageInfo) pageInfo.textContent = `Page ${currentPage} of ${Math.ceil(allPrompts.length / PROMPTS_PER_PAGE)}`;
+  }
+
+  if (prevButton) {
+    prevButton.addEventListener('click', () => {
+      if (currentPage > 1) {
+        currentPage--;
+        updatePagination();
+      }
+    });
+  }
+
+  if (nextButton) {
+    nextButton.addEventListener('click', () => {
+      const maxPage = Math.ceil(allPrompts.length / PROMPTS_PER_PAGE);
+      if (currentPage < maxPage) {
+        currentPage++;
+        updatePagination();
+      }
+    });
+  }
 
   // Check if already authenticated
   if (localStorage.getItem('fgr_authenticated') === 'true') {
@@ -182,28 +244,15 @@ console.log('Server-side error:', error);
         // Handle updates (when status changes to false)
         if (payload.eventType === 'UPDATE' && !payload.new.status) {
           console.log('Handling prompt deactivation:', payload.new.id);
-          const promptElement = container.querySelector(`[data-prompt-id="${payload.new.id}"]`);
-          if (promptElement) {
-            promptElement.classList.add('removing');
-            setTimeout(() => {
-              promptElement.remove();
-            }, 500);
-          }
+          allPrompts = allPrompts.filter(p => p.id !== payload.new.id);
+          updatePagination();
         }
 
         // Handle new prompts
         if (payload.eventType === 'INSERT' && payload.new.status) {
           console.log('Handling new prompt:', payload.new);
-          const promptDiv = document.createElement('div');
-          promptDiv.className = 'prompt-card';
-          promptDiv.dataset.promptId = payload.new.id;
-          
-          const content = document.createElement('p');
-          content.className = 'text-lg';
-          content.textContent = payload.new.content;
-          promptDiv.appendChild(content);
-
-          container.insertBefore(promptDiv, container.firstChild);
+          allPrompts.unshift(payload.new);
+          updatePagination();
         }
       }
     )
@@ -211,13 +260,17 @@ console.log('Server-side error:', error);
       console.log('Subscription status:', status);
     });
 
-  // Also fetch prompts on client side to verify connection
+  // Initial fetch of prompts
   supabase
     .from('prompts')
     .select('*')
     .eq('status', true)
     .order('id', { ascending: true })
     .then(({ data, error }) => {
+      if (data) {
+        allPrompts = data;
+        updatePagination();
+      }
       console.log('Client-side fetch result:', { data, error });
     });
 </script>
