@@ -7,7 +7,6 @@ import { supabase } from '../lib/supabase';
 let { data: prompts, error } = await supabase
   .from('prompts')
   .select('*')
-  .eq('status', true)
   .order('id', { ascending: true });
 
 console.log('Server-side prompts:', prompts);
@@ -53,11 +52,18 @@ console.log('Server-side error:', error);
     <div id="prompts-container" class=" text-[#f5e656] md:p-10 p-4 hidden">  
       <p class="text-lg mb-6">We request that you take a few minutes to read through all the prompts before making your pick — find the one that sparks something, feels exciting, and lets you go deep.</p>
       <div id="prompts-list" class="space-y-4">
-            {prompts?.map((prompt) => (
-                <div class="p-2 bg-black/25 rounded-lg prompt-card cursor-pointer hover:bg-black/35 transition-colors" data-prompt-id={prompt.id} onclick={`handlePromptClick(${JSON.stringify(prompt).replace(/"/g, '&quot;')})`}>
-                    <p class="text-lg">{prompt.id}.  {prompt.content}</p>
+            {prompts?.map((prompt) => {
+              const isClaimed = !prompt.status;
+              const claimedBy = prompt.assigned_to;
+              return (
+                <div class={`p-2 rounded-lg prompt-card transition-colors ${isClaimed ? 'bg-gray-600/25 cursor-not-allowed opacity-60' : 'bg-black/25 cursor-pointer hover:bg-black/35'}`} 
+                     data-prompt-id={prompt.id} 
+                     onclick={!isClaimed ? `handlePromptClick(${JSON.stringify(prompt).replace(/"/g, '&quot;')})` : ''}>
+                    <p class="text-lg">{prompt.id}. {prompt.content}</p>
+                    {isClaimed && <p class="text-sm text-gray-400 mt-2">Claimed by {claimedBy}</p>}
                 </div>
-            ))}
+              );
+            })}
         </div>
         <hr class="mt-4 border-yellow-500"/>
         <div class="flex  justify-center items-center space-x-4 mt-4">
@@ -72,8 +78,8 @@ console.log('Server-side error:', error);
     </div>
 
     <!-- Claimed Prompt View -->
-    <div id="claimed-prompt-container" class="text-[#f5e656] md:p-10 p-4 hidden">
-      <div class="bg-[#23262d] p-8 rounded-lg shadow-xl max-w-2xl mx-auto">
+    <div id="claimed-prompt-container" class="text-[#f5e656]  hidden">
+      <div id="claimed-prompt-box" class="p-8 rounded-lg shadow-xl  ">
         <h2 class="text-3xl font-bold mb-6 text-center">Your Claimed Prompt</h2>
         <div id="claimed-prompt-content" class="space-y-6">
           <!-- Content will be populated by JavaScript -->
@@ -83,7 +89,7 @@ console.log('Server-side error:', error);
 
     <!-- Password Modal -->
     <div id="password-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div class="bg-[#23262d] p-8 rounded-lg shadow-xl max-w-md w-full mx-4">
+      <div class="bg-[#0000001a] backdrop-blur-lg border border-[#f5e656] p-8 py-12 rounded-lg shadow-xl max-w-xl w-full mx-4">
         <div id="email-step">
           <h2 class="text-2xl font-bold text-[#f5e656] mb-4">Enter Your Email</h2>
           <div class="space-y-4">
@@ -177,6 +183,12 @@ console.log('Server-side error:', error);
         background-repeat: repeat;
         border-radius: 10px;
         margin-bottom: 20px;
+    }
+    #claimed-prompt-box {
+        background-image: url('/prompt_BG.webp');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 
     .sf-cont {
@@ -348,8 +360,14 @@ console.log('Server-side error:', error);
       localStorage.setItem('fgr_user_id', user.id.toString());
       userEmail = email; // Store user email for claiming prompts
       modal.classList.add('hidden');
-      promptsContainer.classList.remove('hidden');
       otpError.classList.add('hidden');
+      
+      // Check if user has already claimed a prompt
+      if (user.prompt_id) {
+        showClaimedPrompt(user.prompt_id);
+      } else {
+        promptsContainer.classList.remove('hidden');
+      }
       
     } catch (error) {
       console.error('Error verifying OTP:', error);
@@ -392,11 +410,18 @@ console.log('Server-side error:', error);
     }
     initialLoad = false;
     if (promptsList) {
-      promptsList.innerHTML = pagePrompts.map(prompt => `
-        <div class="p-4 bg-black/25 rounded-lg prompt-card cursor-pointer hover:bg-black/35 transition-colors" data-prompt-id="${prompt.id}" onclick="handlePromptClick(${JSON.stringify(prompt).replace(/"/g, '&quot;')})">
-          <p class="text-lg">${prompt.id}. ${prompt.content}</p>
-        </div>
-      `).join('');
+      promptsList.innerHTML = pagePrompts.map(prompt => {
+        const isClaimed = !prompt.status;
+        const claimedBy = prompt.assigned_to;
+        return `
+          <div class="p-4 rounded-lg prompt-card transition-colors ${isClaimed ? 'bg-gray-600/25 cursor-not-allowed opacity-60' : 'bg-black/25 cursor-pointer hover:bg-black/35'}" 
+               data-prompt-id="${prompt.id}" 
+               ${!isClaimed ? `onclick="handlePromptClick(${JSON.stringify(prompt).replace(/"/g, '&quot;')})"` : ''}>
+            <p class="text-lg">${prompt.id}. ${prompt.content}</p>
+            ${isClaimed ? `<p class="text-sm text-gray-400 mt-2">Claimed by ${claimedBy}</p>` : ''}
+          </div>
+        `;
+      }).join('');
     }
 
 
@@ -445,7 +470,11 @@ console.log('Server-side error:', error);
         // Handle updates (when status changes to false)
         if (payload.eventType === 'UPDATE' && !payload.new.status) {
           console.log('Handling prompt deactivation:', payload.new.id);
-          allPrompts = allPrompts.filter(p => p.id !== payload.new.id);
+          // Update the prompt in the array instead of removing it
+          const promptIndex = allPrompts.findIndex(p => p.id === payload.new.id);
+          if (promptIndex !== -1) {
+            allPrompts[promptIndex] = payload.new;
+          }
           updatePagination();
         }
 
@@ -465,7 +494,6 @@ console.log('Server-side error:', error);
   supabase
     .from('prompts')
     .select('*')
-    .eq('status', true)
     .order('id', { ascending: true })
     .then(({ data, error }) => {
       if (data) {
@@ -508,11 +536,11 @@ console.log('Server-side error:', error);
           <div class="bg-black/25 rounded-lg p-6 border border-[#f5e656]">
             <h3 class="text-2xl font-bold mb-4">${prompt.id}. ${prompt.content}</h3>
             ${prompt.reason ? `<p class="text-lg mb-4"><strong>Your reason:</strong> ${prompt.reason}</p>` : ''}
-            <p class="text-sm text-gray-400">Claimed on: ${new Date(prompt.created_at).toLocaleDateString()}</p>
+            <p class="text-sm text-white pl-2">Claimed on: ${new Date(prompt.created_at).toLocaleDateString()}</p>
           </div>
           <div class="text-center">
             <p class="text-lg mb-4">You've successfully claimed this prompt!</p>
-            <p class="text-sm text-gray-400">Remember to create your 3-hour Spotify playlist and send it in before June 20th.</p>
+            <p class="text-sm">Remember to create your 3-hour Spotify playlist and send it in before June 20th.</p>
           </div>
         `;
       }
