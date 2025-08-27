@@ -1,0 +1,385 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Menu from "../components/Menu.astro";
+import NowPlaying from "../components/NowPlaying.astro";
+
+// Sample data for different regions and their playlists
+const regions = [
+  {
+    id: 'britain',
+    name: 'Britain',
+    description: 'The British Invasion and beyond',
+    color: '#FEE96A',
+    position: { x: 20, y: 30 },
+    playlists: [
+      {
+        title: 'The British Invasion',
+        description: 'From The Beatles to The Rolling Stones, explore the sounds that conquered America and changed music forever.',
+        image: '/images/british-invasion.jpg',
+        video: 'https://www.youtube.com/embed/example1',
+        tracks: ['I Want To Hold Your Hand - The Beatles', 'Satisfaction - The Rolling Stones', 'My Generation - The Who']
+      },
+      {
+        title: 'London Psychedelia',
+        description: 'The mind-bending sounds of London\'s underground scene in the late 60s.',
+        image: '/images/london-psychedelia.jpg',
+        video: 'https://www.youtube.com/embed/example2',
+        tracks: ['Arnold Layne - Pink Floyd', 'See Emily Play - Pink Floyd', 'White Rabbit - Jefferson Airplane']
+      }
+    ]
+  },
+  {
+    id: 'america',
+    name: 'America',
+    description: 'Folk, rock, and the counterculture',
+    color: '#C13870',
+    position: { x: 15, y: 45 },
+    playlists: [
+      {
+        title: 'Folk Revival',
+        description: 'The protest songs and acoustic sounds that defined a generation.',
+        image: '/images/folk-revival.jpg',
+        video: 'https://www.youtube.com/embed/example3',
+        tracks: ['Blowin\' in the Wind - Bob Dylan', 'The Times They Are A-Changin\' - Bob Dylan', 'If I Had a Hammer - Peter, Paul and Mary']
+      },
+      {
+        title: 'San Francisco Sound',
+        description: 'The psychedelic rock scene that emerged from the Bay Area.',
+        image: '/images/san-francisco.jpg',
+        video: 'https://www.youtube.com/embed/example4',
+        tracks: ['Somebody to Love - Jefferson Airplane', 'White Rabbit - Jefferson Airplane', 'Piece of My Heart - Big Brother & The Holding Company']
+      }
+    ]
+  },
+  {
+    id: 'jamaica',
+    name: 'Jamaica',
+    description: 'Ska, rocksteady, and the birth of reggae',
+    color: '#FEE96A',
+    position: { x: 25, y: 55 },
+    playlists: [
+      {
+        title: 'Ska Explosion',
+        description: 'The infectious rhythms that would influence music worldwide.',
+        image: '/images/ska-explosion.jpg',
+        video: 'https://www.youtube.com/embed/example5',
+        tracks: ['My Boy Lollipop - Millie Small', 'Guns of Navarone - The Skatalites', 'Simmer Down - The Wailers']
+      }
+    ]
+  },
+  {
+    id: 'brazil',
+    name: 'Brazil',
+    description: 'Bossa nova and tropicalia',
+    color: '#C13870',
+    position: { x: 30, y: 60 },
+    playlists: [
+      {
+        title: 'Bossa Nova Revolution',
+        description: 'The smooth sounds that brought Brazilian music to the world stage.',
+        image: '/images/bossa-nova.jpg',
+        video: 'https://www.youtube.com/embed/example6',
+        tracks: ['The Girl from Ipanema - Stan Getz & João Gilberto', 'Desafinado - João Gilberto', 'Corcovado - Stan Getz & João Gilberto']
+      },
+      {
+        title: 'Tropicalia Movement',
+        description: 'The experimental fusion that challenged Brazil\'s musical traditions.',
+        image: '/images/tropicalia.jpg',
+        video: 'https://www.youtube.com/embed/example7',
+        tracks: ['Tropicália - Caetano Veloso', 'Alegria, Alegria - Caetano Veloso', 'Panis et Circenses - Os Mutantes']
+      }
+    ]
+  },
+  {
+    id: 'india',
+    name: 'India',
+    description: 'Raga rock and classical fusion',
+    color: '#FEE96A',
+    position: { x: 65, y: 50 },
+    playlists: [
+      {
+        title: 'Raga Rock Revolution',
+        description: 'When Western rock met Indian classical music.',
+        image: '/images/raga-rock.jpg',
+        video: 'https://www.youtube.com/embed/example8',
+        tracks: ['Norwegian Wood - The Beatles', 'Within You Without You - The Beatles', 'Paint It Black - The Rolling Stones']
+      }
+    ]
+  }
+];
+---
+
+<Layout title="FGR Curates: The Sixties Rumble">
+  <!-- <Menu title="The Sixties Rumble" /> -->
+  
+  <main class=" pt-8 p-10 bg-white ">
+    <!-- Hero Section -->
+    <div class="text-center md:mb-16 mb-8">
+      <!-- <h1 class="text-6xl font-bold text-[#FEE96A] mb-6">FGR CURATES</h1> -->
+       <img src="/imgs/fgr_curr.png" alt="The Sixties Rumble" class="w-full h-auto max-w-md mx-auto">
+      <h2 class="text-2xl text-[#FEE96A] my-4">THE SIXTIES RUMBLE</h2>
+   
+      
+    </div>
+
+    <!-- Opening Write-up -->
+    <!-- <div class="mb-16 text-[#064161] flex items-center justify-center flex-col md:flex-row">
+     <div class="w-1/2 md:w-1/2">
+      <img src="/imgs/tree.png" alt="The Sixties Rumble" class="w-full h-auto ">
+     </div>
+      <div class="bg-[#FEE96A]/10 p-8 max-w-3xl rounded-lg border border-[#FEE96A]/30">
+        <h3 class="text-2xl font-bold text-[#064161] mb-6">The Global Sound Revolution</h3>
+        <div class="space-y-4 text-lg leading-relaxed">
+          <p>
+            The 1960s wasn't just a decade—it was a global revolution in sound. From the British Invasion that conquered American airwaves to the psychedelic experiments of San Francisco, from the bossa nova rhythms of Brazil to the ska explosion in Jamaica, music was breaking boundaries and creating new worlds.
+          </p>
+          <p>
+            This September, FGR takes you on a journey through the most influential musical movements of the 1960s. Each week, we'll explore a different region and its unique contribution to the global soundscape. Through curated playlists, rare footage, and deep dives into the cultural contexts that shaped these sounds, we'll trace how the music of the 60s continues to influence everything we listen to today.
+          </p>
+          <p>
+            Join us at Beachville Coffee Roasters every week as we celebrate the weird music for weird people that defined a generation and changed the world.
+          </p>
+        </div>
+      </div>
+
+    </div> -->
+
+    <!-- Interactive Map/Slider -->
+    <div class="mb-16">
+      <!-- <h3 class="text-3xl font-bold text-[#064161] text-center mb-8">Explore the Global Soundscape</h3> -->
+      
+      <!-- Map Container -->
+      <div class="relative bg-gradient-to-br from-[#FEE96A]/20 to-[#C13870]/10 rounded-lg p-8 border border-[#FEE96A]/30">
+        <div id="world-map" class="relative w-full h-96 bg-[url('/images/world-map-bg.png')] bg-cover bg-center rounded-lg">
+          <!-- Region Markers -->
+          {regions.map((region) => (
+            <button
+              class="absolute transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full border-2 border-[#064161] shadow-lg transition-all duration-300 hover:scale-125 hover:shadow-xl"
+              style={`left: ${region.position.x}%; top: ${region.position.y}%; background-color: ${region.color};`}
+              data-region={region.id}
+              onclick={`selectRegion('${region.id}')`}
+            >
+              <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-[#064161]/90 text-white text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+                {region.name}
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Region Details -->
+      <div id="region-details" class="mt-8">
+        <!-- Content will be populated by JavaScript -->
+      </div>
+    </div>
+
+    <!-- Schedule Section -->
+    <div class="max-w-4xl mx-auto">
+      <h3 class="text-3xl font-bold text-[#064161] text-center mb-8">Weekly Schedule</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {regions.map((region, index) => (
+          <div class="bg-[#FEE96A]/10 p-6 rounded-lg border border-[#FEE96A]/30 hover:border-[#FEE96A]/50 transition-colors">
+            <div class="flex items-center mb-4">
+              <div class="w-4 h-4 rounded-full mr-3" style={`background-color: ${region.color};`}></div>
+              <h4 class="text-xl font-bold text-[#064161]">{region.name}</h4>
+            </div>
+            <p class="text-[#064161]/80 mb-4">{region.description}</p>
+            <p class="text-sm text-[#FEE96A] font-bold">Week {index + 1}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </main>
+  
+  <!-- Now Playing Component -->
+  <NowPlaying />
+</Layout>
+
+<style>
+  .region-marker {
+    cursor: pointer;
+  }
+  
+  .region-marker:hover {
+    transform: scale(1.2);
+  }
+  
+  .playlist-card {
+    transition: all 0.3s ease;
+  }
+  
+  .playlist-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(254, 233, 106, 0.3);
+  }
+</style>
+
+<script>
+  // Sample data (same as above)
+  const regions = [
+    {
+      id: 'britain',
+      name: 'Britain',
+      description: 'The British Invasion and beyond',
+      color: '#FEE96A',
+      position: { x: 20, y: 30 },
+      playlists: [
+        {
+          title: 'The British Invasion',
+          description: 'From The Beatles to The Rolling Stones, explore the sounds that conquered America and changed music forever.',
+          image: '/images/british-invasion.jpg',
+          video: 'https://www.youtube.com/embed/example1',
+          tracks: ['I Want To Hold Your Hand - The Beatles', 'Satisfaction - The Rolling Stones', 'My Generation - The Who']
+        },
+        {
+          title: 'London Psychedelia',
+          description: 'The mind-bending sounds of London\'s underground scene in the late 60s.',
+          image: '/images/london-psychedelia.jpg',
+          video: 'https://www.youtube.com/embed/example2',
+          tracks: ['Arnold Layne - Pink Floyd', 'See Emily Play - Pink Floyd', 'White Rabbit - Jefferson Airplane']
+        }
+      ]
+    },
+    {
+      id: 'america',
+      name: 'America',
+      description: 'Folk, rock, and the counterculture',
+      color: '#C13870',
+      position: { x: 15, y: 45 },
+      playlists: [
+        {
+          title: 'Folk Revival',
+          description: 'The protest songs and acoustic sounds that defined a generation.',
+          image: '/images/folk-revival.jpg',
+          video: 'https://www.youtube.com/embed/example3',
+          tracks: ['Blowin\' in the Wind - Bob Dylan', 'The Times They Are A-Changin\' - Bob Dylan', 'If I Had a Hammer - Peter, Paul and Mary']
+        },
+        {
+          title: 'San Francisco Sound',
+          description: 'The psychedelic rock scene that emerged from the Bay Area.',
+          image: '/images/san-francisco.jpg',
+          video: 'https://www.youtube.com/embed/example4',
+          tracks: ['Somebody to Love - Jefferson Airplane', 'White Rabbit - Jefferson Airplane', 'Piece of My Heart - Big Brother & The Holding Company']
+        }
+      ]
+    },
+    {
+      id: 'jamaica',
+      name: 'Jamaica',
+      description: 'Ska, rocksteady, and the birth of reggae',
+      color: '#FEE96A',
+      position: { x: 25, y: 55 },
+      playlists: [
+        {
+          title: 'Ska Explosion',
+          description: 'The infectious rhythms that would influence music worldwide.',
+          image: '/images/ska-explosion.jpg',
+          video: 'https://www.youtube.com/embed/example5',
+          tracks: ['My Boy Lollipop - Millie Small', 'Guns of Navarone - The Skatalites', 'Simmer Down - The Wailers']
+        }
+      ]
+    },
+    {
+      id: 'brazil',
+      name: 'Brazil',
+      description: 'Bossa nova and tropicalia',
+      color: '#C13870',
+      position: { x: 30, y: 60 },
+      playlists: [
+        {
+          title: 'Bossa Nova Revolution',
+          description: 'The smooth sounds that brought Brazilian music to the world stage.',
+          image: '/images/bossa-nova.jpg',
+          video: 'https://www.youtube.com/embed/example6',
+          tracks: ['The Girl from Ipanema - Stan Getz & João Gilberto', 'Desafinado - João Gilberto', 'Corcovado - Stan Getz & João Gilberto']
+        },
+        {
+          title: 'Tropicalia Movement',
+          description: 'The experimental fusion that challenged Brazil\'s musical traditions.',
+          image: '/images/tropicalia.jpg',
+          video: 'https://www.youtube.com/embed/example7',
+          tracks: ['Tropicália - Caetano Veloso', 'Alegria, Alegria - Caetano Veloso', 'Panis et Circenses - Os Mutantes']
+        }
+      ]
+    },
+    {
+      id: 'india',
+      name: 'India',
+      description: 'Raga rock and classical fusion',
+      color: '#FEE96A',
+      position: { x: 65, y: 50 },
+      playlists: [
+        {
+          title: 'Raga Rock Revolution',
+          description: 'When Western rock met Indian classical music.',
+          image: '/images/raga-rock.jpg',
+          video: 'https://www.youtube.com/embed/example8',
+          tracks: ['Norwegian Wood - The Beatles', 'Within You Without You - The Beatles', 'Paint It Black - The Rolling Stones']
+        }
+      ]
+    }
+  ];
+
+  function selectRegion(regionId) {
+    const region = regions.find(r => r.id === regionId);
+    if (!region) return;
+
+    const detailsContainer = document.getElementById('region-details');
+    
+    detailsContainer.innerHTML = `
+      <div class="bg-[#FEE96A]/10 p-8 rounded-lg border border-[#FEE96A]/30">
+        <div class="flex items-center mb-6">
+          <div class="w-6 h-6 rounded-full mr-4" style="background-color: ${region.color};"></div>
+          <h4 class="text-3xl font-bold text-[#064161]">${region.name}</h4>
+        </div>
+        <p class="text-xl text-[#064161]/80 mb-8">${region.description}</p>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+          ${region.playlists.map(playlist => `
+            <div class="playlist-card bg-white p-6 rounded-lg border border-[#FEE96A]/30 shadow-sm">
+              <h5 class="text-xl font-bold text-[#064161] mb-4">${playlist.title}</h5>
+              <p class="text-[#064161]/80 mb-4">${playlist.description}</p>
+              
+              <div class="mb-4">
+                <h6 class="text-sm font-bold text-[#064161] mb-2">Featured Tracks:</h6>
+                <ul class="text-sm text-[#064161]/70 space-y-1">
+                  ${playlist.tracks.map(track => `<li>• ${track}</li>`).join('')}
+                </ul>
+              </div>
+              
+              <div class="flex space-x-4">
+                <button class="bg-[#FEE96A] text-[#064161] px-4 py-2 rounded font-bold hover:bg-[#FEE96A]/80 transition-colors">
+                  Listen to Playlist
+                </button>
+                <button class="border border-[#064161] text-[#064161] px-4 py-2 rounded font-bold hover:bg-[#064161] hover:text-white transition-colors">
+                  Learn More
+                </button>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+
+    // Scroll to details
+    detailsContainer.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Make function globally accessible
+  (window as any).selectRegion = selectRegion;
+</script>
+
+<style>
+  .polka {
+  /* background-image: 
+    radial-gradient(rgb(255, 255, 255) 29.2%, transparent 29.2%),
+    radial-gradient(rgb(255, 255, 255) 29.2%, transparent 29.2%);
+  background-position: 0px 0px, 8px 8px;
+  background-size: 16px 16px; */
+  /* background-color: rgb(255, 244, 106); */
+  background-image: url('/imgs/tree.png');
+  background-size: cover;
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+}
+</style>

@@ -1,0 +1,1 @@
+import { initIdentity } from "/node_modules/.vite/deps/astro-netlify-cms_identity-widget.js?v=b98360c1"; initIdentity('/admin');
