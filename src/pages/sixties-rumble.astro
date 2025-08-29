@@ -85,16 +85,30 @@ const regions = [
     <!-- Interactive section -->
     <div>
     
-      <!-- div overlay to make it scrollable -->
-      <div class="relative">
-        <div class="absolute top-0 left-0 w-full h-full  z-10"></div>
-      <!--  Container -->
-      <div id="canvas-container" class="relative flex justify-center items-center min-h-[300px] ">
-        <!-- Hidden image element as backup -->
-        <img id="backup-image" src="/imgs/southam1.png" style="display: none;" alt="South America Map">
-        <!-- <h3 class="text-3xl mb-8 rotate-[-10deg] font-bold text-[#FEE96A] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">South America in the 60s</h3> -->
-        </div>
-      </div>
+             <!-- div overlay to make it scrollable -->
+       <div class="relative">
+         <div class="absolute top-0 left-0 w-full h-full  z-10"></div>
+       <!--  Container -->
+       <div id="canvas-container" class="relative flex justify-center items-center min-h-[300px] ">
+         <!-- Loading Screen -->
+         <div id="loading-screen" class="absolute inset-0 flex flex-col items-center justify-center bg-[#064161] z-20">
+           <div class="text-center">
+             <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-[#FEE96A] mx-auto mb-4"></div>
+             <h3 class="text-[#FEE96A] text-xl font-bold mb-2">Loading South America</h3>
+             <p class="text-[#FEE96A]/80 text-sm">Preparing the 60s soundscape...</p>
+             <div class="mt-4">
+               <div class="w-32 bg-[#FEE96A]/20 rounded-full h-2 mx-auto">
+                 <div id="loading-progress" class="bg-[#FEE96A] h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+               </div>
+               <p id="loading-text" class="text-[#FEE96A]/60 text-xs mt-2">Loading images...</p>
+             </div>
+           </div>
+         </div>
+         <!-- Hidden image element as backup -->
+         <img id="backup-image" src="/imgs/southam1.png" style="display: none;" alt="South America Map">
+         <!-- <h3 class="text-3xl mb-8 rotate-[-10deg] font-bold text-[#FEE96A] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">South America in the 60s</h3> -->
+         </div>
+       </div>
       </div>
       <div class="flex justify-center items-center">
         <NowPlaying />
@@ -164,8 +178,10 @@ const regions = [
 <script is:inline>
  //p5.js code
  
-let imgs = [];
-let totalImages =12;
+ let imgs = [];
+ let totalImages = 12;
+ let imagesLoaded = 0;
+ let canvasReady = false;
 
 function shuffleArray(arr) {
   const array = [...arr]; // copy to avoid mutating original
@@ -176,31 +192,86 @@ function shuffleArray(arr) {
   return array;
 }
 
-function placeImagesInGrid(imgs, totalImages) {
-  let colSize = Math.floor(Math.sqrt(totalImages));
-  let rowSize = Math.floor(totalImages/colSize);  
-  for (let i = 0; i < imgs.length; i++) {
-    imgs[i].x = i%colSize*width/colSize - imgs[i].width/4;
-    imgs[i].y = i/rowSize*height/rowSize - imgs[i].height/4;
-  }
-}
+ function placeImagesInGrid(imgs, totalImages) {
+   let colSize = Math.floor(Math.sqrt(totalImages));
+   let rowSize = Math.floor(totalImages/colSize);  
+   for (let i = 0; i < imgs.length; i++) {
+     imgs[i].x = i%colSize*width/colSize - imgs[i].width/4;
+     imgs[i].y = i/rowSize*height/rowSize - imgs[i].height/4;
+   }
+ }
 
- async function setup() {
-  img1 = await loadImage('/imgs/southam1.png');
-  const pcanvas = createCanvas(window?.innerWidth-32, window?.innerHeight/2);
-  pcanvas.parent('canvas-container');
-  let imgArray = [];
-  for (let i = 0; i < totalImages; i++) {
-    const img = await loadImage(`/imgs/SA/s${i+1}.png`);
-    img.width = img.width/2;
-    img.height = img.height/2;
-    imgArray.push(img);
-  }
-  // randomize the image order
-  imgs = shuffleArray(imgArray);
-  // place them in a grid
-  placeImagesInGrid(imgs, totalImages);
-  background(165,218,210);
+ // Loading screen helper functions
+ function updateLoadingProgress(percent) {
+   const progressBar = document.getElementById('loading-progress');
+   if (progressBar) {
+     progressBar.style.width = percent + '%';
+   }
+ }
+
+ function updateLoadingText(text) {
+   const loadingText = document.getElementById('loading-text');
+   if (loadingText) {
+     loadingText.textContent = text;
+   }
+ }
+
+ function hideLoadingScreen() {
+   const loadingScreen = document.getElementById('loading-screen');
+   if (loadingScreen) {
+     loadingScreen.style.opacity = '0';
+     loadingScreen.style.transition = 'opacity 0.5s ease-out';
+     setTimeout(() => {
+       loadingScreen.style.display = 'none';
+     }, 500);
+   }
+ }
+
+   async function setup() {
+   // Update loading text
+   updateLoadingText('Loading main image...');
+   updateLoadingProgress(10);
+   
+   img1 = await loadImage('/imgs/southam1.png');
+   updateLoadingProgress(20);
+   
+   updateLoadingText('Creating canvas...');
+   const pcanvas = createCanvas(window?.innerWidth-32, window?.innerHeight/2);
+   pcanvas.parent('canvas-container');
+   updateLoadingProgress(30);
+   
+   updateLoadingText('Loading South America images...');
+   let imgArray = [];
+   for (let i = 0; i < totalImages; i++) {
+     updateLoadingText(`Loading image ${i + 1} of ${totalImages}...`);
+     const progress = 30 + ((i + 1) / totalImages) * 60; // 30% to 90%
+     updateLoadingProgress(progress);
+     
+     const img = await loadImage(`/imgs/SA/s${i+1}.png`);
+     img.width = img.width/2;
+     img.height = img.height/2;
+     imgArray.push(img);
+     imagesLoaded++;
+   }
+   
+   updateLoadingText('Finalizing setup...');
+   updateLoadingProgress(95);
+   
+   // randomize the image order
+   imgs = shuffleArray(imgArray);
+   // place them in a grid
+   placeImagesInGrid(imgs, totalImages);
+   background(165,218,210);
+   
+   updateLoadingProgress(100);
+   updateLoadingText('Ready!');
+   
+   // Hide loading screen after a short delay
+   setTimeout(() => {
+     hideLoadingScreen();
+   }, 500);
+   
+   canvasReady = true;
 
 
   // for (let i = 0; i < 20; i++) {
@@ -210,13 +281,18 @@ function placeImagesInGrid(imgs, totalImages) {
 
 }
 
- function draw() {
-  // background(255);
-  // noStroke();
-  // fill(165,218,210,20);
-  // rect(0,0,width,height);
-  stroke(255,233,100,10);
-  strokeWeight(1);
+   function draw() {
+   // Only draw if canvas is ready
+   if (!canvasReady) {
+     return;
+   }
+   
+   // background(255);
+   // noStroke();
+   // fill(165,218,210,20);
+   // rect(0,0,width,height);
+   stroke(255,233,100,10);
+   strokeWeight(1);
 
 
 
