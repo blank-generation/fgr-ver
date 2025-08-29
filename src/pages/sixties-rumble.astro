@@ -239,13 +239,13 @@ function shuffleArray(arr) {
     isAnimating = true;
     for (let i = 0; i < imgs.length; i++) {
      imgs[i].nx = i%colSize*width/colSize - imgs[i].width/4;
-     imgs[i].ny = i/rowSize*height/rowSize - imgs[i].height/2;
+     imgs[i].ny = i/rowSize*height/rowSize - imgs[i].height;
    }
    } else {
     // console.log('not animating', frameCount);
     for (let i = 0; i < imgs.length; i++) {
       imgs[i].x = i%colSize*width/colSize - imgs[i].width/4;
-      imgs[i].y = i/rowSize*height/rowSize - imgs[i].height/2;
+      imgs[i].y = i/rowSize*height/rowSize - imgs[i].height;
     }
    }
   
