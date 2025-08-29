@@ -179,9 +179,10 @@ const regions = [
  //p5.js code
  
  let imgs = [];
- let totalImages = 12;
+ let totalImages = 11;
  let imagesLoaded = 0;
  let canvasReady = false;
+ let isAnimating = false;
 
 function shuffleArray(arr) {
   const array = [...arr]; // copy to avoid mutating original
@@ -192,13 +193,28 @@ function shuffleArray(arr) {
   return array;
 }
 
- function placeImagesInGrid(imgs, totalImages) {
+
+
+ function placeImagesInGrid(imgs, totalImages, frameCount) {
    let colSize = Math.floor(Math.sqrt(totalImages));
    let rowSize = Math.floor(totalImages/colSize);  
-   for (let i = 0; i < imgs.length; i++) {
-     imgs[i].x = i%colSize*width/colSize - imgs[i].width/4;
-     imgs[i].y = i/rowSize*height/rowSize - imgs[i].height/4;
+
+   if(frameCount > 0) {
+    // console.log('animating', frameCount);
+
+    isAnimating = true;
+    for (let i = 0; i < imgs.length; i++) {
+     imgs[i].nx = i%colSize*width/colSize - imgs[i].width/4;
+     imgs[i].ny = i/rowSize*height/rowSize - imgs[i].height/4;
    }
+   } else {
+    // console.log('not animating', frameCount);
+    for (let i = 0; i < imgs.length; i++) {
+      imgs[i].x = i%colSize*width/colSize - imgs[i].width/4;
+      imgs[i].y = i/rowSize*height/rowSize - imgs[i].height/4;
+    }
+   }
+  
  }
 
  // Loading screen helper functions
@@ -287,47 +303,38 @@ function shuffleArray(arr) {
      return;
    }
    
-   // background(255);
-   // noStroke();
-   // fill(165,218,210,20);
-   // rect(0,0,width,height);
-   stroke(255,233,100,10);
-   strokeWeight(1);
+   function updateImageLocations(imgs, totalImages) {
+    for (let i = 0; i < totalImages; i++) {
+      if(isAnimating) {
+      imgs[i].x = lerp(imgs[i].x, imgs[i].nx, 0.1);
+      imgs[i].y = lerp(imgs[i].y, imgs[i].ny, 0.1);
+    }
+
+   }
+  // check if last image is in the correct position
+  if(imgs[totalImages-1].x + 0.2 > imgs[totalImages-1].nx && imgs[totalImages-1].y + 0.2 > imgs[totalImages-1].ny) {
+    isAnimating = false;
+    // console.log('animating done');
+  }
+  }
 
 
-
-// circles grow and shrink
-
-// for (let circ of circles) {
-//   circ.s = circ.s + sin(frameCount/100);
-//   // circle.x = circle.x + noise(0.005 * frameCount+300)*10;
-//   // circle.y = circle.y + noise(0.005 * frameCount+400)*10;
-//   // fill(255,253,106 ,0);
-//   ellipse(circ.x, circ.y, circ.s, circ.s);
- 
-// }
 
 // draw the images
 for (let i = 0; i < totalImages; i++) {
-  // place them in a grid
-
-  // let x = i%5*width/5 + imgs[i].width/5;
-  // let y = i/5*height/5 + imgs[i].height/5;
   let imageIndex = i%totalImages;
-  // make sure they are in the canvas
-  let x = noise(0.005 * frameCount+i*100 + i)* 50;
-  let y = noise(0.005 * frameCount+i*100 + i+1) *50;
-  // if (x > width) x = width-imgs[i].width/2;
-  // if (x < 0) x = 0+imgs[i].width/2;
-  // if (y > height) y = height-imgs[i].height/2;
-  // if (y < 0) y = 0+imgs[i].height/2;
-  image(imgs[imageIndex], imgs[imageIndex].x + x, imgs[imageIndex].y + y);
+ 
+    let x = noise(0.005 * frameCount+i*100 + i)* 50;
+    let y = noise(0.005 * frameCount+i*100 + i+1) *50;
+    image(imgs[imageIndex], imgs[imageIndex].x + x, imgs[imageIndex].y + y);
+  
+  
 }
-if(frameCount % 60 == 0) {
+if(frameCount % 60 == 0 && !isAnimating) {
   imgs = shuffleArray(imgs);
-  placeImagesInGrid(imgs, totalImages);
+  placeImagesInGrid(imgs, totalImages, frameCount);
 }
-
+updateImageLocations(imgs, totalImages);
   // rotate(frameCount/100);
 
   
