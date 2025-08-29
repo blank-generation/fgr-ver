@@ -13,6 +13,9 @@
     white 60%
   );
 }
+#defaultCanvas0 {
+  border-radius: 20px;
+}
 
 html {
   font-family: system-ui, sans-serif;
