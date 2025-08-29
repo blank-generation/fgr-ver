@@ -67,26 +67,30 @@ const regions = [
 <Layout title="FGR Curates: The Sixties Rumble">
   <!-- <Menu title="The Sixties Rumble" /> -->
   
-  <main class=" pt-8 md:p-10 p-4 bg-white ">
+  <main class="  md:p-10 p-4 bg-white ">
     <!-- Hero Section -->
     <div class="text-center  mb-2">
       <!-- <h1 class="text-6xl font-bold text-[#FEE96A] mb-6">FGR CURATES</h1> -->
        <img src="/imgs/fgr_curr.png" alt="The Sixties Rumble" class="w-full h-auto max-w-md mx-auto">
-      <img src="/imgs/tree.png" alt="The Sixties Rumble" class="absolute top-0 left-1/2 -translate-x-1/2 w-20 rotate-[-10deg] h-auto">
-       <h2 class="text-2xl text-[#064161] ">THE SIXTIES RUMBLE</h2>
-
+      <!-- <img src="/imgs/tree.png" alt="The Sixties Rumble" class="absolute top-0 left-1/2 -translate-x-1/2 w-20 rotate-[-10deg] h-auto"> -->
+       <h2 class="text-2xl text-[#064161] mb-2 ">THE SIXTIES RUMBLE</h2>
+       <div class="bg-[#FEE96A] w-fit mx-auto px-4 py-2 rounded-full flex items-center gap-2">
+        <!-- dot -->
+        <div class="w-2 h-2 bg-red-500 rounded-full"></div>
+        <h3 class="text-2xl font-bold text-[#064161] text-center ">South America in the 60s</h3> 
+        </div>
     </div>
 
 
     <!-- Interactive section -->
     <div>
-      <!-- <h3 class="text-3xl font-bold text-[#064161] text-center mb-8">Explore the Global Soundscape</h3> -->
+    
       
       <!--  Container -->
       <div id="canvas-container" class="relative flex justify-center items-center min-h-[300px] ">
         <!-- Hidden image element as backup -->
         <img id="backup-image" src="/imgs/southam1.png" style="display: none;" alt="South America Map">
-        <h3 class="text-3xl mb-8 rotate-[-10deg] font-bold text-[#FEE96A] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">South America in the 60s</h3>
+        <!-- <h3 class="text-3xl mb-8 rotate-[-10deg] font-bold text-[#FEE96A] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">South America in the 60s</h3> -->
        
       </div>
       </div>
@@ -158,41 +162,96 @@ const regions = [
 <script is:inline>
  //p5.js code
  
-let img1;
-let circles = [];
+let imgs = [];
+let totalImages =12;
 
+function shuffleArray(arr) {
+  const array = [...arr]; // copy to avoid mutating original
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1)); // pick a random index
+    [array[i], array[j]] = [array[j], array[i]];   // swap
+  }
+  return array;
+}
+
+function placeImagesInGrid(imgs, totalImages) {
+  let colSize = Math.floor(Math.sqrt(totalImages));
+  let rowSize = Math.floor(totalImages/colSize);  
+  for (let i = 0; i < imgs.length; i++) {
+    imgs[i].x = i%colSize*width/colSize - imgs[i].width/4;
+    imgs[i].y = i/rowSize*height/rowSize - imgs[i].height/4;
+  }
+}
 
  async function setup() {
   img1 = await loadImage('/imgs/southam1.png');
   const pcanvas = createCanvas(window?.innerWidth-32, window?.innerHeight/2);
   pcanvas.parent('canvas-container');
-  for (let i = 0; i < 20; i++) {
-  circles.push({x: random(-width,width), y: random(-height,height), s: random(10,100)});
-}
+  let imgArray = [];
+  for (let i = 0; i < totalImages; i++) {
+    const img = await loadImage(`/imgs/SA/s${i+1}.png`);
+    img.width = img.width/2;
+    img.height = img.height/2;
+    imgArray.push(img);
+  }
+  // randomize the image order
+  imgs = shuffleArray(imgArray);
+  // place them in a grid
+  placeImagesInGrid(imgs, totalImages);
+  background(165,218,210);
+
+
+  // for (let i = 0; i < 20; i++) {
+  // circles.push({x: random(-width,width), y: random(-height,height), s: random(10,100)});
+// }
 // background(100);
+
 }
 
  function draw() {
   // background(255);
-  noStroke();
-  fill(165,218,210,20);
-  rect(0,0,width,height);
-  stroke(255,233,100,20);
+  // noStroke();
+  // fill(165,218,210,20);
+  // rect(0,0,width,height);
+  stroke(255,233,100,10);
   strokeWeight(1);
+
+
 
 // circles grow and shrink
 
-for (let circ of circles) {
-  circ.s = circ.s + sin(frameCount/100);
-  // circle.x = circle.x + noise(0.005 * frameCount+300)*10;
-  // circle.y = circle.y + noise(0.005 * frameCount+400)*10;
-  fill(255,253,106 ,0);
-  ellipse(circ.x, circ.y, circ.s, circ.s);
+// for (let circ of circles) {
+//   circ.s = circ.s + sin(frameCount/100);
+//   // circle.x = circle.x + noise(0.005 * frameCount+300)*10;
+//   // circle.y = circle.y + noise(0.005 * frameCount+400)*10;
+//   // fill(255,253,106 ,0);
+//   ellipse(circ.x, circ.y, circ.s, circ.s);
+ 
+// }
+
+// draw the images
+for (let i = 0; i < totalImages; i++) {
+  // place them in a grid
+
+  // let x = i%5*width/5 + imgs[i].width/5;
+  // let y = i/5*height/5 + imgs[i].height/5;
+  let imageIndex = i%totalImages;
+  // make sure they are in the canvas
+  let x = noise(0.005 * frameCount+i*100 + i)* 50;
+  let y = noise(0.005 * frameCount+i*100 + i+1) *50;
+  // if (x > width) x = width-imgs[i].width/2;
+  // if (x < 0) x = 0+imgs[i].width/2;
+  // if (y > height) y = height-imgs[i].height/2;
+  // if (y < 0) y = 0+imgs[i].height/2;
+  image(imgs[imageIndex], imgs[imageIndex].x + x, imgs[imageIndex].y + y);
+}
+if(frameCount % 60 == 0) {
+  imgs = shuffleArray(imgs);
+  placeImagesInGrid(imgs, totalImages);
 }
 
   // rotate(frameCount/100);
-  
-  
+
   
   // let x = noise(0.008 * frameCount)*width/2;
   // let y = noise(0.005 * frameCount+100)*height/2;
