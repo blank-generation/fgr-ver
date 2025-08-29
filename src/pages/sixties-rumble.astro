@@ -69,12 +69,43 @@ const regions = [
   
   <main class=" pt-8 md:p-10 p-4 bg-white ">
     <!-- Hero Section -->
-    <div class="text-center md:mb-16 mb-8">
+    <div class="text-center  mb-2">
       <!-- <h1 class="text-6xl font-bold text-[#FEE96A] mb-6">FGR CURATES</h1> -->
        <img src="/imgs/fgr_curr.png" alt="The Sixties Rumble" class="w-full h-auto max-w-md mx-auto">
-      <h2 class="text-2xl text-[#FEE96A] mb-4">THE SIXTIES RUMBLE</h2>
-   
-      <div class="flex items-center justify-center gap-2">
+      <img src="/imgs/tree.png" alt="The Sixties Rumble" class="absolute top-0 left-1/2 -translate-x-1/2 w-20 rotate-[-10deg] h-auto">
+       <h2 class="text-2xl text-[#064161] ">THE SIXTIES RUMBLE</h2>
+
+    </div>
+
+
+    <!-- Interactive section -->
+    <div>
+      <!-- <h3 class="text-3xl font-bold text-[#064161] text-center mb-8">Explore the Global Soundscape</h3> -->
+      
+      <!--  Container -->
+      <div id="canvas-container" class="relative flex justify-center items-center min-h-[300px] ">
+        <!-- Hidden image element as backup -->
+        <img id="backup-image" src="/imgs/southam1.png" style="display: none;" alt="South America Map">
+        <h3 class="text-3xl mb-8 rotate-[-10deg] font-bold text-[#FEE96A] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">South America in the 60s</h3>
+       
+      </div>
+      </div>
+      <div class="flex justify-center items-center">
+        <NowPlaying />
+
+      </div>
+
+      <!-- Region Details -->
+      <div class="mb-12">
+        <RegionDetails />
+      </div>
+
+    <!-- Schedule Section -->
+    <div class="max-w-4xl mx-auto">
+      
+      <hr class="border-2 border-[#FEE96A] mb-8">
+      <h3 class="text-3xl font-bold text-[#064161] text-center mb-8">Week Schedule</h3>
+      <div class="flex items-center justify-center gap-2 mb-8">
         <div>
         <img src="/imgs/fgrlogo.png" alt="FGR logo" class="max-w-[56px] rounded">
       </div>
@@ -85,31 +116,6 @@ const regions = [
         <img src="/imgs/beachville_logo.png" alt="FGR logo" class="max-h-[56px] rounded">
       </div>
       </div>
-      
-    </div>
-
-
-    <!-- Interactive section -->
-    <div class="mb-16">
-      <!-- <h3 class="text-3xl font-bold text-[#064161] text-center mb-8">Explore the Global Soundscape</h3> -->
-      
-      <!--  Container -->
-      <div id="canvas-container" class="relative flex justify-center items-center min-h-[300px] ">
-        <!-- Hidden image element as backup -->
-        <img id="backup-image" src="/imgs/southam1.png" style="display: none;" alt="South America Map">
-        <h3 class="text-3xl mb-8 rotate-[-10deg] font-bold text-[#FEE96A] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">South America in the 60s</h3>
-       
-      </div>
-
-      <!-- Region Details -->
-      <div class="mb-8">
-        <RegionDetails />
-      </div>
-
-    <!-- Schedule Section -->
-    <div class="max-w-4xl mx-auto">
-      <hr class="border-2 border-[#FEE96A] mb-8">
-      <h3 class="text-3xl font-bold text-[#064161] text-center mb-8">Week Schedule</h3>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {regions.map((region, index) => (
           <div class={` p-6 rounded-lg border border-[#FEE96A]/30 hover:border-[#FEE96A]/50 transition-colors ${region.isActive ? 'bg-[#FEE96A]/10 border-[#FEE96A]' : 'bg-[#FEE96A]/10 border-[#FEE96A]/30'}`}>
@@ -118,7 +124,7 @@ const regions = [
               <h4 class="text-xl font-bold text-[#064161]">{region.name}</h4>
             </div>
             <p class="text-[#064161]/80 mb-4">{region.description}</p>
-            <p class="text-sm text-[#FEE96A] font-bold">{region.day}</p>
+            <p class="text-sm text-[#064161] bg-[#FEE96A] w-fit px-2 py-1 rounded-full mb-2 ">{region.day}</p>
             <p class="text-sm text-[#064161] font-bold">{region.isActive ? '[TODAY!]' : ''}</p>
           </div>
         ))}
@@ -127,7 +133,6 @@ const regions = [
   </main>
   
   <!-- Now Playing Component -->
-  <NowPlaying />
 </Layout>
 
 <style>
@@ -159,7 +164,7 @@ let circles = [];
 
  async function setup() {
   img1 = await loadImage('/imgs/southam1.png');
-  const pcanvas = createCanvas(window?.innerWidth-10, window?.innerHeight/2);
+  const pcanvas = createCanvas(window?.innerWidth-32, window?.innerHeight/2);
   pcanvas.parent('canvas-container');
   for (let i = 0; i < 20; i++) {
   circles.push({x: random(-width,width), y: random(-height,height), s: random(10,100)});
