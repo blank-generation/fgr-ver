@@ -62,12 +62,62 @@ const regions = [
     isActive: false,
   },
 ];
+
+const imageElements = [
+  {
+    id: 'image-1',
+    src: '/imgs/SA/s1.png',
+    alt: 'South America',
+    x: 0,
+    y: 0,
+  },
+  {
+    id: 'image-2',
+    src: '/imgs/SA/s2.png',
+    alt: 'South America',
+    x: 0,
+    y: 0,
+  },
+  
+  {
+    id: 'image-3',
+    src: '/imgs/SA/s3.png',
+    alt: 'South America',
+    x: 0,
+    y: 0,
+  },
+  
+  {
+    id: 'image-4',
+    src: '/imgs/SA/s4.png',
+    alt: 'South America',
+    x: 0,
+    y: 0,
+  },
+  
+  {
+    id: 'image-5',
+    src: '/imgs/SA/s5.png',
+    alt: 'South America',
+    x: 0,
+    y: 0,
+  },
+  
+];
 ---
 
-<Layout title="FGR Curates: The Sixties Rumble">
+<Layout title="FGR Curates: The Sixties Rumble" class="bg-white">
   <!-- <Menu title="The Sixties Rumble" /> -->
-  
-  <main class="  md:p-10 p-4 bg-white ">
+  <div class="decorations">
+    {imageElements.map((img, i) => (
+      <img 
+        src={img.src} 
+        alt={img.alt} 
+        class={`decor-img spin-${i % 2} pulse-${i % 3}`} 
+      />
+    ))}
+  </div>
+  <main class="relative z-10  md:p-10 p-4  ">
     <!-- Hero Section -->
     <div class="text-center  mb-4">
       <!-- <h1 class="text-6xl font-bold text-[#FEE96A] mb-6">FGR CURATES</h1> -->
@@ -76,7 +126,8 @@ const regions = [
        <h2 class="text-2xl text-[#064161] mb-2 ">THE SIXTIES RUMBLE</h2>
        <div class="bg-[#FEE96A] w-fit mx-auto px-4 py-2 rounded-full flex items-center gap-2">
         <!-- dot -->
-        <div class="w-2 h-2 bg-red-500 rounded-full"></div>
+        <div class="animate-pulse w-2 h-2 bg-red-500 rounded-full"></div>
+        {/* <span class="w-2 h-2 bg-red-500 relative left-[-16px] rounded-full"></span> */}
         <h3 class="text-2xl font-bold text-[#064161] text-center ">South America in the 60s</h3> 
         </div>
     </div>
@@ -84,8 +135,6 @@ const regions = [
 
     <!-- Interactive section -->
     <div>
-    
-             <!-- div overlay to make it scrollable -->
        <div class="relative">
          <div class="absolute top-0 left-0 w-full h-full  z-10"></div>
        <!--  Container -->
@@ -151,28 +200,13 @@ const regions = [
       </div>
     </div>
   </main>
+
+ 
   
   <!-- Now Playing Component -->
 </Layout>
 
-<style>
-  .region-marker {
-    cursor: pointer;
-  }
-  
-  .region-marker:hover {
-    transform: scale(1.2);
-  }
-  
-  .playlist-card {
-    transition: all 0.3s ease;
-  }
-  
-  .playlist-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(254, 233, 106, 0.3);
-  }
-</style>
+
 <!-- <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/2.0.4/p5.min.js" integrity="sha512-rOTpdy9fXlcLeLxPj5H4pof51FAx2lVK8Soexk8yTek9wrenwm56MKT2VddH8GCDd4a2js2i4GwezlUkbGdVQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
 <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/2.0.5-rc.0/p5.js" integrity="sha512-jd5u/oY0j6Ha4yGjMSGohWJz8yQocZiHID/zEtZiIWoGL0pEm2l7lFKIRgMeVOha8bvBwHhw7vUDwbJ27vCu6g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script is:inline>
@@ -205,13 +239,13 @@ function shuffleArray(arr) {
     isAnimating = true;
     for (let i = 0; i < imgs.length; i++) {
      imgs[i].nx = i%colSize*width/colSize - imgs[i].width/4;
-     imgs[i].ny = i/rowSize*height/rowSize - imgs[i].height/4;
+     imgs[i].ny = i/rowSize*height/rowSize - imgs[i].height/2;
    }
    } else {
     // console.log('not animating', frameCount);
     for (let i = 0; i < imgs.length; i++) {
       imgs[i].x = i%colSize*width/colSize - imgs[i].width/4;
-      imgs[i].y = i/rowSize*height/rowSize - imgs[i].height/4;
+      imgs[i].y = i/rowSize*height/rowSize - imgs[i].height/2;
     }
    }
   
@@ -349,11 +383,69 @@ updateImageLocations(imgs, totalImages);
   // text("FGR",width/2,height/2);
 }
 
-
+document.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+    document.querySelectorAll(".decor-img").forEach((img, i) => {
+      img.style.transform = `translateY(${scrollY * 0.05 * (i+1)}px) rotate(${(scrollY * 0.1 )}deg)`;
+    });
+  });
 
 </script>
 
 <style>
+   .region-marker {
+    cursor: pointer;
+  }
+  
+  .region-marker:hover {
+    transform: scale(1.2);
+  }
+  
+  .playlist-card {
+    transition: all 0.3s ease;
+  }
+  
+  .playlist-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(254, 233, 106, 0.3);
+  }
+
+   .decorations {
+    position: fixed;
+    inset: 0; /* full screen */
+    pointer-events: none; /* don’t block clicks */
+    overflow: hidden;
+    z-index: 0;
+  }
+  .decor-img {
+    position: absolute;
+    width: 60px; /* small size */
+    opacity: 0.8;
+  }
+
+  /* Sprinkle them around manually (or randomize with JS) */
+  .decor-img:nth-child(1) { top: 0%; left: 2%; rotate: 10deg; }
+  .decor-img:nth-child(2) { bottom: 15%; right: 8%; rotate: -10deg; }
+  .decor-img:nth-child(3) { top: 2%; right: 10%; rotate: 10deg; }
+  .decor-img:nth-child(4) { top: 20%; left: -3%; rotate: -10deg; }
+  .decor-img:nth-child(5) { top: 50%; right: 2%; rotate: 10deg; }
+
+  /* Spin animations */
+  /* @keyframes spinee {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .spin-0 { animation: spinee 20s linear infinite; }
+  .spin-1 { animation: spinee 35s linear infinite reverse; } */
+
+  /* Pulse animations */
+  /* @keyframes pulsee {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.2); opacity: 1; }
+  }
+  .pulse-0 { animation: pulsee 6s ease-in-out infinite; }
+  .pulse-1 { animation: pulsee 8s ease-in-out infinite; }
+  .pulse-2 { animation: pulsee 10s ease-in-out infinite; } */
 
   .polka {
   /* background-image: 
