@@ -6,6 +6,7 @@
 
 <div id="now-playing" class=" bg-white border border-[#FEE96A]/30 rounded-lg shadow-lg px-4 py-2 w-full hidden max-w-md">
   <p class="text-md font-bold text-[#064161]">Now Playing:</p>
+  <a href="#" id="spotify-link"  target="_blank">
   <div class="flex items-center space-x-3">
     <div id="album-art" class="w-12 h-12 bg-gray-200 rounded flex-shrink-0">
       <img id="album-image" src="" alt="Album Art" class="w-full h-full rounded object-cover hidden">
@@ -26,6 +27,7 @@
       </div>
     </div>
   </div>
+  </a>
 </div>
 
 <script>
@@ -37,11 +39,12 @@
     const trackName = document.getElementById('track-name');
     const artistName = document.getElementById('artist-name');
     const albumImage = document.getElementById('album-image') as HTMLImageElement;
- 
+    const spotifyLink = document.getElementById('spotify-link') as HTMLAnchorElement;
    
 
     if (!trackData || !trackData.track) {
       container.classList.add('hidden');
+      spotifyLink.href = '#';
       return;
     }
 
@@ -53,7 +56,7 @@
     // Update track info
     trackName.textContent = track.name;
     artistName.textContent = track?.artist || track?.artists?.map(artist => artist.name).join(', ');
-
+    spotifyLink.href = track?.url || '#';
     // Update album art
     if (track.image) {
       albumImage.src = track.image;
