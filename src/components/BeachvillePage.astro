@@ -243,7 +243,7 @@ const imageElements = allImages.slice(0, 5);
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {regionsWithActive.map((region, index) => (
-          <a href={`/sixties-rumble/${region.id}`} class={` p-4 rounded-lg border border-[#FEE96A]/30 hover:border-[#FEE96A]/50 transition-colors ${region.isActive ? 'bg-[#FEE96A]/10 border-[#FEE96A]' : 'bg-[#FEE96A]/10 border-[#FEE96A]/30'}`}>
+          <a href={`/sixties-rumble/${region.id}`} class={`${index%2==0? 'rotate-[-1deg]' : 'rotate-[1deg]'} p-4 rounded-lg border border-[#FEE96A]/30 hover:border-[#FEE96A]/50 transition-colors ${region.isActive ? 'bg-[#FEE96A]/20 border-[#FEE96A]' : 'bg-[#FEE96A]/20 border-[#FEE96A]/30'}`}>
             <div class="flex items-center gap-4">
             <div class="flex items-center">
               <div class="w-4 h-4 rounded-full mr-3" style={`background-color: ${todaysActiveRegion?.id === region.id ? '#C13870'  : '#FEE96A'};`}></div>
@@ -255,16 +255,19 @@ const imageElements = allImages.slice(0, 5);
           </a>
         ))}
       </div>
-    </div>
-    <!-- footer -->
-    <div class="text-center text-sm text-[#064161] max-w-2xl bg-[#c13870]/10 mx-auto mt-16 border-2 border-[#c13870]/30 pt-4 rounded-xl">
-      <span>Website crafted by Television Dust</span>
-      <div class="flex justify-center mt-2 items-center w-24 h-24 mx-auto bg-[#FEE96A] rounded-full">
-      <a href="https://televisiondust.art" target="_blank">
-      <img src="/imgs/tvdustLOGOF.png" alt="Television Dust" class="w-24 object-contain h-24 mx-auto">
-      </a>
+       <!-- footer -->
+    <div class="text-center text-sm text-[#064161] w-full mx-auto mt-16 ">
+       
+        <div class="flex justify-center mt-2 items-center w-24 h-24 mx-auto bg-[#FEE96A] rounded-full">
+        <a href="https://televisiondust.art" target="_blank">
+        <img src="/imgs/tvdustLOGOF.png" alt="Television Dust" class="w-24 object-contain h-24 mx-auto">
+        </a>
+        </div>
+        <span>Website crafted by Television Dust</span>
+
       </div>
     </div>
+   
   </main>
 
  
