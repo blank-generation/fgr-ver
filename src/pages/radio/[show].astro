@@ -18,13 +18,11 @@ const curator = curatorList.find((obj) => {
 
 export async function getStaticPaths() {
   const shows = await Astro.glob("./content/*.md");
-  return [
-    shows?.map((show) => ({
-      params: {
-        show: show.url.split("/").pop(),
-      },
-    })),
-  ];
+  return shows?.map((show) => ({
+    params: {
+      show: show.url.split("/").pop(),
+    },
+  }));
 }
 
 const { title, tags, tracklist, link, img: art, about } = show?.frontmatter;
