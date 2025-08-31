@@ -33,6 +33,10 @@
 <script>
   import { supabase } from '../lib/supabase';
 
+  // Store the last successfully fetched data
+  let lastSuccessfulData = null;
+  let isInitialized = false;
+
   const updateDisplay = (trackData) => {
     console.log('trackData', trackData);
     const container = document.getElementById('now-playing');
@@ -63,10 +67,6 @@
       albumImage.classList.remove('hidden');
     }
 
-
-
-    
-
     // Show the container
     container.classList.remove('hidden');
   };
@@ -75,6 +75,23 @@
     const minutes = Math.floor(ms / 60000);
     const seconds = Math.floor((ms % 60000) / 1000);
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  };
+
+  const showFallbackData = () => {
+    // Use the last successful data if available, otherwise show loading
+    if (lastSuccessfulData) {
+      console.log('Using last successful data as fallback');
+      updateDisplay(lastSuccessfulData);
+    } else {
+      console.log('No previous data available, showing loading state');
+      const container = document.getElementById('now-playing');
+      const trackName = document.getElementById('track-name');
+      const artistName = document.getElementById('artist-name');
+      
+      trackName.textContent = 'Loading...';
+      artistName.textContent = 'Loading...';
+      container.classList.remove('hidden');
+    }
   };
 
   const nowPlaying = async () => {
@@ -88,40 +105,24 @@
 
       if (error) {
         console.error('Error fetching now playing data:', error);
-        showDemoData();
+        showFallbackData();
         return;
       }
 
       if (data && data.details) {
         console.log('Now playing data:', data.details);
+        // Store the successful data
+        lastSuccessfulData = data.details;
         updateDisplay(data.details);
+        isInitialized = true;
       } else {
         console.log('No now playing data found');
-        showDemoData();
+        showFallbackData();
       }
     } catch (error) {
       console.error('Error fetching now playing:', error);
-      showDemoData();
+      showFallbackData();
     }
-  };
-
-  const showDemoData = () => {
-    // Demo data for when API is not available
-    const demoData = {
-      track: {
-        name: "Norwegian Wood (This Bird Has Flown)",
-        artists: [{ name: "The Beatles" }],
-        image: "https://i.scdn.co/image/ab67616d0000b273dc3058ba0c6c3bd3a2e4b5b5",
-        duration_ms: 125000
-      },
-      playing: true,
-      raw: {
-        progress_ms: 45000,
-        duration_ms: 125000
-      }
-    };
-
-    updateDisplay(demoData);
   };
 
   // Initialize when DOM is loaded
@@ -131,8 +132,19 @@
     
     // Poll every 10 seconds for updates
     setInterval(() => {
-      nowPlaying();
+      // Only poll if the page is visible (not when tab is inactive)
+      if (!document.hidden) {
+        nowPlaying();
+      }
     }, 10000);
+
+    // Handle page visibility changes
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden && isInitialized) {
+        // When page becomes visible again, fetch fresh data
+        nowPlaying();
+      }
+    });
   });
 </script>
 
