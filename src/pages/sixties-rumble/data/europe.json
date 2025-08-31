@@ -1,0 +1,222 @@
+{
+    "title": "Europe in the 60s",
+    "slug": "europe-60s",
+    "images": [
+        {
+            "id": "image-1",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/europe_assets/e1.png"
+        },
+        
+        {
+            "id": "image-2",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/europe_assets/e2.png"
+        },
+        
+        {
+            "id": "image-3",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/europe_assets/e3.png"
+        },
+        
+        
+        {
+            "id": "image-4",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/europe_assets/e4.png"
+        },
+        
+        
+        {
+            "id": "image-5",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/europe_assets/e5.png"
+        }, 
+        {
+            "id": "image-6",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/europe_assets/e6.png"
+        },
+        
+        {
+            "id": "image-7",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/europe_assets/e7.png"
+        },
+        
+        
+        {
+            "id": "image-8",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/europe_assets/e8.png"
+        },
+        
+        {
+            "id": "image-9",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/europe_assets/e9.png"
+        },
+        
+        
+        {
+            "id": "image-10",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/europe_assets/e10.png"
+        }
+        
+    ],      
+
+    "sections": [
+      {
+        "id": "section1",
+        "title": "The Political Weather",
+        "content": "./content/south-america/political-weather.mdx"
+      },
+      {
+        "id": "section2",
+        "title": "What People Were Hearing",
+        "content": "./content/south-america/what-people-heard.mdx"
+      },
+      {
+        "id": "section3",
+        "title": "Scenes & Sounds That Emerged",
+        "content": "./content/south-america/scenes-sounds.mdx"
+      },
+      {
+        "id": "section4",
+        "title": "The Tech Factor",
+        "content": "./content/south-america/tech-factor.mdx"
+      },
+      {
+        "id": "section5",
+        "title": "Notable Artists",
+        "content": "./content/south-america/notable-artists.mdx"
+      }
+    ],
+    "notable_artists": [
+      {
+        "title": "France",
+        "artists": [
+          {
+            "name": "Françoise Hardy",
+            "description": "French pop singer and fashion icon of the 1960s."
+          },
+          {
+            "name": "France Gall",
+            "description": "French pop singer who won Eurovision in 1965."
+          },
+          {
+            "name": "Serge Gainsbourg",
+            "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/europe_assets/content_images/Serge.jpeg",
+            "description": "Provocative French singer-songwriter and cultural icon."
+          },
+          {
+            "name": "Jane Birkin",
+            "description": "British-French actress and singer, muse to Serge Gainsbourg. She made the Birkin Bag famous."
+          }
+        ]
+      },
+      {
+        "title": "Germany",
+        "artists": [
+          {
+            "name": "Udo Jürgens",
+            "description": "Austrian-German Schlager singer and Eurovision winner."
+          },
+          {
+            "name": "Karlheinz Stockhausen",
+            "description": "German composer and early experimentalist in electronic music."
+          }
+        ]
+      },
+      {
+        "title": "Italy",
+        "artists": [
+          {
+            "name": "Armando Trovajoli",
+            "description": "Italian composer and film score maestro."
+          },
+          {
+            "name": "Pablo Piccioni",
+            "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/europe_assets/content_images/Piero_piccioni.jpeg",
+            "description": "Italian composer known for his innovative arrangements."
+          },
+          {
+            "name": "Piero Ummiliani",
+            "description": "Italian composer and pioneer of library music."
+          }
+        ]
+      },
+      {
+        "title": "Spain",
+        "artists": [
+          {
+            "name": "Joan Manuel Serrat",
+            "description": "Catalan singer-songwriter and poet."
+          },
+          {
+            "name": "Paco de Lucía",
+            "description": "Flamenco innovator who revolutionized the genre."
+          }
+        ]
+      },
+      {
+        "title": "Portugal",
+        "artists": [
+          {
+            "name": "Amália Rodrigues",
+            "description": "Portuguese fado queen and cultural ambassador."
+          }
+        ]
+      },
+      {
+        "title": "Greece",
+        "artists": [
+          {
+            "name": "Mikis Theodorakis",
+            "description": "Greek composer and political activist."
+          },
+          {
+            "name": "Nana Mouskouri",
+            "description": "Greek singer with one of the most distinctive voices in European music."
+          }
+        ]
+      },
+      {
+        "title": "Eastern Europe",
+        "artists": [
+          {
+            "name": "Illés",
+            "description": "Hungarian rock band that defined the country's 1960s sound."
+          },
+          {
+            "name": "Czerwone Gitary",
+            "description": "Poland's 'Beatles' - the most popular Polish rock band of the 1960s."
+          },
+          {
+            "name": "Marta Kubišová",
+            "description": "Czech singer who was later blacklisted during the communist regime."
+          }
+        ]
+      },
+      {
+        "title": "Nordics",
+        "artists": [
+          {
+            "name": "Jan Johansson",
+            "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/europe_assets/content_images/Jan_johansson.jpeg",
+            "description": "Swedish jazz pianist who fused jazz with Swedish folk music."
+          },
+          {
+            "name": "The Hep Stars",
+            "description": "Swedish beat band featuring Benny Andersson pre-ABBA."
+          }
+        ]
+      },
+      {
+        "title": "Russia/USSR",
+        "artists": [
+          {
+            "name": "Vladimir Vysotsky",
+            "description": "Russian bard singer whose songs became anthems of resistance."
+          },
+          {
+            "name": "Eduard Khil",
+            "description": "Soviet crooner who later became the 'Trololo Man,' but in the 60s was a state-approved singer."
+          }
+        ]
+      }
+    ]
+  }
+  

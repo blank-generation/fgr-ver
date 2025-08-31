@@ -1,0 +1,92 @@
+{
+    "title": "South America in the 60s",
+    "slug": "south-america-60s",
+    "images": [
+        {
+            "id": "image-1",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/south_america_assets/s1.png"
+        },
+        
+        {
+            "id": "image-2",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/south_america_assets/s2.png"
+        },
+        
+        {
+            "id": "image-3",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/south_america_assets/s3.png"
+        },
+        
+        
+        {
+            "id": "image-4",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/south_america_assets/s4.png"
+        },
+        
+        
+        {
+            "id": "image-5",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/south_america_assets/s5.png"
+        }, 
+        {
+            "id": "image-6",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/south_america_assets/s6.png"
+        },
+        
+        {
+            "id": "image-7",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/south_america_assets/s7.png"
+        },
+        
+        
+        {
+            "id": "image-8",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/south_america_assets/s8.png"
+        },
+        
+        {
+            "id": "image-9",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/south_america_assets/s9.png"
+        },
+        
+        
+        {
+            "id": "image-10",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/south_america_assets/s10.png"
+        },
+        {
+            "id": "image-11",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/south_america_assets/s11.png"
+        }
+        
+    ],      
+
+    "sections": [
+      {
+        "id": "section1",
+        "title": "The Political Weather",
+        "content": "./content/south-america/political-weather.mdx"
+      },
+      {
+        "id": "section2",
+        "title": "What People Were Hearing",
+        "content": "./content/south-america/what-people-heard.mdx"
+      },
+      {
+        "id": "section3",
+        "title": "Scenes & Sounds That Emerged",
+        "content": "./content/south-america/scenes-sounds.mdx"
+      },
+      {
+        "id": "section4",
+        "title": "The Tech Factor",
+        "content": "./content/south-america/tech-factor.mdx"
+      },
+      {
+        "id": "section5",
+        "title": "Notable Artists",
+        "content": "./content/south-america/notable-artists.mdx"
+      }
+    ]
+  }
+  

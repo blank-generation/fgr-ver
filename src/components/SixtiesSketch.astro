@@ -1,0 +1,206 @@
+---
+const props = Astro.props;
+const { totalImages, imagesArray } = props;
+---
+
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/2.0.5-rc.0/p5.js" integrity="sha512-jd5u/oY0j6Ha4yGjMSGohWJz8yQocZiHID/zEtZiIWoGL0pEm2l7lFKIRgMeVOha8bvBwHhw7vUDwbJ27vCu6g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- Pass data to global scope -->
+<script is:inline define:vars={{ totalImages, imagesArray }}>
+  // Make variables globally available
+  window.sixtiesData = { totalImages, imagesArray };
+//   console.log("Data passed to global scope:", window.sixtiesData);
+</script>
+
+<script is:inline>
+ //p5.js code
+//  console.log("p5.js script starting...");
+
+ let imgs = [];
+ let imagesLoaded = 0;
+ let canvasReady = false;
+ let isAnimating = false;
+ let totalImages, imagesArray;
+
+// Get data from global scope
+document.addEventListener('DOMContentLoaded', () => {
+  totalImages = window.sixtiesData.totalImages;
+  imagesArray = window.sixtiesData.imagesArray;
+//   console.log("Retrieved data:", { totalImages, imagesArray });
+});
+
+function shuffleArray(arr) {
+  const array = [...arr]; // copy to avoid mutating original
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1)); // pick a random index
+    [array[i], array[j]] = [array[j], array[i]];   // swap
+  }
+  return array;
+}
+
+ function placeImagesInGrid(imgs, totalImages, frameCount) {
+   let colSize = Math.floor(Math.sqrt(totalImages));
+   let rowSize = Math.floor(totalImages/colSize);  
+
+   if(frameCount > 0) {
+    // console.log('animating', frameCount);
+
+    isAnimating = true;
+    for (let i = 0; i < imgs.length; i++) {
+     imgs[i].nx = i%colSize*width/colSize - imgs[i].width/4;
+     imgs[i].ny = i/rowSize*height/rowSize - imgs[i].height;
+   }
+   } else {
+    // console.log('not animating', frameCount);
+    for (let i = 0; i < imgs.length; i++) {
+      imgs[i].x = i%colSize*width/colSize - imgs[i].width/4;
+      imgs[i].y = i/rowSize*height/rowSize - imgs[i].height;
+    }
+   }
+  
+ }
+
+ // Loading screen helper functions
+ function updateLoadingProgress(percent) {
+   const progressBar = document.getElementById('loading-progress');
+   if (progressBar) {
+     progressBar.style.width = percent + '%';
+   }
+ }
+
+ function updateLoadingText(text) {
+   const loadingText = document.getElementById('loading-text');
+   if (loadingText) {
+     loadingText.textContent = text;
+   }
+ }
+
+ function hideLoadingScreen() {
+   const loadingScreen = document.getElementById('loading-screen');
+   if (loadingScreen) {
+     loadingScreen.style.opacity = '0';
+     loadingScreen.style.transition = 'opacity 0.5s ease-out';
+     setTimeout(() => {
+       loadingScreen.style.display = 'none';
+     }, 500);
+   }
+ }
+
+// These functions need to be in global scope for p5.js to find them
+async function setup() {
+    
+    // Get data from global scope
+    totalImages = window.sixtiesData.totalImages;
+    imagesArray = window.sixtiesData.imagesArray;
+    
+    // console.log("totalImages", totalImages);
+    // console.log("imagesArray", imagesArray);
+    
+    // Check if p5.js is loaded
+    if (typeof createCanvas === 'undefined') {
+        console.error("p5.js not loaded!");
+        return;
+    }
+    
+    // Check if canvas container exists
+    const container = document.getElementById('canvas-container');
+    if (!container) {
+        console.error("Canvas container not found!");
+        return;
+    }
+    
+   // Update loading text
+   updateLoadingText('Loading main image...');
+   updateLoadingProgress(10);
+   
+   updateLoadingText('Creating canvas...');
+   //max width is 600px
+   const maxWidth = 600;
+   const maxHeight = 600;
+   const canvasWidth = Math.min(window?.innerWidth-32, maxWidth);
+   const canvasHeight = Math.min(window?.innerHeight/2, maxHeight);
+   const pcanvas = createCanvas(canvasWidth, canvasHeight);
+   pcanvas.parent('canvas-container');
+   updateLoadingProgress(30);
+   
+   updateLoadingText('Loading South America images...');
+   let imgArray = [];
+   for (let i = 0; i < totalImages; i++) {
+     updateLoadingText(`Loading image ${i + 1} of ${totalImages}...`);
+     const progress = 30 + ((i + 1) / totalImages) * 60; // 30% to 90%
+     updateLoadingProgress(progress);
+     
+     const img = await loadImage(imagesArray[i].src);
+     img.width = img.width/2;
+     img.height = img.height/2;
+     imgArray.push(img);
+     imagesLoaded++;
+   }
+   
+   updateLoadingText('Finalizing setup...');
+   updateLoadingProgress(95);
+   
+   // randomize the image order
+   imgs = shuffleArray(imgArray);
+   // place them in a grid
+   placeImagesInGrid(imgs, totalImages);
+   background(165,218,210);
+   
+   updateLoadingProgress(100);
+   updateLoadingText('Ready!');
+   
+   // Hide loading screen after a short delay
+   setTimeout(() => {
+     hideLoadingScreen();
+   }, 500);
+   
+   canvasReady = true;
+//    console.log("Setup complete, canvasReady:", canvasReady);
+}
+
+function draw() {
+   // Only draw if canvas is ready
+   if (!canvasReady) {
+     return;
+   }
+   
+   function updateImageLocations(imgs, totalImages) {
+    for (let i = 0; i < totalImages; i++) {
+      if(isAnimating) {
+      imgs[i].x = lerp(imgs[i].x, imgs[i].nx, 0.1);
+      imgs[i].y = lerp(imgs[i].y, imgs[i].ny, 0.1);
+    }
+
+   }
+  // check if last image is in the correct position
+  if(imgs[totalImages-1].x + 0.2 > imgs[totalImages-1].nx && imgs[totalImages-1].y + 0.2 > imgs[totalImages-1].ny) {
+    isAnimating = false;
+    // console.log('animating done');
+  }
+  }
+
+// draw the images
+for (let i = 0; i < totalImages; i++) {
+  let imageIndex = i%totalImages;
+ 
+    let x = noise(0.005 * frameCount+i*100 + i)* 50;
+    let y = noise(0.005 * frameCount+i*100 + i+1) *50;
+    image(imgs[imageIndex], imgs[imageIndex].x + x, imgs[imageIndex].y + y);
+  
+  
+}
+if(frameCount % 60 == 0 && !isAnimating) {
+  imgs = shuffleArray(imgs);
+  placeImagesInGrid(imgs, totalImages, frameCount);
+}
+updateImageLocations(imgs, totalImages);
+}
+
+document.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+    document.querySelectorAll(".decor-img").forEach((img, i) => {
+      img.style.transform = `translateY(${scrollY * 0.05 * (i+1)}px) rotate(${(scrollY * 0.1 )}deg)`;
+    });
+  });
+
+</script>
