@@ -1,0 +1,157 @@
+{
+    "title": "Caribbean Islands",
+    "slug": "carriabean-60s",
+    "images": [
+        {
+            "id": "image-1",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/carri_assets/c1.png"
+        },
+        
+        {
+            "id": "image-2",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/carri_assets/c2.png"
+        },
+        
+        {
+            "id": "image-3",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/carri_assets/c3.png"
+        },
+        
+        
+        {
+            "id": "image-4",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/carri_assets/c4.png"
+        },
+        
+        
+        {
+            "id": "image-5",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/carri_assets/c5.png"
+        }, 
+        {
+            "id": "image-6",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/carri_assets/c6.png"
+        },
+        
+        {
+            "id": "image-7",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/carri_assets/c7.png"
+        },
+        
+        
+        {
+            "id": "image-8",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/carri_assets/c8.png"
+        },
+        
+        {
+            "id": "image-9",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/carri_assets/c9.png"
+        },
+        
+        
+        {
+            "id": "image-10",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/carri_assets/c10.png"
+        },
+
+        {
+            "id": "image-11",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/carri_assets/c11.png"
+        }
+    ],      
+        "notable_artists": [
+          {
+            "title": "Jamaica",
+            "artists": [
+              {
+                "name": "The Skatalites",
+                "description": "Foundational ska band, backing countless Jamaican hits of the 1960s."
+              },
+              {
+                "name": "Prince Buster",
+                "description": "Ska pioneer, influential producer and singer shaping the early Jamaican sound."
+              },
+              {
+                "name": "Desmond Dekker",
+                "description": "Ska and rocksteady singer whose global hit 'Israelites' spread Jamaican music worldwide."
+              }
+            ]
+          },
+          {
+            "title": "Cuba",
+            "artists": [
+              {
+                "name": "Celia Cruz",
+                "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/carri_assets/content_images/Celia.webp",
+                "description": "Queen of salsa; began her rise to international fame in the 1960s."
+              },
+              {
+                "name": "Beny Moré",
+                "description": "Legendary bolero and mambo singer, bandleader, and icon of Cuban music."
+              },
+              {
+                "name": "Los Van Van",
+                "description": "Founded in the late ’60s, became pioneers of songo and modern Cuban dance music."
+              }
+            ]
+          },
+          {
+            "title": "Trinidad & Tobago",
+            "artists": [
+              {
+                "name": "Mighty Sparrow",
+                "description": "Calypso icon known as the 'Calypso King of the World.'"
+              },
+              {
+                "name": "Lord Kitchener",
+                "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/carri_assets/content_images/Lord_Kitchener.jpeg",
+                "description": "Calypso innovator who shaped the genre's international spread."
+              }
+            ]
+          },
+          {
+            "title": "Haiti",
+            "artists": [
+              {
+                "name": "Nemours Jean-Baptiste",
+                "description": "Creator of compas direct, Haiti’s most influential dance music style."
+              },
+              {
+                "name": "Coupé Cloué",
+                "description": "Compas guitarist and singer known for humor and social commentary."
+              }
+            ]
+          },
+          {
+            "title": "Puerto Rico",
+            "artists": [
+              {
+                "name": "Ismael Rivera",
+                "description": "Known as 'El Sonero Mayor,' legendary improvisational salsa singer."
+              },
+              {
+                "name": "Cortijo y su Combo",
+                "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/carri_assets/content_images/Cortijo.jpeg",
+                "description": "Fused Afro-Caribbean rhythms with modern Latin sounds, precursors to salsa."
+              }
+            ]
+          },
+          {
+            "title": "Central America",
+            "artists": [
+              {
+                "name": "Lord Panama",
+                "description": "Calypso pioneer in Panama, brought Caribbean styles into Central America."
+              },
+              {
+                "name": "Luis Enrique Mejía Godoy",
+                "description": "Nicaraguan folk singer, part of the socially conscious nueva canción movement."
+              }
+            ]
+          }
+        ]
+      
+  
+  }
+  

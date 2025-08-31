@@ -39,23 +39,40 @@ function shuffleArray(arr) {
 }
 
  function placeImagesInGrid(imgs, totalImages, frameCount) {
+  let gap = 10; // pixels between images
+
    let colSize = Math.floor(Math.sqrt(totalImages));
-   let rowSize = Math.floor(totalImages/colSize);  
+   let rowSize = Math.floor(totalImages/colSize); 
+   
+   let cellWidth = (width - (colSize - 1) * gap) / colSize;
+   let cellHeight = (height - (rowSize - 1) * gap) / rowSize;
 
    if(frameCount > 0) {
     // console.log('animating', frameCount);
 
     isAnimating = true;
     for (let i = 0; i < imgs.length; i++) {
-     imgs[i].nx = i%colSize*width/colSize - imgs[i].width/4;
-     imgs[i].ny = i/rowSize*height/rowSize - imgs[i].height;
-   }
+      let col = i % colSize;
+      let row = Math.floor(i / colSize);
+
+      // top-left corner of the cell, accounting for gaps
+      let x = col * (cellWidth + gap);
+      let y = row * (cellHeight + gap);
+
+      // center the image inside the cell
+      imgs[i].nx = x + (cellWidth - imgs[i].width) / 2 -10 ;
+      imgs[i].ny = y + (cellHeight - imgs[i].height) / 2 -10 ;
+  }
    } else {
     // console.log('not animating', frameCount);
     for (let i = 0; i < imgs.length; i++) {
-      imgs[i].x = i%colSize*width/colSize - imgs[i].width/4;
-      imgs[i].y = i/rowSize*height/rowSize - imgs[i].height;
-    }
+  let col = i % colSize;
+  let row = Math.floor(i / colSize);
+
+  imgs[i].x = (col * (width / colSize) + (width / colSize - imgs[i].width) / 2) - imgs[i].width/2;
+  imgs[i].y = (row * (height / rowSize) + (height / rowSize - imgs[i].height) / 2) - imgs[i].height/2;
+  
+}
    }
   
  }

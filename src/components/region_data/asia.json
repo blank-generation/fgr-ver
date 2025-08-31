@@ -1,0 +1,171 @@
+{
+    "title": "Asia & Middle East",
+    "slug": "asia-60s",
+    "images": [
+        {
+            "id": "image-1",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/as1.png"
+        },
+        
+        {
+            "id": "image-2",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/as2.png"
+        },
+        
+        {
+            "id": "image-3",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/as3.png"
+        },
+        
+        
+        {
+            "id": "image-4",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/as4.png"
+        },
+        
+        
+        {
+            "id": "image-5",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/as5.png"
+        }, 
+        {
+            "id": "image-6",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/as6.png"
+        },
+        
+        {
+            "id": "image-7",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/as7.png"
+        },
+        
+        
+        {
+            "id": "image-8",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/as8.png"
+        },
+        
+        {
+            "id": "image-9",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/as9.png"
+        },
+        
+        
+        {
+            "id": "image-10",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/as10.png"
+        },
+
+        {
+            "id": "image-11",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/as11.png"
+        },
+        {
+            "id": "image-12",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/as12.png"
+        }
+        
+    ],      
+
+    
+        "notable_artists": [
+          {
+            "title": "India",
+            "artists": [
+              {
+                "name": "R.D. Burman",
+                "description": "Iconic film composer, fused Western rock/jazz with Bollywood soundtracks."
+              },
+              {
+                "name": "M.S. Viswanathan",
+                "description": "Prolific South Indian film composer, blended Carnatic traditions with popular melodies."
+              }
+            ]
+          },
+          {
+            "title": "Pakistan",
+            "artists": [
+              {
+                "name": "Ahmed Rushdi",
+                "description": "Pop pioneer of Pakistan, known for youthful and modern playback singing."
+              },
+              {
+                "name": "Noor Jehan",
+                "description": "Film queen and legendary playback singer of Pakistan."
+              },
+              {
+                "name": "Sabri Brothers",
+                "description": "Qawwali masters, brought devotional Sufi music to international audiences."
+              }
+            ]
+          },
+          {
+            "title": "Sri Lanka",
+            "artists": [
+              {
+                "name": "Clarence Wijewardena",
+                "description": "Pop and Baila innovator, often called the father of Sri Lankan pop music."
+              }
+            ]
+          },
+          {
+            "title": "Japan",
+            "artists": [
+              {
+                "name": "The Spiders",
+                "description": "Key 'Group Sounds' band, part of Japan’s 1960s rock boom."
+              },
+              {
+                "name": "The Tigers",
+                "description": "Another leading 'Group Sounds' band, teen idols blending Beatles-style rock with Japanese pop."
+              },
+              {
+                "name": "Toru Takemitsu",
+                "description": "Avant-garde composer blending Western orchestral music with Japanese timbres and aesthetics."
+              }
+            ]
+          },
+          {
+            "title": "Indonesia",
+            "artists": [
+              {
+                "name": "Koes Plus",
+                "description": "Rock band considered the 'Beatles of Indonesia,' pioneers of Indonesian pop and rock."
+              },
+              {
+                "name": "The Steps",
+                "description": "One of the early Indonesian beat/rock groups of the 1960s."
+              }
+            ]
+          },
+          {
+            "title": "Philippines",
+            "artists": [
+              {
+                "name": "The Dawn",
+                "description": "Late 60s garage roots; pioneers of the Manila sound."
+              }
+            ]
+          },
+          {
+            "title": "Taiwan",
+            "artists": [
+              {
+                "name": "Teresa Teng",
+                "description": "Rising towards the end of the 60s; later became one of Asia’s most beloved singers."
+              }
+            ]
+          },
+          {
+            "title": "China",
+            "artists": [
+              {
+                "name": "Model Opera Troupes",
+                "description": "Revolutionary ensembles performing state-approved works during the Cultural Revolution."
+              }
+            ]
+          }
+        ]
+      }
+      
+
+  

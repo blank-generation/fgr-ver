@@ -1,0 +1,6 @@
+---
+import BeachvillePage from "../../components/BeachvillePage.astro";
+import todayData from "./data/todayData.json";
+---
+
+<BeachvillePage region="usa_uk2" activeRegionToday={todayData.activeRegionToday || "usa_uk2"} />

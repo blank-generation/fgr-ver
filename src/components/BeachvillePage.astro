@@ -1,0 +1,356 @@
+---
+import Layout from "../layouts/Layout.astro";
+import NowPlaying from "../components/NowPlaying.astro";
+import  saData  from "./region_data/south-america.json";
+import  eData  from "./region_data/europe.json";
+import  cData  from "./region_data/carriabean.json";
+import  asData  from "./region_data/asia.json";
+import  usukData  from "./region_data/usuk.json";
+import  afData  from "./region_data/africa.json";
+
+
+import SixtiesSketch from "../components/SixtiesSketch.astro";
+
+import EURegionDetails from "../components/region_details/EURegionDetails.astro";
+import SARegionDetails from "../components/region_details/SARegionDetails.astro";
+import AFRegionDetails from "../components/region_details/AFRegionDetials.astro";
+import USUKRegionDetails from "../components/region_details/USUKRegionDetials.astro";
+import CaribbeanRegionDetails from "../components/region_details/CARRegionDetials.astro";
+import AsiaRegionDetails from "../components/region_details/AsiaRegionDetials.astro";
+
+const props = Astro.props;
+const { region, activeRegionToday } = props;
+
+// For now, default to Europe since server-side URL params aren't working
+const regions = [
+{
+    id: 'europe',
+    name: 'Europe',
+    description: 'The European sound in the 60s',
+    color: '#FEE96A',
+    day: 'Monday',
+    component: EURegionDetails,
+    data: eData
+  },
+  {
+    id: 'asia',
+    name: 'Asia & Middle East',
+    description: 'The Asia & Middle East sound in the 60s',
+    color: '#C13870',
+    day: 'Tuesday',
+    component: AsiaRegionDetails,
+    data: asData
+  },
+
+  {
+    id: 'usa_uk',
+    name: 'USA & UK',
+    description: 'The USA & UK sound in the 60s',
+    color: '#FEE96A',
+    day: 'Wednesday',
+    component: USUKRegionDetails,
+    data: usukData
+  },
+  
+ 
+  {
+    id: 'africa',
+    name: 'Africa',
+    description: 'The African sound in the 60s',
+    color: '#FEE96A',
+    day: 'Thursday',
+    component: AFRegionDetails,
+    data: afData
+  },
+  {
+    id: 'south-america',
+    name: 'South America',
+    description: 'The South American sound in the 60s',
+    color: '#FEE96A',
+   day: 'Friday',
+   component: SARegionDetails,
+   data: saData,
+  },
+  
+  {
+    id: 'usa_uk2',
+    name: 'USA & UK',
+    description: 'The USA & UK sound in the 60s',
+    color: '#FEE96A',
+    day: 'Saturday',
+    component: USUKRegionDetails,
+    data: usukData
+  },
+  {
+    id: 'caribbean',
+    name: 'Caribbean Island',
+    description: 'The Caribbean sound in the 60s',
+    color: '#FEE96A',
+    day: 'Sunday',
+    component: CaribbeanRegionDetails,
+    data: cData
+  }
+
+];
+
+// Default to Europe for initial render
+const activeRegionId = region || 'europe';
+const activeRegion = regions.find((region) => region.id === activeRegionId);
+const todaysActiveRegion = regions.find((region) => region.id === activeRegionToday);
+
+// Update regions array to set isActive based on the determined active region
+const regionsWithActive = regions.map(region => ({
+  ...region,
+  isActive: region.id === activeRegionId
+}));
+
+const activeRegionData = activeRegion.data;
+
+const allImages = activeRegionData.images.map((image) => {
+  return {
+    id: image.id,
+    src: image.src,
+    alt:activeRegion.name,
+    x: 0,
+    y: 0,
+  };
+});
+
+// choose first 5 images 
+const imageElements = allImages.slice(0, 5);
+---
+
+<Layout  title="FGR Curates: The Sixties Rumble" class="bg-white">
+  <!-- <Menu title="The Sixties Rumble" /> -->
+  <div class="decorations">
+    {imageElements.map((img, i) => (
+      <img 
+        src={img.src} 
+        alt={img.alt} 
+        class={`decor-img spin-${i % 2} pulse-${i % 3}`} 
+      />
+    ))}
+  </div>
+  <main class="relative z-10  md:p-10 p-4 pb-24  ">
+    <!-- Hero Section -->
+    <div class="text-center  mb-4">
+      <!-- <h1 class="text-6xl font-bold text-[#FEE96A] mb-6">FGR CURATES</h1> -->
+       <img src="/imgs/fgr_curr.png" alt="The Sixties Rumble" class="w-full h-auto max-w-md mx-auto">
+       <!-- <div class="bg-[#c13870] rotate-[1deg] w-full max-w-md mx-auto  py-1 "></div> -->
+       <h2 class="text-2xl text-[#064161] mb-2 ">THE SIXTIES RUMBLE</h2>
+      
+       {todaysActiveRegion && todaysActiveRegion?.name == activeRegion?.name && (
+       <div class="bg-[#FEE96A] w-fit mx-auto px-4 py-2 rounded-full flex justify-center items-center gap-2">
+        
+            <span class="text-xl text-[#064161]">Now Playing:</span>
+            <!-- dot -->
+            <div class="animate-pulse w-2 h-2 bg-red-500 rounded-full"></div>
+            {/* <span class="w-2 h-2 bg-red-500 relative left-[-16px] rounded-full"></span> */}
+            <h3 id="region-title" class="text-2xl font-bold text-[#064161] text-center ">{todaysActiveRegion?.name}</h3> 
+         </div>
+       )}
+       {todaysActiveRegion && todaysActiveRegion?.name !== activeRegion?.name && (
+      <h3 class="text-3xl max-w-md mx-auto bg-[#FEE96A]/50 font-bold text-[#064161] mb-2 ">{activeRegion?.name}</h3>
+       )}
+       
+     
+    </div>
+
+
+    <!-- Interactive section -->
+    <div>
+       <div class="relative">
+         <div class="absolute top-0 left-0 w-full h-full  z-10"></div>
+       <!--  Container -->
+       <div id="canvas-container" class="relative flex justify-center items-center min-h-[300px] ">
+         <!-- Loading Screen -->
+         <div id="loading-screen" class="absolute inset-0 flex flex-col items-center justify-center bg-[#064161] z-20">
+           <div class="text-center">
+             <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-[#FEE96A] mx-auto mb-4"></div>
+            <h3 id="loading-title" class="text-[#FEE96A] text-xl font-bold mb-2">Loading {activeRegionData.title}</h3>
+             <p class="text-[#FEE96A]/80 text-sm">Preparing the 60s soundscape...</p>
+             <div class="mt-4">
+               <div class="w-32 bg-[#FEE96A]/20 rounded-full h-2 mx-auto">
+                 <div id="loading-progress" class="bg-[#FEE96A] h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+               </div>
+               <p id="loading-text" class="text-[#FEE96A]/60 text-xs mt-2">Loading images...</p>
+             </div>
+           </div>
+         </div>
+         <!-- <h3 class="text-3xl mb-8 rotate-[-10deg] font-bold text-[#FEE96A] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">South America in the 60s</h3> -->
+         </div>
+       </div>
+      </div>
+      <div class="flex flex-col justify-center items-center mt-2">
+        {todaysActiveRegion && todaysActiveRegion?.name !== activeRegion?.name && (
+        <div class=" w-full max-w-md mx-auto px-4 py-2 rounded-tl-xl rounded-tr-xl flex justify-center items-center gap-2">
+        
+            <span class="text-sm text-[#064161]">Now Playing:</span>
+            <!-- dot -->
+            <div class="animate-pulse w-2 h-2 bg-red-500 rounded-full"></div>
+            {/* <span class="w-2 h-2 bg-red-500 relative left-[-16px] rounded-full"></span> */}
+            <a href={`/sixties-rumble`}>
+            <h3 id="region-title" class="text-xl font-bold text-[#064161] text-center ">{todaysActiveRegion?.name}</h3> 
+            </a>
+         </div>
+         )}
+        <NowPlaying />
+
+      </div>
+
+      <!-- Region Details -->
+      <div id="region-details" class="mb-12">
+        {
+          activeRegion.id === 'south-america' ? (
+            <SARegionDetails data={activeRegionData} />
+          ) : activeRegion.id === 'europe' ? (
+            <EURegionDetails data={activeRegionData} />
+          ) :
+          activeRegion.id === 'caribbean' ? (
+            <CaribbeanRegionDetails data={activeRegionData} />
+          ) :
+          activeRegion.id === 'asia' ? (
+            <AsiaRegionDetails data={activeRegionData} />
+          ) :
+          activeRegion.id === 'africa' ? (
+            <AFRegionDetails data={activeRegionData} />
+          ) :
+          activeRegion.id === 'usa_uk' || activeRegion.id === 'usa_uk2' ? (
+            <USUKRegionDetails data={activeRegionData} />
+          ) :
+          (
+            <div> <p>No region details found</p> </div>
+          )
+        }
+      </div>
+
+    <!-- Schedule Section -->
+    <div class="max-w-4xl mx-auto">
+      <!-- schedule divider rectangle -->
+
+      <hr class="border-4 border-[#FEE96A] mb-8">
+      <h3 class="text-3xl font-bold text-[#064161] text-center mb-8">Week Schedule</h3>
+      <div class="flex items-center justify-center gap-2 mb-8">
+        <div>
+        <img src="/imgs/fgrlogo.png" alt="FGR logo" class="max-w-[56px] rounded">
+      </div>
+      <div>
+        <h2 class="text-2xl text-[#FEE96A]">@</h2>
+      </div>
+      <div>
+        <img src="/imgs/beachville_logo.png" alt="FGR logo" class="max-h-[56px] rounded">
+      </div>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {regionsWithActive.map((region, index) => (
+          <a href={`/sixties-rumble/${region.id}`} class={` p-4 rounded-lg border border-[#FEE96A]/30 hover:border-[#FEE96A]/50 transition-colors ${region.isActive ? 'bg-[#FEE96A]/10 border-[#FEE96A]' : 'bg-[#FEE96A]/10 border-[#FEE96A]/30'}`}>
+            <div class="flex items-center gap-4">
+            <div class="flex items-center">
+              <div class="w-4 h-4 rounded-full mr-3" style={`background-color: ${todaysActiveRegion?.id === region.id ? '#C13870'  : '#FEE96A'};`}></div>
+              <h4 class="text-xl font-bold text-[#064161]">{region.name}</h4>
+            </div>
+            <p class="text-sm text-[#064161] bg-[#FEE96A] w-fit px-2 py-1 rounded-full  ">{region.day}</p>
+            <p class="text-sm text-[#064161] font-bold">{todaysActiveRegion?.id === region.id ? '[TODAY!]' : ''}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+    <!-- footer -->
+    <div class="text-center text-sm text-[#064161] max-w-2xl bg-[#c13870]/10 mx-auto mt-16 border-2 border-[#c13870]/30 pt-4 rounded-xl">
+      <span>Website crafted by Television Dust</span>
+      <div class="flex justify-center mt-2 items-center w-24 h-24 mx-auto bg-[#FEE96A] rounded-full">
+      <a href="https://televisiondust.art" target="_blank">
+      <img src="/imgs/tvdustLOGOF.png" alt="Television Dust" class="w-24 object-contain h-24 mx-auto">
+      </a>
+      </div>
+    </div>
+  </main>
+
+ 
+  <SixtiesSketch totalImages={allImages.length} imagesArray={allImages} />
+  <!-- Now Playing Component -->
+</Layout>
+
+
+
+<!-- <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/2.0.4/p5.min.js" integrity="sha512-rOTpdy9fXlcLeLxPj5H4pof51FAx2lVK8Soexk8yTek9wrenwm56MKT2VddH8GCDd4a2js2i4GwezlUkbGdVQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
+
+<style>
+    .divi-section {
+      --color1: rgb(108, 231, 221);
+  --color2: rgb(250, 255, 178);
+  background-color: var(--color1);
+  background-image: linear-gradient(45deg, var(--color2) 25%, transparent 25%, transparent 75%, var(--color2) 75%, var(--color2)), 
+                    linear-gradient(45deg, var(--color2) 25%, var(--color1) 25%, var(--color1) 75%, var(--color2) 75%, var(--color2));
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
+    }
+   .region-marker {
+    cursor: pointer;
+  }
+  
+  .region-marker:hover {
+    transform: scale(1.2);
+  }
+  
+  .playlist-card {
+    transition: all 0.3s ease;
+  }
+  
+  .playlist-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(254, 233, 106, 0.3);
+  }
+
+   .decorations {
+    position: fixed;
+    inset: 0; /* full screen */
+    pointer-events: none; /* don’t block clicks */
+    overflow: hidden;
+    z-index: 0;
+  }
+  .decor-img {
+    position: absolute;
+    width: 60px; /* small size */
+    opacity: 0.8;
+  }
+
+  /* Sprinkle them around manually (or randomize with JS) */
+  .decor-img:nth-child(1) { top: -2%; left: 0%; rotate: 10deg; opacity: 0.5; }
+  .decor-img:nth-child(2) { bottom: 15%; right: 8%; rotate: -10deg; }
+  .decor-img:nth-child(3) { top: 2%; right: 10%; rotate: 10deg; }
+  .decor-img:nth-child(4) { top: 20%; left: -3%; rotate: -10deg; }
+  .decor-img:nth-child(5) { top: 30%; right: 2%; rotate: 10deg; }
+
+  /* Spin animations */
+  /* @keyframes spinee {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .spin-0 { animation: spinee 20s linear infinite; }
+  .spin-1 { animation: spinee 35s linear infinite reverse; } */
+
+  /* Pulse animations */
+  /* @keyframes pulsee {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.2); opacity: 1; }
+  }
+  .pulse-0 { animation: pulsee 6s ease-in-out infinite; }
+  .pulse-1 { animation: pulsee 8s ease-in-out infinite; }
+  .pulse-2 { animation: pulsee 10s ease-in-out infinite; } */
+
+  .polka {
+  /* background-image: 
+    radial-gradient(rgb(255, 255, 255) 29.2%, transparent 29.2%),
+    radial-gradient(rgb(255, 255, 255) 29.2%, transparent 29.2%);
+  background-position: 0px 0px, 8px 8px;
+  background-size: 16px 16px; */
+  /* background-color: rgb(255, 244, 106); */
+  background-image: url('/imgs/tree.png');
+  background-size: cover;
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+}
+</style>

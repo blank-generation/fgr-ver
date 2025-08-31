@@ -1,0 +1,190 @@
+{
+    "title": "USA & UK",
+    "slug": "usa_uk-60s",
+    "images": [
+        {
+            "id": "image-1",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/na1.png"
+        },
+        
+        {
+            "id": "image-2",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/na2.png"
+        },
+        
+        {
+            "id": "image-3",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/na3.png"
+        },
+        
+        
+        {
+            "id": "image-4",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/na4.png"
+        },
+        
+        
+        {
+            "id": "image-5",
+                "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/na5.png"
+        }, 
+        {
+            "id": "image-6",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/na6.png"
+        },
+        
+        {
+            "id": "image-7",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/na7.png"
+        },
+        
+        
+        {
+            "id": "image-8",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/na8.png"  
+        }
+        
+    ],
+     "notable_artists": [
+          {
+            "title": "Minimalism & Experimental Composition (US)",
+            "artists": [
+              {
+                "name": "La Monte Young",
+                "description": "The Dream Syndicate and eternal drones. One of the first to bring sustained tones into modern composition."
+              },
+              {
+                "name": "Terry Riley",
+                "description": "In C (1964) and tape delay experiments; huge influence on rock and electronic music."
+              },
+              {
+                "name": "Steve Reich",
+                "description": "Phasing works like It’s Gonna Rain, turning tape loops into structural music."
+              },
+              {
+                "name": "Philip Glass",
+                "description": "Repetition and additive structures, setting up 1970s minimalist soundscapes."
+              },
+              {
+                "name": "Pauline Oliveros",
+                "description": "Deep Listening pioneer, accordionist, feminist composer, creating meditative experimental works."
+              }
+            ]
+          },
+          {
+            "title": "Avant-Garde Jazz & Collectives (US)",
+            "artists": [
+              {
+                "name": "Ornette Coleman",
+                "description": "Free Jazz (1961) opened the floodgates."
+              },
+              {
+                "name": "John Coltrane",
+                "description": "Spiritual explorations like Ascension pushed jazz into transcendence."
+              },
+              {
+                "name": "Sun Ra & His Arkestra",
+                "description": "Myth-science Afrofuturism, combining big band, electronics, and outer space."
+              },
+              {
+                "name": "AACM (Chicago)",
+                "description": "Founded in 1965, nurturing Anthony Braxton, Art Ensemble of Chicago — radical improvisation plus theatricality."
+              }
+            ]
+          },
+          {
+            "title": "Underground Rock & Proto-Punk (US)",
+            "artists": [
+              {
+                "name": "The Velvet Underground",
+                "description": "Andy Warhol’s Factory house band. Noise, drones, taboo subjects — decades ahead of punk and art-rock."
+              },
+              {
+                "name": "The Mothers of Invention (Frank Zappa)",
+                "description": "Satire, modern composition techniques, and guitar chaos."
+              },
+              {
+                "name": "Silver Apples",
+                "description": "One of the first rock/electronic hybrids, centered on oscillators."
+              },
+              {
+                "name": "The Fugs",
+                "description": "Beat poets + raw folk rock = counterculture satire."
+              }
+            ]
+          },
+          {
+            "title": "Psychedelia & Studio Alchemy (UK + US)",
+            "artists": [
+              {
+                "name": "The Beatles (UK)",
+                "description": "Revolver and Sgt. Pepper’s defined psychedelic studio wizardry."
+              },
+              {
+                "name": "The Beach Boys (US)",
+                "description": "Brian Wilson’s Pet Sounds changed arrangements forever."
+              },
+              {
+                "name": "Pink Floyd (UK)",
+                "description": "Syd Barrett-era chaos at UFO Club, blending freeform improvisation with light shows."
+              },
+              {
+                "name": "Jefferson Airplane / Grateful Dead (US)",
+                "description": "San Francisco’s Haight-Ashbury scene, psychedelic jams for the counterculture."
+              }
+            ]
+          },
+          {
+            "title": "Electronic & Tape Music (UK + US)",
+            "artists": [
+              {
+                "name": "BBC Radiophonic Workshop (UK)",
+                "description": "Delia Derbyshire’s Doctor Who theme = one of the most important moments in electronic music."
+              },
+              {
+                "name": "Morton Subotnick (US)",
+                "description": "Silver Apples of the Moon (1967), first commissioned electronic LP."
+              },
+              {
+                "name": "Wendy Carlos (US)",
+                "description": "Switched-On Bach popularized the Moog synthesizer in 1968."
+              }
+            ]
+          },
+          {
+            "title": "Avant-Garde / Performance Art Crossovers (UK + US)",
+            "artists": [
+              {
+                "name": "Fluxus & Happenings (US)",
+                "description": "Yoko Ono, George Maciunas, John Cage influencing experimental rock with performance art."
+              },
+              {
+                "name": "Cornelius Cardew (UK)",
+                "description": "Scratch Orchestra, blending political radicalism with experimental scoring."
+              },
+              {
+                "name": "AMM (UK)",
+                "description": "Improvised noise group, laying foundations for industrial and free improvisation scenes."
+              }
+            ]
+          },
+          {
+            "title": "Folk & Counterculture Crossovers (US + UK)",
+            "artists": [
+              {
+                "name": "Bob Dylan (US)",
+                "description": "From protest folk to surreal rock poetry."
+              },
+              {
+                "name": "Joan Baez / Phil Ochs (US)",
+                "description": "Politically charged protest folk."
+              },
+              {
+                "name": "Fairport Convention (UK)",
+                "description": "Merging traditional British folk with rock."
+              }
+            ]
+          }
+        ]
+  }
+  
