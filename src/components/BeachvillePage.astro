@@ -142,7 +142,7 @@ const imageElements = allImages.slice(0, 5);
        {todaysActiveRegion && todaysActiveRegion?.name == activeRegion?.name && (
        <div class="bg-[#FEE96A] w-fit mx-auto px-4 py-2 rounded-full flex justify-center items-center gap-2">
         
-            <span class="text-xl text-[#064161]">Now Playing:</span>
+            {/* <span class="text-xl text-[#064161]">Playing Today:</span> */}
             <!-- dot -->
             <div class="animate-pulse w-2 h-2 bg-red-500 rounded-full"></div>
             {/* <span class="w-2 h-2 bg-red-500 relative left-[-16px] rounded-full"></span> */}
@@ -185,7 +185,7 @@ const imageElements = allImages.slice(0, 5);
         {todaysActiveRegion && todaysActiveRegion?.name !== activeRegion?.name && (
         <div class=" w-full max-w-md mx-auto px-4 py-2 rounded-tl-xl rounded-tr-xl flex justify-center items-center gap-2">
         
-            <span class="text-sm text-[#064161]">Now Playing:</span>
+            <span class="text-sm text-[#064161]">Playing Today:</span>
             <!-- dot -->
             <div class="animate-pulse w-2 h-2 bg-red-500 rounded-full"></div>
             {/* <span class="w-2 h-2 bg-red-500 relative left-[-16px] rounded-full"></span> */}

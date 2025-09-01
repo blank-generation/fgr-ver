@@ -36,7 +36,7 @@
   let lastSuccessfulData = null;
   let isInitialized = false;
 
-  const updateDisplay = (trackData) => {
+  const updateDisplay = (trackData, isOnline = true) => {
     // console.log('trackData', trackData);
     const container = document.getElementById('now-playing');
     const trackName = document.getElementById('track-name');
@@ -44,6 +44,15 @@
     const albumImage = document.getElementById('album-image') as HTMLImageElement;
     const spotifyLink = document.getElementById('spotify-link') as HTMLAnchorElement;
    
+    // If offline, show offline state
+    if (!isOnline) {
+      trackName.textContent = 'Currently Offline';
+      artistName.textContent = "We'll be back soon at 4PM";
+      albumImage.classList.add('hidden');
+      spotifyLink.href = '#';
+      container.classList.remove('hidden');
+      return;
+    }
 
     if (!trackData || !trackData.track) {
       container.classList.add('hidden');
@@ -52,9 +61,7 @@
     }
 
     const track = trackData.track;
-    const isPlaying = trackData?.playing;
-    const progress = trackData?.raw?.progress_ms || 0;
-    const duration = trackData?.raw?.duration_ms || 0;
+   
 
     // Update track info
     trackName.textContent = track.name;
@@ -98,7 +105,7 @@
       // Fetch now playing data from Supabase database
       const { data, error } = await supabase
         .from('now_playing')
-        .select('details')
+        .select('details, status')
         .eq('id', 1)
         .single();
 
@@ -108,11 +115,17 @@
         return;
       }
 
-      if (data && data.details) {
-        // console.log('Now playing data:', data.details);
-        // Store the successful data
-        lastSuccessfulData = data.details;
-        updateDisplay(data.details);
+      if (data) {
+        // console.log('Now playing data:', data);
+        const isOnline = data.status !== false; // default to true if status is null/undefined
+        
+        if (data.details && isOnline) {
+          // Store the successful data
+          lastSuccessfulData = data.details;
+          updateDisplay(data.details, isOnline);
+        } else {
+          updateDisplay(null, isOnline);
+        }
         isInitialized = true;
       } else {
         // console.log('No now playing data found');
@@ -124,26 +137,57 @@
     }
   };
 
+  // Realtime subscription to updates on now_playing where id = 1
+  let realtimeChannel = null;
+  const subscribeToNowPlaying = () => {
+    try {
+      // Remove any existing channel before creating a new one
+      if (realtimeChannel) {
+        supabase.removeChannel(realtimeChannel);
+      }
+
+      realtimeChannel = supabase
+        .channel('now-playing-row')
+        .on(
+          'postgres_changes',
+          { event: 'UPDATE', schema: 'public', table: 'now_playing', filter: 'id=eq.1' },
+          (payload) => {
+            const updated = payload?.new;
+            const details = updated?.details;
+            const status = updated?.status;
+            const isOnline = status !== false; // default to true if status is null/undefined
+            
+            if (details && isOnline) {
+              lastSuccessfulData = details;
+              updateDisplay(details, isOnline);
+            } else {
+              updateDisplay(null, isOnline);
+            }
+          }
+        )
+        .subscribe((status) => {
+          if (status === 'SUBSCRIBED') {
+            // console.log('Subscribed to now_playing updates');
+          }
+        });
+
+      // Cleanup on page unload
+      window.addEventListener('beforeunload', () => {
+        if (realtimeChannel) {
+          supabase.removeChannel(realtimeChannel);
+        }
+      });
+    } catch (e) {
+      console.error('Error subscribing to now_playing realtime:', e);
+    }
+  };
+
   // Initialize when DOM is loaded
   document.addEventListener('DOMContentLoaded', () => {
     // Initial fetch
     nowPlaying();
-    
-    // Poll every 10 seconds for updates
-    setInterval(() => {
-      // Only poll if the page is visible (not when tab is inactive)
-      if (!document.hidden) {
-        nowPlaying();
-      }
-    }, 10000);
-
-    // Handle page visibility changes
-    document.addEventListener('visibilitychange', () => {
-      if (!document.hidden && isInitialized) {
-        // When page becomes visible again, fetch fresh data
-        nowPlaying();
-      }
-    });
+    // Subscribe to realtime changes
+    subscribeToNowPlaying();
   });
 </script>
 

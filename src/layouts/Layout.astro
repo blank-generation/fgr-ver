@@ -6,6 +6,7 @@ interface Props {
   class?: string;
 }
 
+import Analytics from '@vercel/analytics/astro'
 const { title, class: className } = Astro.props;
 ---
 
@@ -87,5 +88,6 @@ const { title, class: className } = Astro.props;
 
       initTE({ Sidenav, Input });
     </script>
+    <Analytics />
   </body>
 </html>
