@@ -37,7 +37,7 @@
   let isInitialized = false;
 
   const updateDisplay = (trackData) => {
-    console.log('trackData', trackData);
+    // console.log('trackData', trackData);
     const container = document.getElementById('now-playing');
     const trackName = document.getElementById('track-name');
     const artistName = document.getElementById('artist-name');
@@ -109,13 +109,13 @@
       }
 
       if (data && data.details) {
-        console.log('Now playing data:', data.details);
+        // console.log('Now playing data:', data.details);
         // Store the successful data
         lastSuccessfulData = data.details;
         updateDisplay(data.details);
         isInitialized = true;
       } else {
-        console.log('No now playing data found');
+        // console.log('No now playing data found');
         showFallbackData();
       }
     } catch (error) {
