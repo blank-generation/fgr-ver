@@ -243,7 +243,7 @@ const imageElements = allImages.slice(0, 5);
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {regionsWithActive.map((region, index) => (
-          <a href={`/sixties-rumble/${region.id}`} class={`${index%2==0? 'rotate-[-1deg]' : 'rotate-[1deg]'} p-4 rounded-lg border border-[#FEE96A]/30 hover:border-[#FEE96A]/50 transition-colors ${region.isActive ? 'bg-[#FEE96A]/20 border-[#FEE96A]' : 'bg-[#FEE96A]/20 border-[#FEE96A]/30'}`}>
+          <div  class={`${index%2==0? 'rotate-[-1deg]' : 'rotate-[1deg]'} p-4 rounded-lg border border-[#FEE96A]/30 hover:border-[#FEE96A]/50 transition-colors ${region.isActive ? 'bg-[#FEE96A]/20 border-[#FEE96A]' : 'bg-[#FEE96A]/20 border-[#FEE96A]/30'}`}>
             <div class="flex items-center gap-4">
             <div class="flex items-center">
               <div class="w-4 h-4 rounded-full mr-3" style={`background-color: ${todaysActiveRegion?.id === region.id ? '#C13870'  : '#FEE96A'};`}></div>
@@ -252,7 +252,7 @@ const imageElements = allImages.slice(0, 5);
             <p class="text-sm text-[#064161] bg-[#FEE96A] w-fit px-2 py-1 rounded-full  ">{region.day}</p>
             <p class="text-sm text-[#064161] font-bold">{todaysActiveRegion?.id === region.id ? '[TODAY!]' : ''}</p>
             </div>
-          </a>
+          </div>
         ))}
       </div>
        <!-- footer -->
