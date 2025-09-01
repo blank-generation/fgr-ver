@@ -1,0 +1,35 @@
+---
+interface Props {
+  title: string;
+  borderColor?: string; // Tailwind class for border color
+  image?: {
+    src: string;
+    alt: string;
+    caption?: string;
+    width?: string; // e.g. "w-36" or "w-44"
+  };
+}
+
+const {
+  title,
+  borderColor = "border-[#FEE96A]",
+  image,
+} = Astro.props;
+---
+
+<div class={`border-l-4 ${borderColor} pl-4 mb-6`}>
+  <span class="font-bold">{title}</span> <slot name="content" />
+</div>
+
+{image && (
+  <div class="flex flex-col items-center mb-6">
+    <img
+      src={image.src}
+      alt={image.alt}
+      class={`${image.width ?? "w-36"} rounded-xl h-auto shadow`}
+    />
+    {image.caption && (
+      <span class="text-sm text-[#064161]/80 mt-1">{image.caption}</span>
+    )}
+  </div>
+)}

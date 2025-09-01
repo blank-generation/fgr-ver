@@ -1,170 +1,177 @@
 {
-    "title": "Asia & Middle East",
+    "title": "Asia",
     "slug": "asia-60s",
     "images": [
-        {
-            "id": "image-1",
-            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/as1.png"
-        },
-        
-        {
-            "id": "image-2",
-            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/as2.png"
-        },
-        
-        {
-            "id": "image-3",
-            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/as3.png"
-        },
-        
-        
-        {
-            "id": "image-4",
-            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/as4.png"
-        },
-        
-        
-        {
-            "id": "image-5",
-            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/as5.png"
-        }, 
-        {
-            "id": "image-6",
-            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/as6.png"
-        },
-        
-        {
-            "id": "image-7",
-            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/as7.png"
-        },
-        
-        
-        {
-            "id": "image-8",
-            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/as8.png"
-        },
-        
-        {
-            "id": "image-9",
-            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/as9.png"
-        },
-        
-        
-        {
-            "id": "image-10",
-            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/as10.png"
-        },
-
-        {
-            "id": "image-11",
-            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/as11.png"
-        },
-        {
-            "id": "image-12",
-            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/as12.png"
-        }
+       {
+        "id": "image-1",
+        "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/new/m1.png"
+       },
+       {
+        "id": "image-2",
+        "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/new/m2.png"
+       },
+       {
+        "id": "image-3",
+        "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/new/m3.png"
+       },
+       {
+        "id": "image-4",
+        "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/new/m4.png"
+       },
+       {
+        "id": "image-5",
+        "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/new/m5.png"
+       },
+       {
+        "id": "image-6",
+        "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/new/m6.png"
+       },
+       {
+        "id": "image-7",
+        "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/new/m7.png"
+       },
+       
+       {
+        "id": "image-8",
+        "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/new/m8.png"
+       },
+       {
+        "id": "image-9",
+        "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/new/m9.png"
+       },
+       
+       {
+        "id": "image-10",
+        "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/new/m10.png"
+       },
+       {
+        "id": "image-11",
+        "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/new/m11.png"
+       },
+       
+       {
+        "id": "image-12",
+        "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/new/m12.png"
+       },
+       {
+        "id": "image-13",
+        "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/new/m13.png"
+       },
+       {
+        "id": "image-14",
+        "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/new/m14.png"
+       },
+       {
+        "id": "image-15",
+        "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/new/m15.png"
+       }
         
     ],      
 
     
-        "notable_artists": [
-          {
-            "title": "India",
-            "artists": [
-              {
-                "name": "R.D. Burman",
-                "description": "Iconic film composer, fused Western rock/jazz with Bollywood soundtracks."
-              },
-              {
-                "name": "M.S. Viswanathan",
-                "description": "Prolific South Indian film composer, blended Carnatic traditions with popular melodies."
-              }
-            ]
-          },
-          {
-            "title": "Pakistan",
-            "artists": [
-              {
-                "name": "Ahmed Rushdi",
-                "description": "Pop pioneer of Pakistan, known for youthful and modern playback singing."
-              },
-              {
-                "name": "Noor Jehan",
-                "description": "Film queen and legendary playback singer of Pakistan."
-              },
-              {
-                "name": "Sabri Brothers",
-                "description": "Qawwali masters, brought devotional Sufi music to international audiences."
-              }
-            ]
-          },
-          {
-            "title": "Sri Lanka",
-            "artists": [
-              {
-                "name": "Clarence Wijewardena",
-                "description": "Pop and Baila innovator, often called the father of Sri Lankan pop music."
-              }
-            ]
-          },
-          {
-            "title": "Japan",
-            "artists": [
-              {
-                "name": "The Spiders",
-                "description": "Key 'Group Sounds' band, part of Japan’s 1960s rock boom."
-              },
-              {
-                "name": "The Tigers",
-                "description": "Another leading 'Group Sounds' band, teen idols blending Beatles-style rock with Japanese pop."
-              },
-              {
-                "name": "Toru Takemitsu",
-                "description": "Avant-garde composer blending Western orchestral music with Japanese timbres and aesthetics."
-              }
-            ]
-          },
-          {
-            "title": "Indonesia",
-            "artists": [
-              {
-                "name": "Koes Plus",
-                "description": "Rock band considered the 'Beatles of Indonesia,' pioneers of Indonesian pop and rock."
-              },
-              {
-                "name": "The Steps",
-                "description": "One of the early Indonesian beat/rock groups of the 1960s."
-              }
-            ]
-          },
-          {
-            "title": "Philippines",
-            "artists": [
-              {
-                "name": "The Dawn",
-                "description": "Late 60s garage roots; pioneers of the Manila sound."
-              }
-            ]
-          },
-          {
-            "title": "Taiwan",
-            "artists": [
-              {
-                "name": "Teresa Teng",
-                "description": "Rising towards the end of the 60s; later became one of Asia’s most beloved singers."
-              }
-            ]
-          },
-          {
-            "title": "China",
-            "artists": [
-              {
-                "name": "Model Opera Troupes",
-                "description": "Revolutionary ensembles performing state-approved works during the Cultural Revolution."
-              }
-            ]
-          }
-        ]
+      "notable_artists": [
+        {
+          "title": "China / Hong Kong",
+          "artists": [
+            {
+              "name": "Grace Chang",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/content_images/Grace.jpeg",
+              "description": "Hong Kong singer and actress whose legendary voice and swinging numbers defined Mandarin pop in the late 50s and 60s."
+            }
+          ]
+        },
+        {
+          "title": "Cambodia",
+          "artists": [
+            {
+              "name": "Sinn Sisamouth",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/content_images/sinn.jpeg",
+              "description": "Often called the 'Elvis of Cambodia,' he fused traditional Khmer melodies with Western rock and soul."
+            },
+            {
+              "name": "Ros Serey Sothea",
+              "description": "A leading female voice of Cambodian rock, known for her soaring vocals over unique psych-tinged grooves."
+            }
+          ]
+        },
+        {
+          "title": "Egypt",
+          "artists": [
+            {
+              "name": "Salah Ragab",
+              "description": "Pioneer of Egyptian jazz, blending local rhythms with big-band arrangements."
+            }
+          ]
+        },
+        {
+          "title": "Iran",
+          "artists": [
+            {
+              "name": "Kourosh Yaghmaei",
+              "description": "Pioneer of Iranian rock, mixing fuzzed-out guitars with Persian scales."
+            }
+          ]
+        },
+        {
+          "title": "Turkey",
+          "artists": [
+            {
+              "name": "Ajda Pekkan",
+              "description": "Pop diva whose 60s and 70s career bridged chanson, Turkish pop, and Western influences."
+            },
+            {
+              "name": "Erkin Koray",
+              "description": "Considered the godfather of Anatolian rock, pushing fuzz guitar and Turkish folk into new territory."
+            }
+          ]
+        },
+        {
+          "title": "Japan",
+          "artists": [
+            {
+              "name": "The Mops",
+              "description": "One of Japan’s first true psychedelic rock bands, heavily inspired by American garage and psych."
+            },
+            {
+              "name": "The Peanuts",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/asia_assets/content_images/peanut.jpeg",
+              "description": "Twin-sister pop duo whose harmonies and playful style defined early J-pop and crossed into film."
+            }
+          ]
+        },
+        {
+          "title": "Morocco",
+          "artists": [
+            {
+              "name": "Abdou El Omari",
+              "description": "Keyboardist and composer known for hypnotic organ-driven Moroccan psych."
+            },
+            {
+              "name": "Fadoul",
+              "description": "Cult figure who brought raw funk and rock energy into Moroccan grooves."
+            }
+          ]
+        },
+        {
+          "title": "India",
+          "artists": [
+            {
+              "name": "R.D. Burman",
+              "description": "Legendary Bollywood composer who brought rock, funk, and electronic experimentation into Hindi cinema."
+            },
+            {
+              "name": "S.D. Burman",
+              "description": "Cornerstone of Indian film music; fused folk traditions with modern orchestration."
+            },
+            {
+              "name": "M.S. Viswanathan",
+              "description": "Titan of South Indian film music, pioneering lush orchestration and modern soundtracks in Tamil cinema."
+            }
+          ]
+        }
+      ]
+
+    
       }
       
 

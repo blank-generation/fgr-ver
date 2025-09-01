@@ -1,0 +1,22 @@
+---
+interface Props {
+  data: any;
+}
+
+const { data } = Astro.props;
+---
+{data.notable_artists.map((region, index) => (
+    <div>
+      <h5 class={`text-lg font-bold text-[#064161] mb-4 border-b-2  pb-2 ${index%2==0? 'border-[#FEE96A]' : 'border-[#C13870]'}`}>{region.title}</h5>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {region.artists.map((artist) => (
+          <div class={`${index%3==0? 'bg-[#FEE96A]/10' : 'bg-[#C13870]/10'} p-4 rounded-lg border border-[#C13870]/30`}>
+           
+            {artist.image && <img src={artist.image} alt={artist.name} class="w-24 h-24 rounded-full object-cover">}
+            <h6 class="font-bold text-[#064161]">{artist.name}</h6>
+            <p class="text-sm text-[#064161]/80">{artist.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  ))}
