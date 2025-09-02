@@ -42,149 +42,142 @@
         {
             "id": "image-8",
             "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/na8.png"  
-        }
+        },
+        {
+          "id": "image-9",
+          "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/south_america_assets/s11.png"
+      },
+      {
+        "id": "image-10",
+        "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/south_america_assets/s9.png"
+      }
         
     ],
-     "notable_artists": [
-          {
-            "title": "Minimalism & Experimental Composition (US)",
-            "artists": [
-              {
-                "name": "La Monte Young",
-                "description": "The Dream Syndicate and eternal drones. One of the first to bring sustained tones into modern composition."
-              },
-              {
-                "name": "Terry Riley",
-                "description": "In C (1964) and tape delay experiments; huge influence on rock and electronic music."
-              },
-              {
-                "name": "Steve Reich",
-                "description": "Phasing works like It’s Gonna Rain, turning tape loops into structural music."
-              },
-              {
-                "name": "Philip Glass",
-                "description": "Repetition and additive structures, setting up 1970s minimalist soundscapes."
-              },
-              {
-                "name": "Pauline Oliveros",
-                "description": "Deep Listening pioneer, accordionist, feminist composer, creating meditative experimental works."
-              }
-            ]
-          },
-          {
-            "title": "Avant-Garde Jazz & Collectives (US)",
-            "artists": [
-              {
-                "name": "Ornette Coleman",
-                "description": "Free Jazz (1961) opened the floodgates."
-              },
-              {
-                "name": "John Coltrane",
-                "description": "Spiritual explorations like Ascension pushed jazz into transcendence."
-              },
-              {
-                "name": "Sun Ra & His Arkestra",
-                "description": "Myth-science Afrofuturism, combining big band, electronics, and outer space."
-              },
-              {
-                "name": "AACM (Chicago)",
-                "description": "Founded in 1965, nurturing Anthony Braxton, Art Ensemble of Chicago — radical improvisation plus theatricality."
-              }
-            ]
-          },
-          {
-            "title": "Underground Rock & Proto-Punk (US)",
-            "artists": [
-              {
-                "name": "The Velvet Underground",
-                "description": "Andy Warhol’s Factory house band. Noise, drones, taboo subjects — decades ahead of punk and art-rock."
-              },
-              {
-                "name": "The Mothers of Invention (Frank Zappa)",
-                "description": "Satire, modern composition techniques, and guitar chaos."
-              },
-              {
-                "name": "Silver Apples",
-                "description": "One of the first rock/electronic hybrids, centered on oscillators."
-              },
-              {
-                "name": "The Fugs",
-                "description": "Beat poets + raw folk rock = counterculture satire."
-              }
-            ]
-          },
-          {
-            "title": "Psychedelia & Studio Alchemy (UK + US)",
-            "artists": [
-              {
-                "name": "The Beatles (UK)",
-                "description": "Revolver and Sgt. Pepper’s defined psychedelic studio wizardry."
-              },
-              {
-                "name": "The Beach Boys (US)",
-                "description": "Brian Wilson’s Pet Sounds changed arrangements forever."
-              },
-              {
-                "name": "Pink Floyd (UK)",
-                "description": "Syd Barrett-era chaos at UFO Club, blending freeform improvisation with light shows."
-              },
-              {
-                "name": "Jefferson Airplane / Grateful Dead (US)",
-                "description": "San Francisco’s Haight-Ashbury scene, psychedelic jams for the counterculture."
-              }
-            ]
-          },
-          {
-            "title": "Electronic & Tape Music (UK + US)",
-            "artists": [
-              {
-                "name": "BBC Radiophonic Workshop (UK)",
-                "description": "Delia Derbyshire’s Doctor Who theme = one of the most important moments in electronic music."
-              },
-              {
-                "name": "Morton Subotnick (US)",
-                "description": "Silver Apples of the Moon (1967), first commissioned electronic LP."
-              },
-              {
-                "name": "Wendy Carlos (US)",
-                "description": "Switched-On Bach popularized the Moog synthesizer in 1968."
-              }
-            ]
-          },
-          {
-            "title": "Avant-Garde / Performance Art Crossovers (UK + US)",
-            "artists": [
-              {
-                "name": "Fluxus & Happenings (US)",
-                "description": "Yoko Ono, George Maciunas, John Cage influencing experimental rock with performance art."
-              },
-              {
-                "name": "Cornelius Cardew (UK)",
-                "description": "Scratch Orchestra, blending political radicalism with experimental scoring."
-              },
-              {
-                "name": "AMM (UK)",
-                "description": "Improvised noise group, laying foundations for industrial and free improvisation scenes."
-              }
-            ]
-          },
-          {
-            "title": "Folk & Counterculture Crossovers (US + UK)",
-            "artists": [
-              {
-                "name": "Bob Dylan (US)",
-                "description": "From protest folk to surreal rock poetry."
-              },
-              {
-                "name": "Joan Baez / Phil Ochs (US)",
-                "description": "Politically charged protest folk."
-              },
-              {
-                "name": "Fairport Convention (UK)",
-                "description": "Merging traditional British folk with rock."
-              }
-            ]
-          }
-        ]
+    
+      "notable_artists": [
+        {
+          "title": "UK",
+          "artists": [
+            {
+              "name": "The Beatles",
+              "description": "Redefined pop with constant reinvention, from Merseybeat to psychedelia."
+            },
+            {
+              "name": "The Rolling Stones",
+              "description": "Blues-driven swagger that set the tone for rock excess and grit."
+            },
+            {
+              "name": "The Kinks",
+              "description": "Masters of sharp riffs and observational songwriting rooted in English life."
+            },
+            {
+              "name": "Small Faces",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/content_images/Small_faces.avif",
+              "description": "Mod icons blending R&B energy with soulful, psychedelic twists."
+            },
+            {
+              "name": "The Zombies",
+              "description": "Baroque pop perfectionists, best known for lush harmonies and inventive arrangements."
+            },
+            {
+              "name": "The Who",
+              "description": "Explosive rock operatics and teenage rebellion distilled into anthems."
+            },
+            {
+              "name": "Pink Floyd",
+              "description": "Psychedelic explorers who evolved into progressive rock’s visionaries."
+            },
+            {
+              "name": "Nick Drake",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/content_images/Nick_drake.jpeg",
+              "description": "Gentle, haunting folk voice with timeless intimacy."
+            }
+          ]
+        },
+        {
+          "title": "USA",
+          "artists": [
+            {
+              "name": "The Velvet Underground",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/content_images/Velvet.jpeg",
+              "description": "Dark, experimental, and influential well beyond their short lifespan."
+            },
+            {
+              "name": "Captain Beefheart",
+              "description": "Avant-blues visionary pushing rock into chaotic, surreal territory."
+            },
+            {
+              "name": "13th Floor Elevators",
+              "description": "Psychedelic pioneers with raw garage energy and electric jug weirdness."
+            },
+            {
+              "name": "Silver Apples",
+              "description": "Proto-electronic duo bending oscillators into futuristic soundscapes."
+            },
+            {
+              "name": "Buddy Holly",
+              "description": "Rock’n’roll’s early innovator with clean songwriting and lasting influence."
+            },
+            {
+              "name": "Roy Orbison",
+              "description": "Operatic ballads and soaring vocals that stood apart from the rock norm."
+            },
+            {
+              "name": "Otis Redding",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/content_images/Otis.jpeg",
+              "description": "Soul powerhouse whose emotive voice became timeless."
+            },
+            {
+              "name": "James Brown",
+              "description": "The Godfather of Soul, laying the blueprint for funk and modern R&B."
+            },
+            {
+              "name": "Shuggie Otis",
+              "description": "Young prodigy fusing soul, funk, and psychedelic textures."
+            },
+            {
+              "name": "The Beach Boys",
+              "description": "California dreamers who elevated surf pop into lush studio masterpieces."
+            },
+            {
+              "name": "Sly and the Family Stone",
+              "description": "Multiracial funk-soul innovators with anthems of unity and groove."
+            },
+            {
+              "name": "Chuck Berry",
+              "description": "Guitar hero and storyteller, foundational to rock’s DNA."
+            },
+            {
+              "name": "Keith Mansfield",
+              "description": "Composer whose swinging, cinematic library music defined 60s cool."
+            },
+            {
+              "name": "Marvin Gaye",
+              "description": "From Motown crooner to socially conscious soul poet."
+            },
+            {
+              "name": "Aretha Franklin",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/content_images/Aretha.jpeg",
+              "description": "The Queen of Soul, commanding and gospel-powered."
+            },
+            {
+              "name": "The Ronettes",
+              "description": "Girl-group icons immortalized by Phil Spector’s wall of sound."
+            },
+            {
+              "name": "Nico",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/content_images/Nico.jpeg",
+              "description": "German chanteuse whose icy delivery defined The Velvet Underground’s art edge."
+            },
+            {
+              "name": "Cher",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/content_images/Cher.jpeg",
+              "description": "Pop icon bridging folk-pop beginnings with bold solo stardom."
+            }
+          ]
+        }
+      ]
+    
+    
   }
   
