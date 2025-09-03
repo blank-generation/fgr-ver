@@ -65,146 +65,117 @@
         }
         
     ],
-        "notable_artists": [
-          {
-            "title": "Minimalism & Experimental Composition (US)",
-            "artists": [
-              {
-                "name": "La Monte Young",
-                "description": "The Dream Syndicate and eternal drones. One of the first to bring sustained tones into modern composition."
-              },
-              {
-                "name": "Terry Riley",
-                "description": "In C (1964) and tape delay experiments; huge influence on rock and electronic music."
-              },
-              {
-                "name": "Steve Reich",
-                "description": "Phasing works like It’s Gonna Rain, turning tape loops into structural music."
-              },
-              {
-                "name": "Philip Glass",
-                "description": "Repetition and additive structures, setting up 1970s minimalist soundscapes."
-              },
-              {
-                "name": "Pauline Oliveros",
-                "description": "Deep Listening pioneer, accordionist, feminist composer, creating meditative experimental works."
-              }
-            ]
-          },
-          {
-            "title": "Avant-Garde Jazz & Collectives (US)",
-            "artists": [
-              {
-                "name": "Ornette Coleman",
-                "description": "Free Jazz (1961) opened the floodgates."
-              },
-              {
-                "name": "John Coltrane",
-                "description": "Spiritual explorations like Ascension pushed jazz into transcendence."
-              },
-              {
-                "name": "Sun Ra & His Arkestra",
-                "description": "Myth-science Afrofuturism, combining big band, electronics, and outer space."
-              },
-              {
-                "name": "AACM (Chicago)",
-                "description": "Founded in 1965, nurturing Anthony Braxton, Art Ensemble of Chicago — radical improvisation plus theatricality."
-              }
-            ]
-          },
-          {
-            "title": "Underground Rock & Proto-Punk (US)",
-            "artists": [
-              {
-                "name": "The Velvet Underground",
-                "description": "Andy Warhol’s Factory house band. Noise, drones, taboo subjects — decades ahead of punk and art-rock."
-              },
-              {
-                "name": "The Mothers of Invention (Frank Zappa)",
-                "description": "Satire, modern composition techniques, and guitar chaos."
-              },
-              {
-                "name": "Silver Apples",
-                "description": "One of the first rock/electronic hybrids, centered on oscillators."
-              },
-              {
-                "name": "The Fugs",
-                "description": "Beat poets + raw folk rock = counterculture satire."
-              }
-            ]
-          },
-          {
-            "title": "Psychedelia & Studio Alchemy (UK + US)",
-            "artists": [
-              {
-                "name": "The Beatles (UK)",
-                "description": "Revolver and Sgt. Pepper’s defined psychedelic studio wizardry."
-              },
-              {
-                "name": "The Beach Boys (US)",
-                "description": "Brian Wilson’s Pet Sounds changed arrangements forever."
-              },
-              {
-                "name": "Pink Floyd (UK)",
-                "description": "Syd Barrett-era chaos at UFO Club, blending freeform improvisation with light shows."
-              },
-              {
-                "name": "Jefferson Airplane / Grateful Dead (US)",
-                "description": "San Francisco’s Haight-Ashbury scene, psychedelic jams for the counterculture."
-              }
-            ]
-          },
-          {
-            "title": "Electronic & Tape Music (UK + US)",
-            "artists": [
-              {
-                "name": "BBC Radiophonic Workshop (UK)",
-                "description": "Delia Derbyshire’s Doctor Who theme = one of the most important moments in electronic music."
-              },
-              {
-                "name": "Morton Subotnick (US)",
-                "description": "Silver Apples of the Moon (1967), first commissioned electronic LP."
-              },
-              {
-                "name": "Wendy Carlos (US)",
-                "description": "Switched-On Bach popularized the Moog synthesizer in 1968."
-              }
-            ]
-          },
-          {
-            "title": "Avant-Garde / Performance Art Crossovers (UK + US)",
-            "artists": [
-              {
-                "name": "Fluxus & Happenings (US)",
-                "description": "Yoko Ono, George Maciunas, John Cage influencing experimental rock with performance art."
-              },
-              {
-                "name": "Cornelius Cardew (UK)",
-                "description": "Scratch Orchestra, blending political radicalism with experimental scoring."
-              },
-              {
-                "name": "AMM (UK)",
-                "description": "Improvised noise group, laying foundations for industrial and free improvisation scenes."
-              }
-            ]
-          },
-          {
-            "title": "Folk & Counterculture Crossovers (US + UK)",
-            "artists": [
-              {
-                "name": "Bob Dylan (US)",
-                "description": "From protest folk to surreal rock poetry."
-              },
-              {
-                "name": "Joan Baez / Phil Ochs (US)",
-                "description": "Politically charged protest folk."
-              },
-              {
-                "name": "Fairport Convention (UK)",
-                "description": "Merging traditional British folk with rock."
-              }
-            ]
-          }
-        ]
+      "notable_artists": [
+        {
+          "title": "Ghana",
+          "artists": [
+            {
+              "name": "E.T. Mensah",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/africa_assets/content_images/Mensah.jpeg",
+              "description": "“King of Highlife,” his big-band sound defined independence-era Ghana."
+            }
+          ]
+        },
+        {
+          "title": "Nigeria",
+          "artists": [
+            {
+              "name": "Bola Johnson",
+              "description": "Playful highlife singer, mixing Yoruba rhythms with jazzy horns."
+            },
+            {
+              "name": "BLO",
+              "description": "Rock-influenced funk trio, early signs of Afro-rock’s rise."
+            },
+            {
+              "name": "Fela Kuti",
+              "description": "Began fusing highlife and jazz into the early Afrobeat experiments."
+            }
+          ]
+        },
+        {
+          "title": "Mali",
+          "artists": [
+            {
+              "name": "Sorry Bamba",
+              "description": "Bridged Malian folk traditions with modern dance-band arrangements."
+            },
+            {
+              "name": "Rail Band",
+              "description": "Legendary training ground for griot singers, mixing folk storytelling with electric instruments."
+            }
+          ]
+        },
+        {
+          "title": "DR Congo",
+          "artists": [
+            {
+              "name": "Franco & TPOK Jazz",
+              "description": "Masters of rumba, whose music shaped Congo’s golden era."
+            },
+            {
+              "name": "Tabu Ley Rochereau",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/africa_assets/content_images/Tabu.jpeg",
+              "description": "Elegant rumba innovator, fusing Cuban grooves with Congolese flair."
+            },
+            {
+              "name": "Dr. Nico",
+              "description": "Guitar virtuoso whose melodic runs set rumba’s guitar standard."
+            }
+          ]
+        },
+        {
+          "title": "Kenya",
+          "artists": [
+            {
+              "name": "Daudi Kabaka",
+              "description": "Kenyan 'King of Benga,' with sharp, infectious guitar work."
+            }
+          ]
+        },
+        {
+          "title": "South Africa",
+          "artists": [
+            {
+              "name": "Miriam Makeba",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/africa_assets/content_images/Miriam.jpeg",
+              "description": "Voice of resistance, blending jazz and African folk for the world stage."
+            },
+            {
+              "name": "Hugh Masekela",
+              "description": "Trumpeter mixing bebop and African rhythms, globally influential."
+            },
+            {
+              "name": "Mahotella Queens",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/africa_assets/content_images/Mahotella.jpeg",
+              "description": "Female vocal trio formed in the mid-60s, fronting mbaqanga groups with harmonies and energy that kept township jive thriving."
+            },
+            {
+              "name": "Abdullah Ibrahim / Dollar Brand",
+              "description": "Cape jazz pianist weaving spiritual, melodic improvisations."
+            }
+          ]
+        },
+        {
+          "title": "Zambia",
+          "artists": [
+            {
+              "name": "Ngozi Family",
+              "description": "Proto-Zamrock pioneers, fuzzed-out rock with African grooves."
+            }
+          ]
+        },
+        {
+          "title": "Ethiopia",
+          "artists": [
+            {
+              "name": "Mulatu Astatke",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/africa_assets/content_images/Mulatu.jpeg",
+              "description": "Father of Ethio-jazz, blending Ethiopian scales with jazz and funk."
+            }
+          ]
+        }
+      ]
+        
   }
   
