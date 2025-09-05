@@ -61,32 +61,121 @@
         
     ],      
 
-    "sections": [
-      {
-        "id": "section1",
-        "title": "The Political Weather",
-        "content": "./content/south-america/political-weather.mdx"
-      },
-      {
-        "id": "section2",
-        "title": "What People Were Hearing",
-        "content": "./content/south-america/what-people-heard.mdx"
-      },
-      {
-        "id": "section3",
-        "title": "Scenes & Sounds That Emerged",
-        "content": "./content/south-america/scenes-sounds.mdx"
-      },
-      {
-        "id": "section4",
-        "title": "The Tech Factor",
-        "content": "./content/south-america/tech-factor.mdx"
-      },
-      {
-        "id": "section5",
-        "title": "Notable Artists",
-        "content": "./content/south-america/notable-artists.mdx"
-      }
-    ]
+      "notable_artists": [
+        {
+          "title": "Cumbia (Colombia)",
+          "artists": [
+            {
+              "name": "Los Corraleros de Majagual",
+              "description": "Cumbia powerhouse, accordion-heavy party music."
+            },
+            {
+              "name": "Andrés Landero",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/south_america_assets/content_images/andres.jpeg",
+              "description": "“King of Cumbia,” rooted in rural tradition."
+            },
+            {
+              "name": "Lucho Bermúdez",
+              "description": "Modernized Cumbia for orchestras and city nightlife."
+            }
+          ]
+        },
+        {
+          "title": "Bossa Nova (Brazil)",
+          "artists": [
+            {
+              "name": "João Gilberto",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/south_america_assets/content_images/joao.jpeg",
+              "description": "Father of Bossa Nova, minimalist guitar and voice."
+            },
+            {
+              "name": "Antonio Carlos Jobim",
+              "description": "Composer of standards like 'The Girl from Ipanema.'"
+            },
+            {
+              "name": "Astrud Gilberto",
+              "description": "Internationalized the sound."
+            },
+            {
+              "name": "Luiz Bonfá",
+              "description": "Guitarist, key composer of 'Black Orpheus.'"
+            },
+            {
+              "name": "Sérgio Mendes",
+              "description": "Took Bossa Nova to global pop with Brasil ’66."
+            }
+          ]
+        },
+        {
+          "title": "Tropicália (Brazil)",
+          "artists": [
+            {
+              "name": "Caetano Veloso",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/south_america_assets/content_images/caetano.jpeg",
+              "description": "Radical poet and leader."
+            },
+            {
+              "name": "Gilberto Gil",
+              "description": "Lyricist, activist, groove architect."
+            },
+            {
+              "name": "Os Mutantes",
+              "description": "Psychedelic innovators."
+            },
+            {
+              "name": "Tom Zé",
+              "description": "Avant-garde trickster of the movement."
+            },
+            {
+              "name": "Gal Costa",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/south_america_assets/content_images/gal.jpeg",
+              "description": "Voice of Tropicália and MPB."
+            }
+          ]
+        },
+        {
+          "title": "Nueva Canción (Chile / Argentina / Uruguay)",
+          "artists": [
+            {
+              "name": "Violeta Parra",
+              "description": "Folk matriarch, archivist, political voice."
+            },
+            {
+              "name": "Víctor Jara",
+              "description": "Singer-songwriter, later martyred by dictatorship."
+            },
+            {
+              "name": "Mercedes Sosa",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/south_america_assets/content_images/Mercedes.jpeg",
+              "description": "“La Voz de los sin voz” — the voice of the voiceless."
+            }
+          ]
+        },
+        {
+          "title": "MPB (Brazil)",
+          "artists": [
+            {
+              "name": "Elis Regina",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/south_america_assets/content_images/ellis.jpeg",
+              "description": "A force of nature, politically sharp."
+            },
+            {
+              "name": "Chico Buarque",
+              "description": "Poet of resistance."
+            },
+            {
+              "name": "Jorge Ben",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/south_america_assets/content_images/jorje.jpeg",
+              "description": "Funky, soulful, playful — samba-rock innovator."
+            },
+            {
+              "name": "Nara Leão",
+              "description": "“Muse of Bossa Nova,” later critical in MPB’s politicization."
+            }
+          ]
+        }
+      ]
+    
+    
   }
   
