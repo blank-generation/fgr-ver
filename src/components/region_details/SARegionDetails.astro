@@ -75,6 +75,11 @@ import BeachvilleListItem from "../BeachvilleListItem.astro";
                 Bossa nova reshaped samba for living rooms and cafés: hushed vocals, nylon-string guitars, jazzy chords, and a sense of cool restraint. Later in the decade, Tropicália broke that cool wide open — taking fuzz guitars, tape experiments, samba rhythms, and psychedelic textures to challenge both tradition and dictatorship. Parallel to this, Música Popular Brasileira (MPB) became a catch-all for “serious” pop that mixed folk swing, jazz harmony, and poetic lyrics.
                 </p>
             </div>
+            <!-- image -->
+            <div class="flex flex-col items-center my-2 space-x-2">
+              <img src="https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/south_america_assets/content_images/Gilberto_Gil_Caetano_Veloso_Os_Mutantes.avif" alt="Gilberto Gil, Caetano Veloso, Os Mutantes" class="w-64 h-auto rounded-xl object-cover">
+              <span class="text-sm text-[#064161]/80">Gilberto Gil, Caetano Veloso, Os Mutantes </span> <br/>
+            </div>
 
             <!-- Colombia Subsection -->
             <div class="border-l-4 border-[#C13870] pl-4">
@@ -97,6 +102,11 @@ import BeachvilleListItem from "../BeachvilleListItem.astro";
               <h5 class="text-lg font-bold text-[#064161] mb-2">Peru</h5>
               <p class="mb-2">
                 Two wild currents emerged: garage rock and tropical fusion. Bands like Los Saicos cranked out distorted, chaotic proto-punk long before punk had a name. Meanwhile, “chicha” (Peruvian cumbia) blended Andean melodies with electric guitars and psychedelic reverb, creating a raw, hypnotic urban sound that was uniquely Peruvian.</p>
+            </div>
+            <!-- image -->
+            <div class="flex flex-col items-center my-2 space-x-2">
+              <img src="https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/south_america_assets/content_images/Charango.jpeg" alt="Charango" class="w-64 h-auto rounded-xl object-cover">
+              <span class="text-sm text-[#064161]/80">Charango </span> <br/>
             </div>
           </div>
         </div>
@@ -127,8 +137,10 @@ import BeachvilleListItem from "../BeachvilleListItem.astro";
                 Vinyl and local pressing plants meant regional hits could circulate nationally and, in some cases, across borders.
               </div>
             </BeachvilleListItem>
-            <BeachvilleListItem title="Televised song festivals" borderColor="border-[#C13870]">
-              <div slot="content">
+            <BeachvilleListItem title="Televised song festivals" borderColor="border-[#C13870]"
+            image={{ src: "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/south_america_assets/content_images/festival.jpeg", alt: "Televised song festivals", width: "w-72",  caption: "Televised song festivals" }}
+            >
+              <div slot="content" >
                 Televised song festivals in Brazil (e.g. Popular network -  TV Record’s Festival de Música Popular Brasileira) became the platform for new music. These weren’t just competitions — they were national broadcasts where new movements (bossa nova, MPB, Tropicália) reached living rooms instantly.
               </div>
             </BeachvilleListItem>
