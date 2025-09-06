@@ -60,7 +60,7 @@
           "artists": [
             {
               "name": "Miles Davis",
-              "image": "ATTACH_IMAGE_HERE",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/content_images2/miles.webp",
               "description": "Modal revolution; 'Kind of Blue' reshaped jazz."
             },
             {
@@ -77,17 +77,17 @@
             },
             {
               "name": "Sun Ra",
-              "image": "ATTACH_IMAGE_HERE",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/content_images2/sun_ra.jpeg",
               "description": "Cosmic big band leader, experimental pioneer."
             },
             {
               "name": "Alice Coltrane",
-              "image": "ATTACH_IMAGE_HERE",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/content_images2/alice.jpeg",
               "description": "Spiritual jazz harpist/pianist, cosmic transcendence."
             },
             {
               "name": "Dorothy Ashby",
-              "image": "ATTACH_IMAGE_HERE",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/content_images2/dorothy.webp",
               "description": "Harpist who fused jazz with Afro-centric and spiritual textures."
             },
             {
@@ -118,7 +118,7 @@
           "artists": [
             {
               "name": "Martin Denny",
-              "image": "ATTACH_IMAGE_HERE",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/content_images2/martin_denny.jpeg",
               "description": "The father of Exotica."
             },
             {
@@ -139,7 +139,7 @@
             },
             {
               "name": "Cal Tjader",
-              "image": "ATTACH_IMAGE_HERE",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/content_images2/cal_tjader.jpeg",
               "description": "Latin jazz vibraphonist, bridging Afro-Cuban rhythms and cool jazz."
             },
             {
@@ -161,7 +161,7 @@
             },
             {
               "name": "Peggy Lee",
-              "image": "ATTACH_IMAGE_HERE",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/content_images2/peggy.jpeg",
               "description": "Sultry pop-jazz voice."
             },
             {
@@ -175,7 +175,7 @@
           "artists": [
             {
               "name": "Soft Machine",
-              "image": "ATTACH_IMAGE_HERE",
+              "image": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/content_images2/soft.jpeg",
               "description": "Avant-garde jazz-rock innovators."
             },
             {
