@@ -1,0 +1,231 @@
+---
+const props = Astro.props;
+const { data } = props;
+import BeachvilleAccordionItem from "../BeachvilleAccordionItem.astro";
+import BeachvilleListItem from "../BeachvilleListItem.astro";
+---
+
+<div id="region-details" class="my-8" >
+    
+    <!-- Accordion Container -->
+    <div class="max-w-4xl mx-auto space-y-8">
+      <!-- The Political Weather -->
+      <BeachvilleAccordionItem title="The Political Weather">
+        <div slot="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 64 64" stroke="currentColor" class="w-8 h-8 text-[#064161]">
+            <path d="M 29 7 C 25.686 7 23 9.686 23 13 L 15 13 C 11.686 13 9 15.686 9 19 L 9 45 C 9 48.314 11.686 51 15 51 L 49 51 C 52.314 51 55 48.314 55 45 L 55 19 C 55 15.686 52.314 13 49 13 L 41 13 C 41 9.686 38.314 7 35 7 L 29 7 z M 29 11 L 35 11 C 36.104 11 37 11.895 37 13 L 27 13 C 27 11.895 27.896 11 29 11 z M 15 17 L 49 17 C 50.105 17 51 17.895 51 19 L 51 27.328125 C 47.860304 27.865386 40.276945 29 32 29 C 23.725715 29 16.142076 27.866066 13 27.328125 L 13 19 C 13 17.895 13.895 17 15 17 z M 13 31.384766 C 15.851521 31.855688 20.994182 32.574326 27 32.865234 L 27 33 C 27 34.105 27.895 35 29 35 L 34 35 C 35.105 35 36 34.105 36 33 L 36 32.917969 C 42.43805 32.665598 47.988855 31.881828 51 31.384766 L 51 45 C 51 46.105 50.105 47 49 47 L 15 47 C 13.895 47 13 46.105 13 45 L 13 31.384766 z"></path>
+          </svg>
+        </div>
+        <div slot="content">
+          <div class="text-lg leading-relaxed text-[#064161] space-y-4">
+ The ’60s in the U.S. and UK was a tale of dualities: affluence and anxiety, civil rights struggles and counterculture optimism, tradition and radical experimentation. In America, jazz was fracturing — some clung to swing and standards, others pushed into modal, free, or cosmic territory. Civil rights shaped much of the creative urgency in Black music. Across the Atlantic, Britain’s youth culture had resources and freedom to experiment, setting the stage for prog’s sprawling ambitions.          
+          </div>
+</div>
+      </BeachvilleAccordionItem>
+      
+
+      <!-- What People Were Hearing -->
+      <BeachvilleAccordionItem title="What People Were Hearing">
+        <div slot="icon">
+          <svg class="w-6 h-6 text-[#064161]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path>
+          </svg>
+        </div>
+        <div slot="content">
+          <div class="text-lg leading-relaxed text-[#064161] space-y-4">
+            Before rock fully took over, living rooms and clubs still echoed with: <br/>
+            <BeachvilleListItem title="Swing & Big Band holdovers" borderColor="border-[#FEE96A]">
+              <div slot="content">
+                Dancehall orchestras, crooner-backed arrangements — the Great American Songbook was still mass entertainment.
+              </div>
+            </BeachvilleListItem>
+
+            <BeachvilleListItem title="Traditional American Pop" borderColor="border-[#C13870]">
+              <div slot="content">
+                Sinatra, Ella, Nat King Cole — lush strings, romance, class.
+              </div>
+            </BeachvilleListItem>
+
+            <BeachvilleListItem title="Exotica & Lounge" borderColor="border-[#FEE96A]">
+              <div slot="content">
+                Suburban hi-fi escapism, tiki-bar chic, and faux-tropical fantasies — vibraphones, bongos, bird calls, strings.
+              </div>
+            </BeachvilleListItem>
+
+            <BeachvilleListItem title="Jazz splintering" borderColor="border-[#C13870]">
+              <div slot="content">
+                Hard bop, modal, free, spiritual, soul jazz — each offering different ways of listening.
+              </div>
+            </BeachvilleListItem>
+
+            <BeachvilleListItem title="Avant-garde classical & crossover" borderColor="border-[#FEE96A]">
+              <div slot="content">
+                Musicians like Gábor Szabó or Dorothy Ashby fused jazz with world, folk, and harp textures, pushing beyond any one genre.
+              </div>
+            </BeachvilleListItem>
+
+          </div>
+        </div>
+      </BeachvilleAccordionItem>
+
+     
+
+      <!-- What you can find in this playlist -->
+      <BeachvilleAccordionItem title="What you can find in this playlist">
+        <div slot="icon">
+          <svg class="w-6 h-6 text-[#064161]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+        </div>
+        <div slot="content">  
+          <BeachvilleListItem title="Jazz (US)" borderColor="border-[#FEE96A]">
+            <div slot="content">
+              The decade was a kaleidoscope: <br/>
+             <span class="font-semibold">Hard bop</span> sharpened grooves with blues and gospel inflections. <br/>
+             <span class="font-semibold">Modal jazz</span> (Miles, Coltrane) stripped harmonies bare for meditative expanses.<br/>
+             <span class="font-semibold">Free jazz & avant-garde</span> (Ornette, Cecil Taylor, Sun Ra) blew apart form. <br/>
+             <span class="font-semibold">Spiritual jazz</span> (Alice Coltrane, Pharoah Sanders) turned improvisation into transcendence. <br/>
+             <span class="font-semibold">Soul jazz</span> thrived in clubs — Hammond organs, deep grooves, church fire. <br/>
+            </div>
+          </BeachvilleListItem>
+          <BeachvilleListItem title="Jazz (UK)" borderColor="border-[#C13870]">
+            <div slot="content">
+Small but restless. Tubby Hayes kept bebop burning; Joe Harriott pioneered free form parallel to Ornette; Ronnie Scott’s club became the heartbeat of London jazz. By decade’s end, collaborations with rockers blurred genre lines.
+            </div>
+
+          </BeachvilleListItem>
+          <BeachvilleListItem title="Exotica & Lounge" borderColor="border-[#FEE96A]">
+            <div slot="content">
+Carried over from the late ’50s, exotica was lush escapism for the hi-fi generation. Martin Denny, Les Baxter, and Arthur Lyman conjured fantasy tropics. But musicians like Yma Sumac (Peruvian soprano with impossible range) and Cal Tjader (Latin jazz vibraphonist) brought real innovation — fusing Afro-Latin rhythms, jazz, and symphonic textures. Esquivel, the space-age bachelor pad orchestrator, pushed stereo trickery to surreal levels.
+            </div>
+          </BeachvilleListItem>
+
+          <BeachvilleListItem title="Swing & Crooners" borderColor="border-[#FEE96A]">
+            <div slot="content">
+              Sinatra, Peggy Lee, Nat King Cole, Ella Fitzgerald — they remained cultural giants. Orchestral pop and jazz vocals remained aspirational, even as youth moved toward rock.
+            </div>
+          </BeachvilleListItem>
+          <BeachvilleListItem title="Early UK Prog" borderColor="border-[#FEE96A]">
+            <div slot="content">
+              By the late ’60s, Soft Machine, The Nice, and Procol Harum were fusing rock with jazz, avant-garde, and classical ideas. Long songs, complex structures, organ-heavy atmospheres — prog was Britain’s “what next?” after beat music.
+            </div>
+          </BeachvilleListItem>
+          <BeachvilleListItem title="Bridging the 50s and 60s" borderColor="border-[#FEE96A]">
+            <div slot="content">
+              Many of these sounds spill backward into the ’50s: exotica’s suburban heyday, Sinatra’s golden crooner period, Miles Davis’s Kind of Blue (1959). This playlist pulls from both decades to trace those transitions — from hi-fi escapism to avant-garde rupture, from cocktail jazz to cosmic meditations.
+            </div>
+          </BeachvilleListItem>
+
+
+
+        </div>
+         
+       </BeachvilleAccordionItem>
+
+
+      <!-- Technological changes -->
+      <BeachvilleAccordionItem title="Technological changes">
+        <div slot="icon">
+          <svg class="w-6 h-6 text-[#064161]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+        </div>
+        <div slot="content">
+          <div class="text-lg leading-relaxed text-[#064161] space-y-4">
+            <BeachvilleListItem title="Hi-Fi stereo LPs" borderColor="border-[#FEE96A]">
+              <div slot="content">
+                Suburban households became “listening rooms.” Stereo separation (Esquivel, Exotica) was marketed as spectacle.
+              </div>
+            </BeachvilleListItem>
+            <BeachvilleListItem title="Electric organs & early synths" borderColor="border-[#C13870]">
+              <div slot="content">
+                Hammond B3s grooved in soul jazz, Mellotrons crept into British prog, Moogs peeked onto records by the decade’s end.
+              </div>
+            </BeachvilleListItem>
+            <BeachvilleListItem title="Studio experiments" borderColor="border-[#FEE96A]">
+              <div slot="content">
+                Reverb, tape splicing, overdubs — exotica and lounge thrived on the studio-as-instrument ethos.
+              </div>
+            </BeachvilleListItem>
+            <BeachvilleListItem title="Jazz clubs & loft spaces" borderColor="border-[#FEE96A]">
+              <div slot="content">
+                Amplified intimacy for free jazz, where experimentation didn’t need mainstream approval.
+              </div>
+            </BeachvilleListItem>
+
+          </div>
+        </div>
+      </BeachvilleAccordionItem>
+
+      
+
+      <!-- Notable Artists -->
+      <div class="accordion-item bg-white border border-[#FEE96A]/30 rounded-lg overflow-hidden">
+        <button class="accordion-trigger w-full px-6 py-4 text-left bg-[#FEE96A]/30 hover:bg-[#FEE96A]/20 transition-colors flex justify-between items-center">
+          <div class="flex items-center space-x-3">
+            <svg class="w-6 h-6 text-[#064161]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+            </svg>
+              <h4 class="text-xl text-[#064161]">Notable Artists</h4>
+          </div>
+          <svg class="accordion-icon w-5 h-5 text-[#064161] transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="accordion-content hidden px-6 py-4">
+          <div class="space-y-6">
+            {data.notable_artists.map((region, index) => (
+              <div>
+                <h5 class={`text-lg font-bold text-[#064161] mb-4 border-b-2  pb-2 ${index%2==0? 'border-[#FEE96A]' : 'border-[#C13870]'}`}>{region.title}</h5>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {region.artists.map((artist) => (
+                    <div class={`${index%3==0? 'bg-[#FEE96A]/10' : 'bg-[#C13870]/10'} p-4 rounded-lg border border-[#C13870]/30`}>
+                      {artist.image && <img src={artist.image} alt={artist.name} class="w-36 h-auto rounded-xl mb-4 object-cover">}
+                      <h6 class="font-bold text-[#064161]">{artist.name}</h6>
+                      <p class="text-sm text-[#064161]/80">{artist.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+              </div>
+            
+          
+          </div>
+        </div>
+      </div>
+
+
+</div>
+
+<script>
+  // Accordion functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const accordionTriggers = document.querySelectorAll('.accordion-trigger');
+    
+    accordionTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const accordionItem = trigger.closest('.accordion-item');
+        const content = accordionItem?.querySelector('.accordion-content');
+        const icon = trigger.querySelector('.accordion-icon');
+        
+        if (content && icon) {
+          const isOpen = !content.classList.contains('hidden');
+          
+
+          
+          // Toggle current accordion
+          if (isOpen) {
+            content.classList.add('hidden');
+            icon.classList.remove('rotate-180');
+          } else {
+            content.classList.remove('hidden');
+            icon.classList.add('rotate-180');
+          }
+        }
+      });
+    });
+  });
+</script>
+
+

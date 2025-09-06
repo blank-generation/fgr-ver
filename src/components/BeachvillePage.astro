@@ -7,7 +7,7 @@ import  cData  from "./region_data/carriabean.json";
 import  asData  from "./region_data/asia.json";
 import  usukData  from "./region_data/usuk.json";
 import  afData  from "./region_data/africa.json";
-
+import  usuk2Data  from "./region_data/usuk2.json";
 
 import SixtiesSketch from "../components/SixtiesSketch.astro";
 
@@ -15,6 +15,7 @@ import EURegionDetails from "../components/region_details/EURegionDetails.astro"
 import SARegionDetails from "../components/region_details/SARegionDetails.astro";
 import AFRegionDetails from "../components/region_details/AFRegionDetials.astro";
 import USUKRegionDetails from "../components/region_details/USUKRegionDetials.astro";
+import USUK2RegionDetails from "../components/region_details/USUK2RegionDetials.astro";
 import CaribbeanRegionDetails from "../components/region_details/CARRegionDetials.astro";
 import AsiaRegionDetails from "../components/region_details/AsiaRegionDetials.astro";
 
@@ -78,8 +79,8 @@ const regions = [
     description: 'The USA & UK sound in the 60s',
     color: '#FEE96A',
     day: 'Saturday',
-    component: USUKRegionDetails,
-    data: usukData
+    component: USUK2RegionDetails,
+    data: usuk2Data
   },
   {
     id: 'caribbean',
@@ -216,7 +217,7 @@ const imageElements = allImages.slice(0, 5);
             <AFRegionDetails data={activeRegionData} />
           ) :
           activeRegion.id === 'usa_uk' || activeRegion.id === 'usa_uk2' ? (
-            <USUKRegionDetails data={activeRegionData} />
+            <USUK2RegionDetails data={activeRegionData} />
           ) :
           (
             <div> <p>No region details found</p> </div>

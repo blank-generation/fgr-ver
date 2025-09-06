@@ -1,0 +1,195 @@
+{
+    "title": "USA & UK",
+    "slug": "usa_uk-60s",
+    "images": [
+        {
+            "id": "image-1",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/na1.png"
+        },
+        
+        {
+            "id": "image-2",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/na2.png"
+        },
+        
+        {
+            "id": "image-3",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/na3.png"
+        },
+        
+        
+        {
+            "id": "image-4",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/na4.png"
+        },
+        
+        
+        {
+            "id": "image-5",
+                "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/na5.png"
+        }, 
+        {
+            "id": "image-6",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/na6.png"
+        },
+        
+        {
+            "id": "image-7",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/na7.png"
+        },
+        
+        
+        {
+            "id": "image-8",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/na_assets/na8.png"  
+        }, 
+        {
+            "id": "image-9",
+            "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/south_america_assets/s11.png"
+        },
+        {
+          "id": "image-10",
+          "src": "https://syvkefpljdcoricvmqcy.supabase.co/storage/v1/object/public/images/south_america_assets/s9.png"
+        }
+        
+    ],
+    
+      "notable_artists": [
+        {
+          "title": "Jazz (US)",
+          "artists": [
+            {
+              "name": "Miles Davis",
+              "image": "ATTACH_IMAGE_HERE",
+              "description": "Modal revolution; 'Kind of Blue' reshaped jazz."
+            },
+            {
+              "name": "John Coltrane",
+              "description": "From modal explorations to cosmic free jazz."
+            },
+            {
+              "name": "Ornette Coleman",
+              "description": "Launched free jazz."
+            },
+            {
+              "name": "Charles Mingus",
+              "description": "Fiery bassist/composer, politically outspoken."
+            },
+            {
+              "name": "Sun Ra",
+              "image": "ATTACH_IMAGE_HERE",
+              "description": "Cosmic big band leader, experimental pioneer."
+            },
+            {
+              "name": "Alice Coltrane",
+              "image": "ATTACH_IMAGE_HERE",
+              "description": "Spiritual jazz harpist/pianist, cosmic transcendence."
+            },
+            {
+              "name": "Dorothy Ashby",
+              "image": "ATTACH_IMAGE_HERE",
+              "description": "Harpist who fused jazz with Afro-centric and spiritual textures."
+            },
+            {
+              "name": "Herbie Hancock",
+              "description": "Bridged hard bop, modal, and funk-inflected directions."
+            }
+          ]
+        },
+        {
+          "title": "Jazz (UK)",
+          "artists": [
+            {
+              "name": "Joe Harriott",
+              "description": "Free form jazz pioneer in Britain."
+            },
+            {
+              "name": "Tubby Hayes",
+              "description": "Bebop virtuoso."
+            },
+            {
+              "name": "Ronnie Scott",
+              "description": "Saxophonist, founder of London’s key jazz club."
+            }
+          ]
+        },
+        {
+          "title": "Exotica & Lounge",
+          "artists": [
+            {
+              "name": "Martin Denny",
+              "image": "ATTACH_IMAGE_HERE",
+              "description": "The father of Exotica."
+            },
+            {
+              "name": "Les Baxter",
+              "description": "Orchestral and cinematic exotica."
+            },
+            {
+              "name": "Arthur Lyman",
+              "description": "Vibraphone-driven lush soundscapes."
+            },
+            {
+              "name": "Esquivel",
+              "description": "Stereo trickster, space-age lounge."
+            },
+            {
+              "name": "Yma Sumac",
+              "description": "Peruvian soprano with a 5-octave range, exotica icon."
+            },
+            {
+              "name": "Cal Tjader",
+              "image": "ATTACH_IMAGE_HERE",
+              "description": "Latin jazz vibraphonist, bridging Afro-Cuban rhythms and cool jazz."
+            },
+            {
+              "name": "Gábor Szabó",
+              "description": "Hungarian guitarist blending jazz with folk and psychedelic textures."
+            }
+          ]
+        },
+        {
+          "title": "Swing / Pop Crooners",
+          "artists": [
+            {
+              "name": "Frank Sinatra",
+              "description": "Dominated pop sophistication."
+            },
+            {
+              "name": "Nat King Cole",
+              "description": "Smooth piano-led crooner."
+            },
+            {
+              "name": "Peggy Lee",
+              "image": "ATTACH_IMAGE_HERE",
+              "description": "Sultry pop-jazz voice."
+            },
+            {
+              "name": "Ella Fitzgerald",
+              "description": "Jazz’s reigning vocalist."
+            }
+          ]
+        },
+        {
+          "title": "Early UK Prog",
+          "artists": [
+            {
+              "name": "Soft Machine",
+              "image": "ATTACH_IMAGE_HERE",
+              "description": "Avant-garde jazz-rock innovators."
+            },
+            {
+              "name": "The Nice",
+              "description": "Keith Emerson’s organ theatrics, proto-prog."
+            },
+            {
+              "name": "Procol Harum",
+              "description": "Baroque pop/rock pioneers."
+            }
+          ]
+        }
+      ]
+    
+    
+  }
+  
