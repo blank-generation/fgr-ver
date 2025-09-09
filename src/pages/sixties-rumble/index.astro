@@ -1,9 +1,34 @@
 ---
 import BeachvillePage from "../../components/BeachvillePage.astro";
 import todayData from "./data/todayData.json";
+import { supabase } from "../../lib/supabase";
 
-// get todays day of the week
-const todaysDay = new Date().getDay();
+// get todays day of the week using Supabase server time
+let todaysDay = 0; // default fallback
+
+try {
+  // Get current time from Supabase (this will be in UTC)
+  const { data, error } = await supabase
+    .from('now_playing')
+    .select('day_num')
+    .eq('id', 1)
+    .single();
+  
+  if (!error && data?.day_num) {
+    todaysDay = data.day_num;
+  } else {
+    // Fallback to local calculation if Supabase fails
+    const now = new Date();
+    todaysDay = now.getDay();
+  }
+} catch (error) {
+  console.error('Error fetching time from Supabase:', error);
+  // Fallback to local calculation
+  const now = new Date();
+  const istTime = new Date(now.getTime() + (5.5 * 60 * 60 * 1000));
+  todaysDay = istTime.getDay();
+}
+
 switch(todaysDay) {
     case 0:
         todayData.activeRegionToday = "caribbean";
@@ -28,7 +53,6 @@ switch(todaysDay) {
         break;
 }
 ---
-
-<!-- <h1>{todaysDay}</h1> -->
-
+<h1>Day of Week: {todaysDay}</h1>
+<h1>Active Region: {todayData.activeRegionToday}</h1>
 <BeachvillePage region={todayData.activeRegionToday || "usa_uk2"} activeRegionToday={todayData.activeRegionToday || "europe"} />
