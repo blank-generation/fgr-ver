@@ -1,7 +1,34 @@
 ---
 import BeachvillePage from "../../components/BeachvillePage.astro";
 import todayData from "./data/todayData.json";
+
+// get todays day of the week
+const todaysDay = new Date().getDay();
+switch(todaysDay) {
+    case 0:
+        todayData.activeRegionToday = "caribbean";
+        break;
+    case 1:
+        todayData.activeRegionToday = "europe";
+        break;
+    case 2:
+        todayData.activeRegionToday = "asia";
+        break;
+    case 3:
+        todayData.activeRegionToday = "usa_uk";
+        break;
+    case 4:
+        todayData.activeRegionToday = "africa";
+        break;
+    case 5:
+        todayData.activeRegionToday = "south-america";
+        break;
+    case 6:
+        todayData.activeRegionToday = "usa_uk2";
+        break;
+}
 ---
 
+<!-- <h1>{todaysDay}</h1> -->
 
 <BeachvillePage region={todayData.activeRegionToday || "usa_uk2"} activeRegionToday={todayData.activeRegionToday || "europe"} />
